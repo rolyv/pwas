@@ -8995,7 +8995,7 @@
 <XPD:REF name="Incomings[1]">6eeG8aoY70mjv8Yf/mAgoQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Subvertices[9]" type="UMLCompositeState" guid="2TKljuIYhUqS84z2xN+O5gAA">
-<XPD:ATTR name="Name" type="string">Order Pending</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Pending Payment</XPD:ATTR>
 <XPD:REF name="ContainerState">LooY2kRisk+LeN3nmSusegAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">A65aiIwjy0i99HaWigVrxwAA</XPD:REF>
@@ -9332,12 +9332,12 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">312</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">132</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">80</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">93</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">40</XPD:ATTR>
 <XPD:REF name="Model">2TKljuIYhUqS84z2xN+O5gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="fwFt+Axr006uQkTpo9H7QAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="t4t4xoS6nkOgtd48NvMIfwAA">
-<XPD:ATTR name="Text" type="string">Order Pending</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Pending Payment</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="6wsQPjsPRUa1LRfxxbE5cAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -9353,7 +9353,7 @@
 <XPD:OBJ name="OwnedViews[15]" type="UMLTransitionView" guid="lrIWxA6uf0WTENpUQqOvNwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">353,96;352,132</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">355,96;357,132</XPD:ATTR>
 <XPD:REF name="Model">UiqY9bivKEyaIfRK2s8lMQAA</XPD:REF>
 <XPD:REF name="Head">A65aiIwjy0i99HaWigVrxwAA</XPD:REF>
 <XPD:REF name="Tail">aUaUwjBNtUebNJCoYk/a8QAA</XPD:REF>
@@ -9379,7 +9379,7 @@
 <XPD:OBJ name="OwnedViews[16]" type="UMLTransitionView" guid="GL8sG+9EPEuLXLXxx7jw0AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">391,138;440,121</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">404,135;440,122</XPD:ATTR>
 <XPD:REF name="Model">q1SLEVBr8k64dOe3YvScBgAA</XPD:REF>
 <XPD:REF name="Head">cfqdAPxeAUi7+UkTnyiImQAA</XPD:REF>
 <XPD:REF name="Tail">A65aiIwjy0i99HaWigVrxwAA</XPD:REF>
