@@ -6170,7 +6170,7 @@
 <XPD:REF name="Context">9DBjFDKQUEuN6X64YJ2wagAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceRoleDiagram" guid="Yo4L/1l5dEGIrYO2QGAWeQAA">
-<XPD:ATTR name="Name" type="string">Edit User Profile</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Edit User Account</XPD:ATTR>
 <XPD:ATTR name="MessageSignature" type="UMLMessageSignatureKind">mskNameOnly</XPD:ATTR>
 <XPD:REF name="DiagramOwner">XAF37PCnT0eLjeUt5a9DHwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceRoleDiagramView" guid="8WQ25mLynkqHr6y6dz1DOwAA">
@@ -8822,8 +8822,8 @@
 <XPD:REF name="Participant">oISyVlixdUyKC1Zve4PGxQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">RiBoRaVDnkWH8qpAXI7YnwAA</XPD:REF>
-<XPD:REF name="Views[1]">fFK0yGt8Fky4XyImKwV28wAA</XPD:REF>
-<XPD:REF name="Views[2]">imOpexaysU2B/SSCpqoQWwAA</XPD:REF>
+<XPD:REF name="Views[1]">imOpexaysU2B/SSCpqoQWwAA</XPD:REF>
+<XPD:REF name="Views[2]">fFK0yGt8Fky4XyImKwV28wAA</XPD:REF>
 <XPD:REF name="Views[3]">bsEfUd1c60yNe8L45bdhmAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="etJO5jociESDUBECofAaEgAA">
@@ -8831,8 +8831,8 @@
 <XPD:REF name="Participant">juZgnVtk802v2aMb+hsXeAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">OCJdSZlELUyM8JliQxsXmgAA</XPD:REF>
-<XPD:REF name="Views[1]">yYWzXkisQU+UJinMCkenogAA</XPD:REF>
-<XPD:REF name="Views[2]">fGtk7039TEy1DFG7mUs92wAA</XPD:REF>
+<XPD:REF name="Views[1]">fGtk7039TEy1DFG7mUs92wAA</XPD:REF>
+<XPD:REF name="Views[2]">yYWzXkisQU+UJinMCkenogAA</XPD:REF>
 <XPD:REF name="Views[3]">nrwwnqoXIUKYX8RQFKX8QwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
