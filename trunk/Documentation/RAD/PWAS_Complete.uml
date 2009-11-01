@@ -2751,15 +2751,14 @@
 <XPD:OBJ name="OwnedElements[38]" type="UMLActor" guid="lufKQ8jGSkKqTSqRSYKG/wAA">
 <XPD:ATTR name="Name" type="string">Customer </XPD:ATTR>
 <XPD:REF name="Namespace">jrGZBAeDEE64hbChh9aA5QAA</XPD:REF>
-<XPD:ATTR name="#ClassifierRoles" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#ClassifierRoles" type="integer">6</XPD:ATTR>
 <XPD:REF name="ClassifierRoles[0]">7Z2ytjdbm0SKI7DY6Rw53wAA</XPD:REF>
 <XPD:REF name="ClassifierRoles[1]">th8vkFndN0uYTdUVtOkV4wAA</XPD:REF>
 <XPD:REF name="ClassifierRoles[2]">kMVVuL5WGUWOFwJ6Ihd+JAAA</XPD:REF>
 <XPD:REF name="ClassifierRoles[3]">X2/dSqiObEq4RrKWi+I23wAA</XPD:REF>
 <XPD:REF name="ClassifierRoles[4]">HGB4D1c2GkiVUfOwl8OesQAA</XPD:REF>
 <XPD:REF name="ClassifierRoles[5]">m3YNs+nbaEC6TXEOAbMbSgAA</XPD:REF>
-<XPD:REF name="ClassifierRoles[6]">tuSSG3mHSUOD1/mzK6NsIQAA</XPD:REF>
-<XPD:ATTR name="#OwnedCollaborations" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#OwnedCollaborations" type="integer">6</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborations[0]" type="UMLCollaboration" guid="MrnAAnpqQkGUnDYb206J+QAA">
 <XPD:ATTR name="Name" type="string">Register</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
@@ -3437,7 +3436,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborations[1]" type="UMLCollaboration" guid="Pmth2T1OLU2O0s7MZ2lkawAA">
-<XPD:ATTR name="Name" type="string">Create Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">CreateOrder</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="QlKpNFjoLUWGc0GHWHQE9wAA">
@@ -3501,7 +3500,7 @@
 <XPD:REF name="Context">Pmth2T1OLU2O0s7MZ2lkawAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceRoleDiagram" guid="wOmurnxGw0WDTNw5/C9w9QAA">
-<XPD:ATTR name="Name" type="string">Create Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">CreateOrder</XPD:ATTR>
 <XPD:REF name="DiagramOwner">NQtmVsk27kypVNoBeFNJ3QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceRoleDiagramView" guid="AfvLZMhVrUOUMgUmtL0tZwAA">
 <XPD:REF name="Diagram">wOmurnxGw0WDTNw5/C9w9QAA</XPD:REF>
@@ -4113,7 +4112,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborations[2]" type="UMLCollaboration" guid="zm37ds3T2ku3h3/osvODuAAA">
-<XPD:ATTR name="Name" type="string">Create Run</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">CreateRun</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="th8vkFndN0uYTdUVtOkV4wAA">
@@ -4177,7 +4176,7 @@
 <XPD:REF name="Context">zm37ds3T2ku3h3/osvODuAAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceRoleDiagram" guid="+iYBju1uTE+8GeUW7z8dOAAA">
-<XPD:ATTR name="Name" type="string">Create Run</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">CreateRun</XPD:ATTR>
 <XPD:REF name="DiagramOwner">zmbWWIL78UyGgzDZFp4+JAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceRoleDiagramView" guid="63iZ/GFMVU+7sXJjHkSiMwAA">
 <XPD:REF name="Diagram">+iYBju1uTE+8GeUW7z8dOAAA</XPD:REF>
@@ -4786,7 +4785,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborations[3]" type="UMLCollaboration" guid="vvDA2dJPNUOLtzee1saAYwAA">
-<XPD:ATTR name="Name" type="string">Pay Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">PayOrder</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="Nmf821MFK0majH2RxGXtDAAA">
@@ -4853,7 +4852,7 @@
 <XPD:REF name="Context">vvDA2dJPNUOLtzee1saAYwAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceRoleDiagram" guid="RAGfcqjsBk+5JKKAETs3NgAA">
-<XPD:ATTR name="Name" type="string">Pay Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">PayOrder</XPD:ATTR>
 <XPD:REF name="DiagramOwner">WxbX3RWgDk6wNn3XYXSaLwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceRoleDiagramView" guid="UCm7JuXmPkehVMxzQlKLYgAA">
 <XPD:REF name="Diagram">RAGfcqjsBk+5JKKAETs3NgAA</XPD:REF>
@@ -5464,7 +5463,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborations[4]" type="UMLCollaboration" guid="HwFYhaaOlkCrQVtpEN7/GAAA">
-<XPD:ATTR name="Name" type="string">Track Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">TrackOrder</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="iWCbWtBB1UK1UQizqtY4vwAA">
@@ -5531,7 +5530,7 @@
 <XPD:REF name="Context">HwFYhaaOlkCrQVtpEN7/GAAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceRoleDiagram" guid="yK+ENupBXkuJ+PERZBztHwAA">
-<XPD:ATTR name="Name" type="string">Track Order</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">TrackOrder</XPD:ATTR>
 <XPD:REF name="DiagramOwner">vaRU1khaf0y2t7W/dJlrPQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceRoleDiagramView" guid="YzY4SqbfPE2ENl5OGwH2lwAA">
 <XPD:REF name="Diagram">yK+ENupBXkuJ+PERZBztHwAA</XPD:REF>
@@ -6142,7 +6141,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborations[5]" type="UMLCollaboration" guid="pDbZAoVjxEm2UH7Szx5D0AAA">
-<XPD:ATTR name="Name" type="string">Forgot Password</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">ForgotPassword</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
 <XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="m3YNs+nbaEC6TXEOAbMbSgAA">
@@ -6974,20 +6973,6 @@
 <XPD:REF name="Views[2]">k33i4GYEtkG8OJHSMwT+ggAA</XPD:REF>
 <XPD:REF name="Views[3]">uR0ZS5+uYE6z897JBZSZXQAA</XPD:REF>
 </XPD:OBJ>
-</XPD:OBJ>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedCollaborations[6]" type="UMLCollaboration" guid="2grsv/ZRS0W4yAztBF7i5wAA">
-<XPD:ATTR name="Name" type="string">Search</XPD:ATTR>
-<XPD:REF name="RepresentedClassifier">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
-<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="OwnedElements[0]" type="UMLClassifierRole" guid="tuSSG3mHSUOD1/mzK6NsIQAA">
-<XPD:REF name="Namespace">2grsv/ZRS0W4yAztBF7i5wAA</XPD:REF>
-<XPD:REF name="Base">lufKQ8jGSkKqTSqRSYKG/wAA</XPD:REF>
-</XPD:OBJ>
-<XPD:ATTR name="#Interactions" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Interactions[0]" type="UMLInteraction" guid="K+nnmCoaCUaD9CqjCHXyqwAA">
-<XPD:ATTR name="Name" type="string">Interaction1</XPD:ATTR>
-<XPD:REF name="Context">2grsv/ZRS0W4yAztBF7i5wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
