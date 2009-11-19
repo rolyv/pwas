@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 13.125" name="PWASTables">
+  <DataContextMoniker Name="/PWASTablesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="59269473-011a-49bf-b9b6-b8040c371736" absoluteBounds="3.75, 7.375, 2, 1.2605004882812487">
+      <DataClassMoniker Name="/PWASTablesDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e09b7d4-2c33-41b8-8c1d-4b9cf9a18005" absoluteBounds="3.765, 7.8350000000000009, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f29dbbb1-3773-4a88-b524-7677fd2ba688" absoluteBounds="6.5, 11, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/PWASTablesDataContext/RolePermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2abb489-cdaa-4577-8368-da8284b6843b" absoluteBounds="6.5150000000000006, 11.46, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81d27b25-cc81-4100-8a3f-0cc87a01120e" absoluteBounds="6.5, 5.875, 2, 4.2187524414062487">
+      <DataClassMoniker Name="/PWASTablesDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28c3246b-64b2-4d06-ab4a-af42cb828d1f" absoluteBounds="6.5150000000000006, 6.335, 1.9700000000000002, 3.65875244140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 8.63550048828125); (4.75 : 11.958944905599); (6.5 : 11.958944905599)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PWASTablesDataContext/Role/Role_RolePermission" />
+      <nodes>
+        <classShapeMoniker Id="59269473-011a-49bf-b9b6-b8040c371736" />
+        <classShapeMoniker Id="f29dbbb1-3773-4a88-b524-7677fd2ba688" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 8.00525024414062); (6.5 : 8.00525024414062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PWASTablesDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="59269473-011a-49bf-b9b6-b8040c371736" />
+        <classShapeMoniker Id="81d27b25-cc81-4100-8a3f-0cc87a01120e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="17372ed6-0a29-4e5e-8ec8-704d072c9a3d" absoluteBounds="9.25, 6.625, 2, 2.7396264648437496">
+      <DataClassMoniker Name="/PWASTablesDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca96ba6a-1977-45e7-bd9e-4b359defe27e" absoluteBounds="9.265, 7.085, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2200d39-c453-4e9d-a42b-8990a22d1724" absoluteBounds="6.5, 3.125, 2, 1.7535424804687505">
+      <DataClassMoniker Name="/PWASTablesDataContext/PrintRun" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86343f5f-6017-4448-8873-5828a58e18fb" absoluteBounds="6.515, 3.585, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 7.99481323242187); (9.25 : 7.99481323242187)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PWASTablesDataContext/User/User_Order" />
+      <nodes>
+        <classShapeMoniker Id="81d27b25-cc81-4100-8a3f-0cc87a01120e" />
+        <classShapeMoniker Id="17372ed6-0a29-4e5e-8ec8-704d072c9a3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 4.00177124023438); (10.25 : 4.00177124023438); (10.25 : 6.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PWASTablesDataContext/PrintRun/PrintRun_Order" />
+      <nodes>
+        <classShapeMoniker Id="e2200d39-c453-4e9d-a42b-8990a22d1724" />
+        <classShapeMoniker Id="17372ed6-0a29-4e5e-8ec8-704d072c9a3d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
