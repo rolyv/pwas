@@ -1,12 +1,16 @@
 ﻿using System;
+using PWAS.Model;
+using System.Linq;
+
 namespace PWAS.DataAccess.Interfaces
 {
     public interface IRoleRepository
     {
+        IQueryable<Role> Roles { get; }
         void AddRole(PWAS.Model.Role role);
-        PWAS.Model.Role GetById(int roleId);
+        Role GetById(int roleId);
         void DeleteRole(int roleId);
-        void UpdateRole(PWAS.Model.Role newRole);
+        void UpdateRole(Role newRole);
         void SubmitChanges();
     }
 }

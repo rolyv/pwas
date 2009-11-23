@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Linq;
+using PWAS.Model;
+
 namespace PWAS.DataAccess.Interfaces
 {
     public interface IPrintRunRepository
     {
-        void AddPrintRun(PWAS.Model.PrintRun printRun);
+        IQueryable<PrintRun> PrintRuns { get; }
+        void AddPrintRun(PrintRun printRun);
         void DeletePrintRun(int printRunId);
         PWAS.Model.PrintRun GetById(int printRunId);
         void SubmitChanges();
-        void UpdatePrintRunInfo(PWAS.Model.PrintRun newPrintRun);
+        void UpdatePrintRunInfo(PrintRun newPrintRun);
     }
 }
