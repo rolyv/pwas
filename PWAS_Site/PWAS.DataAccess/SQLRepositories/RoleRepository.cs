@@ -40,5 +40,10 @@ namespace PWAS.DataAccess.SQLRepositories
         {
             roleTable.Context.SubmitChanges();
         }
+
+        public IQueryable<Role> Roles
+        {
+            get { return roleTable; }
+        }
     }
 }

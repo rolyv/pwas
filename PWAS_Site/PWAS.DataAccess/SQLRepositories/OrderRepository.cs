@@ -55,5 +55,10 @@ namespace PWAS.DataAccess.SQLRepositories
             Order orderOriginal = orderTable.Single(o => o.orderID == newOrder.orderID);
             orderTable.Attach(newOrder, orderOriginal);
         }
+
+        public IQueryable<Order> Orders
+        {
+            get { return orderTable; }
+        }
     }
 }
