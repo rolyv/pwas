@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWAS_Site", "PWAS_Site\PWAS_Site.csproj", "{146FE578-FA62-4111-8B8D-3AF092C06C72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWAS.DataAccess", "PWAS.DataAccess\PWAS.DataAccess.csproj", "{242DE152-93A0-4FA2-84F4-F5D12867AFAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWAS.Model", "PWAS.Model\PWAS.Model.csproj", "{9F6FF409-E977-496E-B7AD-3F36F6090389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{146FE578-FA62-4111-8B8D-3AF092C06C72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146FE578-FA62-4111-8B8D-3AF092C06C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146FE578-FA62-4111-8B8D-3AF092C06C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146FE578-FA62-4111-8B8D-3AF092C06C72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242DE152-93A0-4FA2-84F4-F5D12867AFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242DE152-93A0-4FA2-84F4-F5D12867AFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242DE152-93A0-4FA2-84F4-F5D12867AFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242DE152-93A0-4FA2-84F4-F5D12867AFAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F6FF409-E977-496E-B7AD-3F36F6090389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6FF409-E977-496E-B7AD-3F36F6090389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6FF409-E977-496E-B7AD-3F36F6090389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6FF409-E977-496E-B7AD-3F36F6090389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
