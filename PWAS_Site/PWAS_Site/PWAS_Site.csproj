@@ -61,6 +61,7 @@
       <DependentUpon>PWAS_DB.mdf</DependentUpon>
     </Content>
     <Content Include="contact-us.aspx" />
+    <Content Include="css\style.css" />
     <Content Include="Customer View_Create_Order.aspx" />
     <Content Include="customerView_Edit Profile.aspx" />
     <Content Include="customerView_Home.aspx" />
@@ -68,6 +69,57 @@
     <Content Include="Employee_Finish_view.aspx" />
     <Content Include="Employee_Print_view.aspx" />
     <Content Include="Employee_Ship_view.aspx" />
+    <Content Include="images\arrow-list.gif" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\bg-strip.gif" />
+    <Content Include="images\box-gray.gif" />
+    <Content Include="images\br-body.gif" />
+    <Content Include="images\br-line.gif" />
+    <Content Include="images\bt-logo.gif" />
+    <Content Include="images\header.gif" />
+    <Content Include="images\Header.png" />
+    <Content Include="images\Header2.gif" />
+    <Content Include="images\ic-1.gif" />
+    <Content Include="images\ic-2.gif" />
+    <Content Include="images\ic-3.gif" />
+    <Content Include="images\ic-4.gif" />
+    <Content Include="images\ic-5.gif" />
+    <Content Include="images\ico-email.png" />
+    <Content Include="images\ico-fax.png" />
+    <Content Include="images\ico-med-1.png" />
+    <Content Include="images\ico-med-2.png" />
+    <Content Include="images\ico-med-3.png" />
+    <Content Include="images\ico-med-4.png" />
+    <Content Include="images\ico-phone.png" />
+    <Content Include="images\ico-support.png" />
+    <Content Include="images\ico-terms.png" />
+    <Content Include="images\ico-twitter.png" />
+    <Content Include="images\ico-website.png" />
+    <Content Include="images\ico1.png" />
+    <Content Include="images\ico2.png" />
+    <Content Include="images\ico3.png" />
+    <Content Include="images\ico4.png" />
+    <Content Include="images\ico5.png" />
+    <Content Include="images\ico6.png" />
+    <Content Include="images\img_01.gif" />
+    <Content Include="images\img_02.gif" />
+    <Content Include="images\img_03.gif" />
+    <Content Include="images\img_04.gif" />
+    <Content Include="images\left-list.gif" />
+    <Content Include="images\li-1.gif" />
+    <Content Include="images\li-2.gif" />
+    <Content Include="images\li-3.gif" />
+    <Content Include="images\li-4.gif" />
+    <Content Include="images\li-5.gif" />
+    <Content Include="images\list-arrow.gif" />
+    <Content Include="images\list-back.gif" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\photo-about.jpg" />
+    <Content Include="images\photo-contact.jpg" />
+    <Content Include="images\projectimg1.jpg" />
+    <Content Include="images\projectimg2.jpg" />
+    <Content Include="images\projectimg3.jpg" />
+    <Content Include="images\read-more.gif" />
     <Content Include="index.aspx" />
     <Content Include="index2.aspx" />
     <Content Include="pre-PressView_Create_Run.aspx" />
@@ -163,6 +215,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
   </ItemGroup>
   <ItemGroup>
