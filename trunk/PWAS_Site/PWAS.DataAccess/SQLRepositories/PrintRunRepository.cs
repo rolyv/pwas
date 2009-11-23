@@ -41,5 +41,10 @@ namespace PWAS.DataAccess.SQLRepositories
         {
             printRunTable.Context.SubmitChanges();
         }
+
+        public IQueryable<PrintRun> PrintRuns
+        {
+            get { return printRunTable; }
+        }
     }
 }

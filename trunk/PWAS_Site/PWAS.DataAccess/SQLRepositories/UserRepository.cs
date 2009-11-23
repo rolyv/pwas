@@ -41,5 +41,10 @@ namespace PWAS.DataAccess.SQLRepositories
             User userOriginal = userTable.Single(u => u.userID == newUser.userID);
             userTable.Attach(newUser, userOriginal);
         }
+
+        public IQueryable<User> Users
+        {
+            get { return userTable; }
+        }
     }
 }
