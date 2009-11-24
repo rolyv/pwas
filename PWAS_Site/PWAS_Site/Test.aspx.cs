@@ -13,7 +13,6 @@ using System.Xml.Linq;
 
 using PWAS.Model;
 using PWAS.DataAccess.Interfaces;
-using PWAS.DataAccess.SQLRepositories;
 
 namespace PWAS_Site
 {
@@ -21,14 +20,17 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Configuration.Configuration rootWebConfig =
-                System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/PWAS_Site");
-            System.Configuration.ConnectionStringSettings connString;
-            connString =
-                    rootWebConfig.ConnectionStrings.ConnectionStrings["PwasConnectionString"];
-            IRolePermissionRepository rp = new RolePermissionRepository(connString.ConnectionString);
+            IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.GetRolePermissionRepository();
+            IRoleRepository rolesRepo = RepositoryFactory.GetRoleRepository();
+                        
+            RolePermission firstPermission = rolePermissionsRepo.GetById(1);
+            Role firstRole = rolesRepo.GetById(firstPermission.roleID);
 
-            this.Label1.Text = rp.GetById(2).@object + "\tHello";
+            string msg = "<p>The first Role is: '" + firstRole.role_name + "'<br />";
+            msg += "The first RolePermission is for '" + firstRole.role_name + "' on objects of type '"
+                    + firstPermission.@object + "'<br /></p>";
+
+            this.Label1.Text = msg;
         }
     }
 }

@@ -12,3 +12,7 @@ C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\PWA
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.Model.dll
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.DataAccess.pdb
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.Model.pdb
+C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.DynamicProxy2.xml
+C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.MicroKernel.xml
+C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Windsor.xml
+C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Core.xml
