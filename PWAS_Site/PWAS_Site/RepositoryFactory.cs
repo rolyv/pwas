@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace PWAS_Site
 {
-    public class RepositoryFactory
+    internal class RepositoryFactory
     {
         private static WindsorContainer container;
         private static Dictionary<string, string> arguments;
@@ -36,27 +36,27 @@ namespace PWAS_Site
             arguments.Add("connectionString", connString);
         }
 
-        public static IRolePermissionRepository GetRolePermissionRepository()
+        internal static IRolePermissionRepository GetRolePermissionRepository()
         {
             return (IRolePermissionRepository)container.Resolve(typeof(IRolePermissionRepository), arguments);
         }
 
-        public static IRoleRepository GetRoleRepository()
+        internal static IRoleRepository GetRoleRepository()
         {
             return (IRoleRepository)container.Resolve(typeof(IRoleRepository), arguments);
         }
 
-        public static IOrderRepository GetOrderRepository()
+        internal static IOrderRepository GetOrderRepository()
         {
             return (IOrderRepository)container.Resolve(typeof(IOrderRepository), arguments);
         }
 
-        public static IUserRepository GetUserRepository()
+        internal static IUserRepository GetUserRepository()
         {
             return (IUserRepository)container.Resolve(typeof(IUserRepository), arguments);
         }
 
-        public static IPrintRunRepository GetPrintRunRepository()
+        internal static IPrintRunRepository GetPrintRunRepository()
         {
             return (IPrintRunRepository)container.Resolve(typeof(IPrintRunRepository), arguments);
         }
