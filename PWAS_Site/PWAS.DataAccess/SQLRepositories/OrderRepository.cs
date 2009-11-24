@@ -7,11 +7,11 @@ using PWAS.Model;
 
 namespace PWAS.DataAccess.SQLRepositories
 {
-    public class OrdersRepository : PWAS.DataAccess.Interfaces.IOrderRepository
+    public class OrderRepository : PWAS.DataAccess.Interfaces.IOrderRepository
     {
         private Table<Order> orderTable;
 
-        public OrdersRepository(string connectionString)
+        public OrderRepository(string connectionString)
         {
             orderTable = new PWASDataContext(connectionString).Orders;
         }
@@ -36,10 +36,10 @@ namespace PWAS.DataAccess.SQLRepositories
             orderTable.DeleteOnSubmit(GetById(orderId));
         }
 
-        public List<Order> GetByPrintRun(int printRunId)
-        {
-            return orderTable.Context.GetTable<PrintRun>().FirstOrDefault(p => p.runID == printRunId).Orders.ToList<Order>();
-        }
+        //public List<Order> GetByPrintRun(int printRunId)
+        //{
+        //    return orderTable.Context.GetTable<PrintRun>().FirstOrDefault(p => p.runID == printRunId).Orders.ToList<Order>();
+        //}
 
         public List<Order> GetByUser(int userId)
         {

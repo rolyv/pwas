@@ -10,7 +10,7 @@ namespace PWAS.DataAccess.Interfaces
         void AddOrder(Order order);
         void DeleteOrder(int orderId);
         Order GetById(int orderId);
-        System.Collections.Generic.List<Order> GetByPrintRun(int printRunId);
+        //System.Collections.Generic.List<Order> GetByPrintRun(int printRunId);
         void UpdateOrderInfo(Order newOrder);
         void SubmitChanges();
     }
