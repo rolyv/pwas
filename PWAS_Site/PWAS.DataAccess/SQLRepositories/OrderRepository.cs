@@ -36,20 +36,6 @@ namespace PWAS.DataAccess.SQLRepositories
             orderTable.DeleteOnSubmit(GetById(orderId));
         }
 
-        //public List<Order> GetByPrintRun(int printRunId)
-        //{
-        //    return orderTable.Context.GetTable<PrintRun>().FirstOrDefault(p => p.runID == printRunId).Orders.ToList<Order>();
-        //}
-
-        public List<Order> GetByUser(int userId)
-        {
-            var orders = (from order in orderTable
-                          where order.userID == userId
-                          select order).ToList<Order>();
-
-            return orders;
-        }
-
         public void UpdateOrderInfo(Order newOrder)
         {
             Order orderOriginal = orderTable.Single(o => o.orderID == newOrder.orderID);

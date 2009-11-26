@@ -20,8 +20,8 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.GetRolePermissionRepository();
-            IRoleRepository rolesRepo = RepositoryFactory.GetRoleRepository();
+            IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+            IRoleRepository rolesRepo = RepositoryFactory.Get<IRoleRepository>();
                         
             RolePermission firstPermission = rolePermissionsRepo.GetById(1);
             Role firstRole = rolesRepo.GetById(firstPermission.roleID);
@@ -31,6 +31,8 @@ namespace PWAS_Site
                     + firstPermission.@object + "'<br /></p>";
 
             this.Label1.Text = msg;
+
+            rolesRepo.Roles.All(x => x.role_name.EndsWith("w"));
         }
     }
 }
