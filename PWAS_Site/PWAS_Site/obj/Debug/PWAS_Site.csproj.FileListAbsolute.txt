@@ -16,16 +16,3 @@ C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Cas
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.MicroKernel.xml
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Windsor.xml
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Core.xml
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS_Site.dll
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS_Site.pdb
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.DataAccess.dll
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.Model.dll
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\Castle.DynamicProxy2.xml
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.DataAccess.pdb
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\PWAS.Model.pdb
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\Castle.MicroKernel.xml
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Windsor.xml
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Core.xml
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\obj\Debug\PWAS_Site.dll
-C:\Documents and Settings\cc_jmesa\Desktop\PWAS\PWAS_Site\PWAS_Site\obj\Debug\PWAS_Site.pdb
