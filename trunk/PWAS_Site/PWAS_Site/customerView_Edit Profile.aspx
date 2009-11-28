@@ -81,8 +81,53 @@
         <div class="right-body">
             <h1>
                 Edit Profile</h1>
+                
             <form id="EditProfile" runat="server">
             <table width="600">
+                <tr>
+                    <td>
+                        <asp:Table runat="server" ID="tableErrorMessage" Visible="false">
+                            <asp:TableRow>
+                                <asp:TableCell HorizontalAlign="right">
+                                    <h3>
+                                        <asp:Label ID="lblErrorMessage" runat="server" Style="color: red;" Text="Error" Visible="false"></asp:Label></h3>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>
+                            Login Information</h3>
+                        <table id="tableLoginInformation">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblNewPassword" runat="server" Text="New Password:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtNewPassword" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblNewPasswordConfirm" runat="server" Text="Confirm New Password:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtNewPasswordConfirm" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <h3>
@@ -110,14 +155,6 @@
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="txtCompanyName" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -273,6 +310,13 @@
                             </tr>
                         </table>
                     </td>
+                </tr>
+                <tr>
+                <td>
+                </td>
+                <td>
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" style="float:left; margin-top:10px;"  OnClick="btnSubmit_Click"/>
+                </td>
                 </tr>
                 <br />
             </table>
