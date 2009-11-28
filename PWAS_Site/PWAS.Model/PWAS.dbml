@@ -55,7 +55,7 @@
       <Column Name="b_city" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="b_state" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="b_zip" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="roleID" AutoSync="OnInsert" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
       <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
       <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
