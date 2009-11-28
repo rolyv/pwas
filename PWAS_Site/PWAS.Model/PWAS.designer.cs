@@ -787,7 +787,7 @@ namespace PWAS.Model
 		
 		private string _b_zip;
 		
-		private int _roleID;
+		private System.Nullable<int> _roleID;
 		
 		private string _password;
 		
@@ -839,7 +839,7 @@ namespace PWAS.Model
     partial void Onb_stateChanged();
     partial void Onb_zipChanging(string value);
     partial void Onb_zipChanged();
-    partial void OnroleIDChanging(int value);
+    partial void OnroleIDChanging(System.Nullable<int> value);
     partial void OnroleIDChanged();
     partial void OnpasswordChanging(string value);
     partial void OnpasswordChanged();
@@ -1253,7 +1253,7 @@ namespace PWAS.Model
 		}
 		
 		[Column(Storage="_roleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL")]
-		public int roleID
+		public System.Nullable<int> roleID
 		{
 			get
 			{
@@ -1336,7 +1336,7 @@ namespace PWAS.Model
 					}
 					else
 					{
-						this._roleID = default(int);
+						this._roleID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Role");
 				}
