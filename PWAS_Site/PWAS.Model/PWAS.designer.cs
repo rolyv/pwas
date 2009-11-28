@@ -30,9 +30,6 @@ namespace PWAS.Model
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertOrder(Order instance);
-    partial void UpdateOrder(Order instance);
-    partial void DeleteOrder(Order instance);
     partial void InsertPrintRun(PrintRun instance);
     partial void UpdatePrintRun(PrintRun instance);
     partial void DeletePrintRun(PrintRun instance);
@@ -45,6 +42,9 @@ namespace PWAS.Model
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertOrder(Order instance);
+    partial void UpdateOrder(Order instance);
+    partial void DeleteOrder(Order instance);
     #endregion
 		
 		public PWASDataContext() : 
@@ -75,14 +75,6 @@ namespace PWAS.Model
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Order> Orders
-		{
-			get
-			{
-				return this.GetTable<Order>();
-			}
 		}
 		
 		public System.Data.Linq.Table<PrintRun> PrintRuns
@@ -116,412 +108,12 @@ namespace PWAS.Model
 				return this.GetTable<User>();
 			}
 		}
-	}
-	
-	[Table(Name="dbo.[Order]")]
-	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _orderID;
-		
-		private int _userID;
-		
-		private System.Nullable<int> _runID;
-		
-		private string _job_name;
-		
-		private double _width;
-		
-		private double _height;
-		
-		private int _quantity;
-		
-		private string _stock_finish;
-		
-		private string _stock_weight;
-		
-		private bool _two_sided;
-		
-		private bool _folded;
-		
-		private bool _ship;
-		
-		private EntityRef<PrintRun> _PrintRun;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnorderIDChanging(int value);
-    partial void OnorderIDChanged();
-    partial void OnuserIDChanging(int value);
-    partial void OnuserIDChanged();
-    partial void OnrunIDChanging(System.Nullable<int> value);
-    partial void OnrunIDChanged();
-    partial void Onjob_nameChanging(string value);
-    partial void Onjob_nameChanged();
-    partial void OnwidthChanging(double value);
-    partial void OnwidthChanged();
-    partial void OnheightChanging(double value);
-    partial void OnheightChanged();
-    partial void OnquantityChanging(int value);
-    partial void OnquantityChanged();
-    partial void Onstock_finishChanging(string value);
-    partial void Onstock_finishChanged();
-    partial void Onstock_weightChanging(string value);
-    partial void Onstock_weightChanged();
-    partial void Ontwo_sidedChanging(bool value);
-    partial void Ontwo_sidedChanged();
-    partial void OnfoldedChanging(bool value);
-    partial void OnfoldedChanged();
-    partial void OnshipChanging(bool value);
-    partial void OnshipChanged();
-    #endregion
-		
-		public Order()
-		{
-			this._PrintRun = default(EntityRef<PrintRun>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_orderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int orderID
+		public System.Data.Linq.Table<Order> Orders
 		{
 			get
 			{
-				return this._orderID;
-			}
-			set
-			{
-				if ((this._orderID != value))
-				{
-					this.OnorderIDChanging(value);
-					this.SendPropertyChanging();
-					this._orderID = value;
-					this.SendPropertyChanged("orderID");
-					this.OnorderIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_userID", DbType="Int NOT NULL")]
-		public int userID
-		{
-			get
-			{
-				return this._userID;
-			}
-			set
-			{
-				if ((this._userID != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnuserIDChanging(value);
-					this.SendPropertyChanging();
-					this._userID = value;
-					this.SendPropertyChanged("userID");
-					this.OnuserIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_runID", DbType="Int")]
-		public System.Nullable<int> runID
-		{
-			get
-			{
-				return this._runID;
-			}
-			set
-			{
-				if ((this._runID != value))
-				{
-					if (this._PrintRun.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnrunIDChanging(value);
-					this.SendPropertyChanging();
-					this._runID = value;
-					this.SendPropertyChanged("runID");
-					this.OnrunIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_job_name", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string job_name
-		{
-			get
-			{
-				return this._job_name;
-			}
-			set
-			{
-				if ((this._job_name != value))
-				{
-					this.Onjob_nameChanging(value);
-					this.SendPropertyChanging();
-					this._job_name = value;
-					this.SendPropertyChanged("job_name");
-					this.Onjob_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_width", DbType="Float NOT NULL")]
-		public double width
-		{
-			get
-			{
-				return this._width;
-			}
-			set
-			{
-				if ((this._width != value))
-				{
-					this.OnwidthChanging(value);
-					this.SendPropertyChanging();
-					this._width = value;
-					this.SendPropertyChanged("width");
-					this.OnwidthChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_height", DbType="Float NOT NULL")]
-		public double height
-		{
-			get
-			{
-				return this._height;
-			}
-			set
-			{
-				if ((this._height != value))
-				{
-					this.OnheightChanging(value);
-					this.SendPropertyChanging();
-					this._height = value;
-					this.SendPropertyChanged("height");
-					this.OnheightChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_quantity", DbType="Int NOT NULL")]
-		public int quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this.OnquantityChanging(value);
-					this.SendPropertyChanging();
-					this._quantity = value;
-					this.SendPropertyChanged("quantity");
-					this.OnquantityChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_stock_finish", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string stock_finish
-		{
-			get
-			{
-				return this._stock_finish;
-			}
-			set
-			{
-				if ((this._stock_finish != value))
-				{
-					this.Onstock_finishChanging(value);
-					this.SendPropertyChanging();
-					this._stock_finish = value;
-					this.SendPropertyChanged("stock_finish");
-					this.Onstock_finishChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_stock_weight", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string stock_weight
-		{
-			get
-			{
-				return this._stock_weight;
-			}
-			set
-			{
-				if ((this._stock_weight != value))
-				{
-					this.Onstock_weightChanging(value);
-					this.SendPropertyChanging();
-					this._stock_weight = value;
-					this.SendPropertyChanged("stock_weight");
-					this.Onstock_weightChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_two_sided", DbType="Bit NOT NULL")]
-		public bool two_sided
-		{
-			get
-			{
-				return this._two_sided;
-			}
-			set
-			{
-				if ((this._two_sided != value))
-				{
-					this.Ontwo_sidedChanging(value);
-					this.SendPropertyChanging();
-					this._two_sided = value;
-					this.SendPropertyChanged("two_sided");
-					this.Ontwo_sidedChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_folded", DbType="Bit NOT NULL")]
-		public bool folded
-		{
-			get
-			{
-				return this._folded;
-			}
-			set
-			{
-				if ((this._folded != value))
-				{
-					this.OnfoldedChanging(value);
-					this.SendPropertyChanging();
-					this._folded = value;
-					this.SendPropertyChanged("folded");
-					this.OnfoldedChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_ship", DbType="Bit NOT NULL")]
-		public bool ship
-		{
-			get
-			{
-				return this._ship;
-			}
-			set
-			{
-				if ((this._ship != value))
-				{
-					this.OnshipChanging(value);
-					this.SendPropertyChanging();
-					this._ship = value;
-					this.SendPropertyChanged("ship");
-					this.OnshipChanged();
-				}
-			}
-		}
-		
-		[Association(Name="PrintRun_Order", Storage="_PrintRun", ThisKey="runID", IsForeignKey=true)]
-		public PrintRun PrintRun
-		{
-			get
-			{
-				return this._PrintRun.Entity;
-			}
-			set
-			{
-				PrintRun previousValue = this._PrintRun.Entity;
-				if (((previousValue != value) 
-							|| (this._PrintRun.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PrintRun.Entity = null;
-						previousValue.Orders.Remove(this);
-					}
-					this._PrintRun.Entity = value;
-					if ((value != null))
-					{
-						value.Orders.Add(this);
-						this._runID = value.runID;
-					}
-					else
-					{
-						this._runID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PrintRun");
-				}
-			}
-		}
-		
-		[Association(Name="User_Order", Storage="_User", ThisKey="userID", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Orders.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Orders.Add(this);
-						this._userID = value.userID;
-					}
-					else
-					{
-						this._userID = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Order>();
 			}
 		}
 	}
@@ -1781,6 +1373,414 @@ namespace PWAS.Model
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[Table(Name="dbo.[Order]")]
+	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _orderID;
+		
+		private int _userID;
+		
+		private System.Nullable<int> _runID;
+		
+		private string _job_name;
+		
+		private double _width;
+		
+		private double _height;
+		
+		private int _quantity;
+		
+		private string _stock_finish;
+		
+		private string _stock_weight;
+		
+		private bool _two_sided;
+		
+		private bool _folded;
+		
+		private bool _ship;
+		
+		private EntityRef<PrintRun> _PrintRun;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnorderIDChanging(int value);
+    partial void OnorderIDChanged();
+    partial void OnuserIDChanging(int value);
+    partial void OnuserIDChanged();
+    partial void OnrunIDChanging(System.Nullable<int> value);
+    partial void OnrunIDChanged();
+    partial void Onjob_nameChanging(string value);
+    partial void Onjob_nameChanged();
+    partial void OnwidthChanging(double value);
+    partial void OnwidthChanged();
+    partial void OnheightChanging(double value);
+    partial void OnheightChanged();
+    partial void OnquantityChanging(int value);
+    partial void OnquantityChanged();
+    partial void Onstock_finishChanging(string value);
+    partial void Onstock_finishChanged();
+    partial void Onstock_weightChanging(string value);
+    partial void Onstock_weightChanged();
+    partial void Ontwo_sidedChanging(bool value);
+    partial void Ontwo_sidedChanged();
+    partial void OnfoldedChanging(bool value);
+    partial void OnfoldedChanged();
+    partial void OnshipChanging(bool value);
+    partial void OnshipChanged();
+    #endregion
+		
+		public Order()
+		{
+			this._PrintRun = default(EntityRef<PrintRun>);
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_orderID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int orderID
+		{
+			get
+			{
+				return this._orderID;
+			}
+			set
+			{
+				if ((this._orderID != value))
+				{
+					this.OnorderIDChanging(value);
+					this.SendPropertyChanging();
+					this._orderID = value;
+					this.SendPropertyChanged("orderID");
+					this.OnorderIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_userID", DbType="Int NOT NULL")]
+		public int userID
+		{
+			get
+			{
+				return this._userID;
+			}
+			set
+			{
+				if ((this._userID != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnuserIDChanging(value);
+					this.SendPropertyChanging();
+					this._userID = value;
+					this.SendPropertyChanged("userID");
+					this.OnuserIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_runID", DbType="Int")]
+		public System.Nullable<int> runID
+		{
+			get
+			{
+				return this._runID;
+			}
+			set
+			{
+				if ((this._runID != value))
+				{
+					if (this._PrintRun.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnrunIDChanging(value);
+					this.SendPropertyChanging();
+					this._runID = value;
+					this.SendPropertyChanged("runID");
+					this.OnrunIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_job_name", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		public string job_name
+		{
+			get
+			{
+				return this._job_name;
+			}
+			set
+			{
+				if ((this._job_name != value))
+				{
+					this.Onjob_nameChanging(value);
+					this.SendPropertyChanging();
+					this._job_name = value;
+					this.SendPropertyChanged("job_name");
+					this.Onjob_nameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_width", DbType="Float NOT NULL")]
+		public double width
+		{
+			get
+			{
+				return this._width;
+			}
+			set
+			{
+				if ((this._width != value))
+				{
+					this.OnwidthChanging(value);
+					this.SendPropertyChanging();
+					this._width = value;
+					this.SendPropertyChanged("width");
+					this.OnwidthChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_height", DbType="Float NOT NULL")]
+		public double height
+		{
+			get
+			{
+				return this._height;
+			}
+			set
+			{
+				if ((this._height != value))
+				{
+					this.OnheightChanging(value);
+					this.SendPropertyChanging();
+					this._height = value;
+					this.SendPropertyChanged("height");
+					this.OnheightChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_stock_finish", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string stock_finish
+		{
+			get
+			{
+				return this._stock_finish;
+			}
+			set
+			{
+				if ((this._stock_finish != value))
+				{
+					this.Onstock_finishChanging(value);
+					this.SendPropertyChanging();
+					this._stock_finish = value;
+					this.SendPropertyChanged("stock_finish");
+					this.Onstock_finishChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_stock_weight", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string stock_weight
+		{
+			get
+			{
+				return this._stock_weight;
+			}
+			set
+			{
+				if ((this._stock_weight != value))
+				{
+					this.Onstock_weightChanging(value);
+					this.SendPropertyChanging();
+					this._stock_weight = value;
+					this.SendPropertyChanged("stock_weight");
+					this.Onstock_weightChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_two_sided", DbType="Bit NOT NULL")]
+		public bool two_sided
+		{
+			get
+			{
+				return this._two_sided;
+			}
+			set
+			{
+				if ((this._two_sided != value))
+				{
+					this.Ontwo_sidedChanging(value);
+					this.SendPropertyChanging();
+					this._two_sided = value;
+					this.SendPropertyChanged("two_sided");
+					this.Ontwo_sidedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_folded", DbType="Bit NOT NULL")]
+		public bool folded
+		{
+			get
+			{
+				return this._folded;
+			}
+			set
+			{
+				if ((this._folded != value))
+				{
+					this.OnfoldedChanging(value);
+					this.SendPropertyChanging();
+					this._folded = value;
+					this.SendPropertyChanged("folded");
+					this.OnfoldedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ship", DbType="Bit NOT NULL")]
+		public bool ship
+		{
+			get
+			{
+				return this._ship;
+			}
+			set
+			{
+				if ((this._ship != value))
+				{
+					this.OnshipChanging(value);
+					this.SendPropertyChanging();
+					this._ship = value;
+					this.SendPropertyChanged("ship");
+					this.OnshipChanged();
+				}
+			}
+		}
+		
+		[Association(Name="PrintRun_Order", Storage="_PrintRun", ThisKey="runID", IsForeignKey=true)]
+		public PrintRun PrintRun
+		{
+			get
+			{
+				return this._PrintRun.Entity;
+			}
+			set
+			{
+				PrintRun previousValue = this._PrintRun.Entity;
+				if (((previousValue != value) 
+							|| (this._PrintRun.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PrintRun.Entity = null;
+						previousValue.Orders.Remove(this);
+					}
+					this._PrintRun.Entity = value;
+					if ((value != null))
+					{
+						value.Orders.Add(this);
+						this._runID = value.runID;
+					}
+					else
+					{
+						this._runID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PrintRun");
+				}
+			}
+		}
+		
+		[Association(Name="User_Order", Storage="_User", ThisKey="userID", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Orders.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Orders.Add(this);
+						this._userID = value.userID;
+					}
+					else
+					{
+						this._userID = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
