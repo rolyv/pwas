@@ -1252,7 +1252,7 @@ namespace PWAS.Model
 			}
 		}
 		
-		[Column(Storage="_roleID", DbType="Int NOT NULL")]
+		[Column(Storage="_roleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL")]
 		public int roleID
 		{
 			get
