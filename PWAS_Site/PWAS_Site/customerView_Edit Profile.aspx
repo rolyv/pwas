@@ -1,274 +1,296 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customerView_Edit Profile.aspx.cs" Inherits="PWAS_Site.customerView_Edit Profile" %>
 
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="javascript" type="text/javascript" src="XYZ.js"></script>
+<head runat="server">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" type="text/javascript" src="XYZ.js"></script>
+
 </head>
-
-<body >
-<div id="header">
-<div class="top-head">
-<div class="logo">Printing at the Speed of Life.</div>
-
-<div class="nav-bar">
-<ul>
-<li><a href="index.aspx" class="ist">Home</a></li>
-<li><a href="about-us.aspx" class="two">About Us</a></li>
-<li>
-	
-           <a href="/CEN/index.jsp?logoff=true" class="three">Logout</a> 
-	 
-	    
-</li>
-<li><a href="projects.aspx" class="four">Projects</a></li>
-<li><a href="contact-us.aspx" class="five">Contacts</a></li>
-</ul> 
-
-		<!--Hidden Pop up login prompt-->
-	<div id="loginDiv">
-		<form name="loginForm">
-        <table>
-        <tr>
-        	<td>Username: </td><td><input type="text" name="user" /><br/></td>
-        </tr>
-		<tr>
-        	<td>Password: </td><td><input type="password" name="pwd"/><br /></td>
-        </tr>    
-        </table>
-        </form>
-        <table align="center">
-         <tr>
-        	<td  align="center"><button onclick="doLogin();">Login</button><button onclick="showLogin(false);">Cancel</button></td>
-        </tr>
-        <tr><td><div id="ERROR"></div></td></tr>
-		</table>
-		
-	</div>
-
-</div>
-</div>
-
-<div class="head-cont">
-<span>XYZ Printing is your one-stop shop for all your printing needs.</span><br />
-</b> Enjoy your stay.
-</div>
-
-<div class="box-outs">
-<div class="gray-box">
-<img src="images/ic-1.gif" alt="" class="img-box" /> Place an <br />
-Order
-<br />
-<a href="#">Click here</a></div>
-
-<div class="gray-box">
-<img src="images/ic-2.gif" alt="" class="img-box" />
-View Order <br />Status<br />
-<a href="#">click here</a></div>
-
-<div class="gray-box">
-<img src="images/ic-3.gif" alt="" class="img-box" />
-Customer Support<br />
-<a href="#">click here</a></div>
-</div>
-</div>
-
-<div id="body-part">
-<div class="left-body">
-<div class="left-body-top">
-<h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
-
- 
-
-<ul>
-<li><a href="#">Place an Order.</a></li>
-<li><a href="#">View Order Status.</a></li>
-<li><a href="#">Edit Profile.</a></li>
-<li class="last"><a href="#">Search.</a></li>
-
-</ul>
-</div>
-
-<div class="left-body-bt">
-<h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Company News!</h2>
-<strong>Vestibulum sit amet nulla era</strong>
-<ul>
-<li>20th May 2009</li>
-</ul><p><a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-
-
-
-<img src="images/br-line.gif" alt="" />
-
-<ul>
-<li>20th May 2009</li>
-</ul>
-
-<p><a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-</div>
-
-
-
-
-</div>
-
-<div class="right-body">
-<h1>Profile</h1>
-<table width="600">
-<tr>
-<td>
-	<h3>Contact Information</h3>
-	<table id="ContactTable" >
-		<tr>
-			<td align="right">First Name:</td>
-			<td align="left"><input value="Masoud"></td>
-		</tr>
-		
-		<tr>
-			<td align="right">Last Name:</td>
-			<td align="left"><input value="Sadjadi"></td>
-		</tr>
-		<tr>
-			<td align="right">Company Name:</td>
-			<td align="left"><input value="M.S.Soft Inc."></td>
-		</tr>
-		<tr>
-			<td align="right">Email Address:</td>
-			<td align="left"><input value="M.S@MSSoft.com"></td>
-		</tr>
-		<tr>
-			<td align="right">Phone #:</td>
-			<td align="left"><input value="305-345-6321"></td>
-		</tr>
-	</table>
-</td>
-<td>
-	<h3>Shipping Information</h3>
-	<table id="ContactTable">
-		<tr>
-			<td align="right">Address Line 1:</td>
-			<td align="left"><input value="123 Main St."></td>
-		</tr>
-		
-		<tr>
-			<td align="right">Adress Line 2:</td>
-			<td align="left"><input value="Suite 1023"></td>
-		</tr>
-		<tr>
-			<td align="right">City:</td>
-			<td align="left"><input value="Miami Beach"></td>
-		</tr>
-		<tr>
-			<td align="right">State:</td>
-			<td align="left"><select><option>FL</option></select></td>
-		</tr>
-		<tr>
-			<td align="right">Zip code:</td>
-			<td align="left"><input value="33131"></td>
-		</tr>
-	</table>
-</td>
-</tr>
-<tr>
-<td>	
-	<h3>Billing Information</h3>
-	<table id="ContactTable">
-		<tr>
-			<td align="right">Credit Card #</td>
-			<td align="left"><input value="3713 3452 2567 123"></td>
-		</tr>
-		
-		<tr>
-			<td align="right">Card Type</td>
-			<td align="left"><select><option>Amex</option></select></td>
-		</tr>
-		<tr>
-			<td align="right">Exp. Date</td>
-			<td align="left"><input value="10/10"></td>
-		</tr>
-		<tr>
-			<td align="right">Security Code</td>
-			<td align="left"><input value="5643"></td>
-		</tr>
-		<tr>
-			<td align="right">Name on Card</td>
-			<td align="left"><input value="Masoud Sadjadi"></td>
-		</tr>
-	</table>
-</td>
-<td>
-	<h3>Billing Address</h3>
-	<table id="ContactTable">
-		<tr>
-			<td align="right">Address Line 1:</td>
-			<td align="left"><input value="123 Main St."></td>
-		</tr>
-		
-		<tr>
-			<td align="right">Adress Line 2:</td>
-			<td align="left"><input value="Suite 1023"></td>
-		</tr>
-		<tr>
-			<td align="right">City:</td>
-			<td align="left"><input value="Miami Beach"></td>
-		</tr>
-		<tr>
-			<td align="right">State:</td>
-			<td align="left"><select><option>FL</option></select></td>
-		</tr>
-		<tr>
-			<td align="right">Zip code:</td>
-			<td align="left"><input value="33131"></td>
-		</tr>
-	</table>
-</td>
-</tr>
-<br/>
-</table>	
-<button>Update Profile</button>
-
-<br />
-<img src="images/br-body.gif" alt="" />
-
-<h2><img src="images/ic-5.gif" alt="" class="img-box-2" />Discounted Products</h2>
-
-<div class="right-content">
-<img src="images/img_02.gif" alt="" />
-<p><strong>20% Off Blueprints</strong><br />
-For your construction needs </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-<div class="left-content">
-<img src="images/img_03.gif" alt="" />
-<p><strong>10% off Postcards.</strong><br />
-Glossy full color </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-<div class="left-content">
-<img src="images/img_04.gif" alt="" />
-<p><strong>Call for Website Specials!</strong><br />
-You'll be surprised </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-</div>
-<div class="clear"></div>
-</div>
-
-
-<div id="footer-back">
-<div class="footer-right"><a href="index.aspx">Home</a>   |   <a href="about-us.aspx">About Us</a>   |   <a href="projects.aspx">Recent Projects</a> |   <a href="support.aspx">Support</a>   |   <a href="privacy.aspx">Privacy</a>   |   <a href="contact-us.aspx">Contact Us</a>
-<br />
-<span>&copy; Copyright XYZ Printing Co. All Right Reserved</span></div>
-
-</div>
-
-
-
+<body>
+    <div id="header">
+        <div class="top-head">
+            <div class="logo">
+                Printing at the Speed of Life.</div>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="index.aspx" class="ist">Home</a></li>
+                    <li><a href="about-us.aspx" class="two">About Us</a></li>
+                    <li><a href="/CEN/index.jsp?logoff=true" class="three">Logout</a> </li>
+                    <li><a href="projects.aspx" class="four">Projects</a></li>
+                    <li><a href="contact-us.aspx" class="five">Contacts</a></li>
+                </ul>
+                <!--Hidden Pop up login prompt-->
+            </div>
+        </div>
+        <div class="head-cont">
+            <span>XYZ Printing is your one-stop shop for all your printing needs.</span><br />
+            </b> Enjoy your stay.
+        </div>
+        <div class="box-outs">
+            <div class="gray-box">
+                <img src="images/ic-1.gif" alt="" class="img-box" />
+                Place an
+                <br />
+                Order
+                <br />
+                <a href="#">Click here</a></div>
+            <div class="gray-box">
+                <img src="images/ic-2.gif" alt="" class="img-box" />
+                View Order
+                <br />
+                Status<br />
+                <a href="#">click here</a></div>
+            <div class="gray-box">
+                <img src="images/ic-3.gif" alt="" class="img-box" />
+                Customer Support<br />
+                <a href="#">click here</a></div>
+        </div>
+    </div>
+    <div id="body-part">
+        <div class="left-body">
+            <div class="left-body-top">
+                <h2>
+                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
+                <ul>
+                    <li><a href="#">Place an Order.</a></li>
+                    <li><a href="#">View Order Status.</a></li>
+                    <li><a href="#">Edit Profile.</a></li>
+                    <li class="last"><a href="#">Search.</a></li>
+                </ul>
+            </div>
+            <div class="left-body-bt">
+                <h2>
+                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Company News!</h2>
+                <strong>Vestibulum sit amet nulla era</strong>
+                <ul>
+                    <li>20th May 2009</li>
+                </ul>
+                <p>
+                    <a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
+                <img src="images/br-line.gif" alt="" />
+                <ul>
+                    <li>20th May 2009</li>
+                </ul>
+                <p>
+                    <a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
+            </div>
+        </div>
+        <div class="right-body">
+            <h1>
+                Edit Profile</h1>
+            <form id="EditProfile" runat="server">
+            <table width="600">
+                <tr>
+                    <td>
+                        <h3>
+                            Contact Information</h3>
+                        <table id="tableContactInformation">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblCompanyName" runat="server" Text="Company Name:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtCompanyName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblPhoneNumber" runat="server" Text="Phone #:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <h3>
+                            Shipping Information</h3>
+                        <table id="tableShippingInformation">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipAddressLine1" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipAddressLine2" runat="server" Text="Adress Line 2:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipAddressLine2" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipCity" runat="server" Text="City:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipCity" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipState" runat="server" Text="State:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipState" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipZipCode" runat="server" Text="Zip code:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipZipCode" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>
+                            Billing Information</h3>
+                        <table id="tableBillingInformation">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblCreditCardNumber" runat="server" Text="Credit Card #"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtCreditCardNumber" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblCardType" runat="server" Text="Card Type"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:DropDownList ID="ddCardType" runat="server">
+                                        <asp:ListItem>AMEX</asp:ListItem>
+                                        <asp:ListItem>Visa</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblExpDate" runat="server" Text="Exp. Date"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtExpDate" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblSecurityCode" runat="server" Text="Security Code"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtSecurityCode" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblNameOnCard" runat="server" Text="Name on Card"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtNameOnCard" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <h3>
+                            Billing Address</h3>
+                        <table id="tableBillingAddress">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblBillAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtBillAddressLine1" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblBillAddressLine2" runat="server" Text="Adress Line 2:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtBillAddressLine2" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblBillCity" runat="server" Text="City:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtBillCity" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblBillState" runat="server" Text="State:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtBillState" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblBillZipCode" runat="server" Text="Zip code:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtBillZipCode" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <br />
+            </table>
+            <br />
+            </form>
+            <br />
+            <img src="images/br-body.gif" alt="" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id="footer-back">
+        <div class="footer-right">
+            <a href="index.aspx">Home</a> | <a href="about-us.aspx">About Us</a> | <a href="projects.aspx">
+                Recent Projects</a> | <a href="support.aspx">Support</a> | <a href="privacy.aspx">Privacy</a>
+            | <a href="contact-us.aspx">Contact Us</a>
+            <br />
+            <span>&copy; Copyright XYZ Printing Co. All Right Reserved</span></div>
+    </div>
 </body>
 </html>
