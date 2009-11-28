@@ -34,5 +34,17 @@ namespace PWAS.Model.Properties {
                 return ((string)(this["PWAS_DBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\RolandoV\\My " +
+            "Documents\\PWAS\\PWAS_Site\\PWAS_Site\\App_Data\\PWAS_DB.mdf\";Integrated Security=Tru" +
+            "e;User Instance=True")]
+        public string PWAS_DBConnectionString1 {
+            get {
+                return ((string)(this["PWAS_DBConnectionString1"]));
+            }
+        }
     }
 }
