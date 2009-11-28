@@ -23,7 +23,7 @@ namespace PWAS.Model
 	
 	
 	[System.Data.Linq.Mapping.DatabaseAttribute(Name="PWAS_DB")]
-	public partial class PwasDbClassesDataContext : System.Data.Linq.DataContext
+	public partial class PWASDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -47,31 +47,31 @@ namespace PWAS.Model
     partial void DeleteUser(User instance);
     #endregion
 		
-		public PwasDbClassesDataContext() : 
+		public PWASDataContext() : 
 				base(global::PWAS.Model.Properties.Settings.Default.PWAS_DBConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PwasDbClassesDataContext(string connection) : 
+		public PWASDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PwasDbClassesDataContext(System.Data.IDbConnection connection) : 
+		public PWASDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PwasDbClassesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public PWASDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PwasDbClassesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public PWASDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();

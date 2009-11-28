@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="PWAS_DB" Class="PwasDbClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+<Database Name="PWAS_DB" Class="PWASDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=&quot;C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\App_Data\PWAS_DB.mdf&quot;;Integrated Security=True;User Instance=True" SettingsObjectName="PWAS.Model.Properties.Settings" SettingsPropertyName="PWAS_DBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
