@@ -85,6 +85,17 @@
             <table width="600">
                 <tr>
                     <td>
+                        <asp:Table runat="server" ID="tableErrorMessage" Visible="false">
+                            <asp:TableRow>
+                                <asp:TableCell HorizontalAlign="right">
+                                    <h3><asp:Label ID="lblErrorMessage" runat="server" Style="color: red;" Text="Error" Visible="false"></asp:Label></h3>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <h3>
                             Login Information</h3>
                         <table id="tableLoginInformation">
@@ -101,15 +112,15 @@
                                     <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="lblPasswordConfirm" runat="server" Text="Confirm Password:"></asp:Label>
+                                    <asp:Label ID="lblPasswordConfirm" runat="server" Text="Confirm Password:" ></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtPasswordConfirm" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPasswordConfirm" runat="server" TextMode="Password" ></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

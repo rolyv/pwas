@@ -14,7 +14,8 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            tableErrorMessage.Visible = false;
+            lblErrorMessage.Visible = false;
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -30,6 +31,9 @@ namespace PWAS_Site
                 String.IsNullOrEmpty(txtBillState.Text) ||
                 String.IsNullOrEmpty(txtBillZipCode.Text))
             {
+                lblErrorMessage.Text = "Some fields are empty";
+                lblErrorMessage.Visible = true;
+                tableErrorMessage.Visible = true;
                 return;
             }
             
@@ -37,6 +41,10 @@ namespace PWAS_Site
             //=========================
             if (!txtPassword.Text.Equals(txtPasswordConfirm.Text))
             {
+                lblErrorMessage.Text = "Passwords do not match";
+                lblErrorMessage.Visible = true;
+                tableErrorMessage.Visible = true;
+
                 return;
             }
 
@@ -49,6 +57,9 @@ namespace PWAS_Site
 
             if (userExists)
             {
+                lblErrorMessage.Text = "Username (email) already in use";
+                lblErrorMessage.Visible = true;
+                tableErrorMessage.Visible = true;
                 //return email already in use error message
                 return;
             }
@@ -65,6 +76,7 @@ namespace PWAS_Site
             newUser.b_zip = txtBillZipCode.Text;
 
             userRepo.AddUser(newUser);
+            userRepo.SubmitChanges();
 
             Response.Redirect("/index.aspx");
 
