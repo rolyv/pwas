@@ -32,7 +32,9 @@ namespace PWAS_Site
 
             this.Label1.Text = msg;
 
-            rolesRepo.Roles.All(x => x.role_name.EndsWith("w"));
+            bool auth = Security.IsAuthorized(1, PwasObject.Order, PwasAction.Create, PwasScope.All);
+
+            this.Label1.Text += "<p>" + auth.ToString() + "</p>";
         }
     }
 }
