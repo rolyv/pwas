@@ -11,6 +11,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using PWAS.DataAccess.Interfaces;
 using PWAS.Model;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PWAS_Site
 {
@@ -18,11 +20,33 @@ namespace PWAS_Site
     {
         private static IQueryable<Role> Roles { get; set; }
         private static IQueryable<RolePermission> RolePermissions { get; set; }
+        private static IQueryable<User> Users { get; set; }
 
         static Security()
         {
             Security.Roles = RepositoryFactory.Get<IRoleRepository>().Roles;
             Security.RolePermissions = RepositoryFactory.Get<IRolePermissionRepository>().RolePermissions;
+            Security.Users = RepositoryFactory.Get<IUserRepository>().Users;
+        }
+
+        public static int Authenticate(string email, string password)
+        {
+            if (Security.Users.Any(u => u.email.Equals(email)))
+            {
+                User user = Security.Users.Single(u => u.email.Equals(email));
+                if (user.password.Equals(MD5Encode(password)))
+                {
+                    return user.userID;
+                }
+                else
+                {
+                    return (int)AuthenticationResult.InvalidPassword;
+                }
+            }
+            else
+            {
+                return (int)AuthenticationResult.UserDoesNotExist;
+            }
         }
 
         public static bool IsAuthorized(int roleId, PwasObject obj, PwasAction action, PwasScope scope)
@@ -50,6 +74,22 @@ namespace PWAS_Site
                     return PwasScope.None;
             }
         }
+
+        private static string MD5Encode(string input)
+        {
+            //Declarations
+            byte[] originalBytes;
+            byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(input);
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            return BitConverter.ToString(encodedBytes);
+        }
     }
 
     public enum PwasObject
@@ -76,7 +116,13 @@ namespace PWAS_Site
         All
     }
 
-    internal static class PwasEnumUtilities
+    public enum AuthenticationResult
+    {
+        InvalidPassword = -1,
+        UserDoesNotExist = -2
+    }
+
+    public static class PwasEnumUtilities
     {
          internal static string StringValue(this PwasObject obj)
          {
