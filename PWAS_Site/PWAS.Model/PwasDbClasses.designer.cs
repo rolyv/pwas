@@ -23,7 +23,7 @@ namespace PWAS.Model
 	
 	
 	[System.Data.Linq.Mapping.DatabaseAttribute(Name="PWAS_DB")]
-	public partial class PWASDataContext : System.Data.Linq.DataContext
+	public partial class PwasDbClassesDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -47,31 +47,31 @@ namespace PWAS.Model
     partial void DeleteUser(User instance);
     #endregion
 		
-		public PWASDataContext() : 
-				base(global::PWAS.Model.Properties.Settings.Default.PWAS_DBConnectionString, mappingSource)
+		public PwasDbClassesDataContext() : 
+				base(global::PWAS.Model.Properties.Settings.Default.PWAS_DBConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PWASDataContext(string connection) : 
+		public PwasDbClassesDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PWASDataContext(System.Data.IDbConnection connection) : 
+		public PwasDbClassesDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PWASDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public PwasDbClassesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public PWASDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public PwasDbClassesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -1197,6 +1197,8 @@ namespace PWAS.Model
 		
 		private int _roleID;
 		
+		private string _password;
+		
 		private EntitySet<Order> _Orders;
 		
 		private EntityRef<Role> _Role;
@@ -1247,6 +1249,8 @@ namespace PWAS.Model
     partial void Onb_zipChanged();
     partial void OnroleIDChanging(int value);
     partial void OnroleIDChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
     #endregion
 		
 		public User()
@@ -1676,6 +1680,26 @@ namespace PWAS.Model
 					this._roleID = value;
 					this.SendPropertyChanged("roleID");
 					this.OnroleIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_password", DbType="NChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
 				}
 			}
 		}
