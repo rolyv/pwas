@@ -22,6 +22,7 @@ namespace PWAS_Site
         {
             IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.Get<IRolePermissionRepository>();
             IRoleRepository rolesRepo = RepositoryFactory.Get<IRoleRepository>();
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                         
             RolePermission firstPermission = rolePermissionsRepo.GetById(1);
             Role firstRole = rolesRepo.GetById(firstPermission.roleID);
@@ -32,9 +33,28 @@ namespace PWAS_Site
 
             this.Label1.Text = msg;
 
-            bool auth = Security.IsAuthorized(1, PwasObject.Order, PwasAction.Create, PwasScope.All);
+            //bool auth = Security.IsAuthorized(2, PwasObject.Order, PwasAction.Create, PwasScope.All);
 
-            this.Label1.Text += "<p>" + auth.ToString() + "</p>";
+            //this.Label1.Text += "<p>" + auth.ToString() + "</p>";
+
+            //this.Label1.Text += "<p>" + Security.Authenticate("hi@goodbye.com", "hello") + "</p>";
+
+
+            //User newUser = new User();
+            //newUser.email = "hello@goodbye.com";
+            //newUser.password = "12345";
+            //newUser.firstName = "Roly";
+            //newUser.lastName = "Vicaria";
+            //newUser.homePhone = "3055532414";
+            //newUser.b_address1 = "1313 Mockingbird Lane";
+            //newUser.b_city = "Miami";
+            //newUser.b_state = "FL";
+            //newUser.b_zip = "33175";
+
+            //userRepo.AddUser(newUser);
+            //userRepo.SubmitChanges();
+            int roleId = 1;// (int)Session[Constants.PWAS_SESSION_ID];
+            Security.SetControlVisibility(roleId, ref this.Controls);
         }
     }
 }

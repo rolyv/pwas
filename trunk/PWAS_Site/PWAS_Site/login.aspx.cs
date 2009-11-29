@@ -33,12 +33,12 @@ namespace PWAS_Site
 
             if (userID > 0)
             {
-                Session[Security.PWAS_SESSION_ID] = userID;
+                Session[Constants.PWAS_SESSION_ID] = userID;
 
                 IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                 User userObj = userRepo.GetById(userID);
 
-                Session[Security.PWAS_SESSION_NAME] = userObj.firstName;
+                Session[Constants.PWAS_SESSION_NAME] = userObj.firstName;
 
                 Response.Redirect("customerView_Home.aspx");
             }
