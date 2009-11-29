@@ -127,13 +127,22 @@ namespace PWAS_Site
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
 
-            
+            int luserID = 0;
+
+            try
+            {
+                luserID = (int)Session[Constants.PWAS_SESSION_ID];
+            }
+            catch (Exception exception)
+            {
+                Response.Redirect("/login.aspx");
+            }
             Order orderCreate;
             
             if(validateFields())
             {
                 orderCreate = new Order {                    
-                    userID = (int) Session[Constants.PWAS_SESSION_ID],
+                    userID = luserID,
                     job_name = this.txtJobName.Text,
                     width = Int32.Parse(this.txtFinalSizeX.Text),
 		            height = Int32.Parse(this.txtFinalSizeY.Text),
