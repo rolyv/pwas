@@ -47,8 +47,20 @@
       <Column Name="two_sided" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="folded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ship" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="currentStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Association Name="Order_OrderHistory" Member="OrderHistories" OtherKey="orderId" Type="OrderHistory" />
       <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
       <Association Name="User_Order" Member="User" ThisKey="userID" Type="User" IsForeignKey="true" />
+      <Association Name="Status_Order" Member="Status" ThisKey="currentStatus" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderHistory" Member="OrderHistories">
+    <Type Name="OrderHistory">
+      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="statusId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="modifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Order_OrderHistory" Member="Order" ThisKey="orderId" Type="Order" IsForeignKey="true" />
+      <Association Name="Status_OrderHistory" Member="Status" ThisKey="statusId" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
@@ -75,10 +87,18 @@
       <Column Name="b_city" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="b_state" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="b_zip" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
       <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="statusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="statusName" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Status_Order" Member="Orders" OtherKey="currentStatus" Type="Order" />
+      <Association Name="Status_OrderHistory" Member="OrderHistories" OtherKey="statusId" Type="OrderHistory" />
     </Type>
   </Table>
 </Database>
