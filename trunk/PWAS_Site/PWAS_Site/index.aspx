@@ -18,12 +18,7 @@
 <ul>
 <li><a href="index.aspx" class="ist">Home</a></li>
 <li><a href="about-us.aspx" class="two">About Us</a></li>
-<li>
-
-          <a href="#" class="three" onclick="showLogin(true);">Login</a> 
-
-	    
-</li>
+<li><a href="login.aspx" class="three">Login</a></li>
 <li><a href="projects.aspx" class="four">Projects</a></li>
 <li><a href="contact-us.aspx" class="five">Contacts</a></li>
 </ul> 
