@@ -22,6 +22,10 @@ namespace PWAS_Site
         private static IQueryable<RolePermission> RolePermissions { get; set; }
         private static IQueryable<User> Users { get; set; }
 
+        internal const string PWAS_SESSION_ID = "PWAS_ID";
+        internal const string PWAS_SESSION_NAME = "PWAS_NAME";
+
+
         static Security()
         {
             Security.Roles = RepositoryFactory.Get<IRoleRepository>().Roles;
@@ -34,7 +38,8 @@ namespace PWAS_Site
             if (Security.Users.Any(u => u.email.Equals(email)))
             {
                 User user = Security.Users.Single(u => u.email.Equals(email));
-                if (user.password.Equals(MD5Encode(password)))
+
+                if (MD5Encode(password).Equals(user.password.Trim()))
                 {
                     return user.userID;
                 }
@@ -75,7 +80,7 @@ namespace PWAS_Site
             }
         }
 
-        private static string MD5Encode(string input)
+        internal static string MD5Encode(string input)
         {
             //Declarations
             byte[] originalBytes;
