@@ -66,15 +66,15 @@ namespace PWAS_Site
             }
 
             User newUser = new User();
-            newUser.email = txtEmailAddress.Text;
-            newUser.password = txtPassword.Text;
-            newUser.firstName = txtFirstName.Text;
-            newUser.lastName = txtLastName.Text;
-            newUser.homePhone = txtPhoneNumber.Text;
-            newUser.b_address1 = txtBillAddressLine1.Text;
-            newUser.b_city = txtBillCity.Text;
-            newUser.b_state = txtBillState.Text;
-            newUser.b_zip = txtBillZipCode.Text;
+            newUser.email = txtEmailAddress.Text.Trim();
+            newUser.password = Security.MD5Encode(txtPassword.Text.Trim());
+            newUser.firstName = txtFirstName.Text.Trim();
+            newUser.lastName = txtLastName.Text.Trim();
+            newUser.homePhone = txtPhoneNumber.Text.Trim();
+            newUser.b_address1 = txtBillAddressLine1.Text.Trim();
+            newUser.b_city = txtBillCity.Text.Trim();
+            newUser.b_state = txtBillState.Text.Trim();
+            newUser.b_zip = txtBillZipCode.Text.Trim();
 
             userRepo.AddUser(newUser);
             userRepo.SubmitChanges();
