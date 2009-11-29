@@ -76,7 +76,7 @@ namespace PWAS_Site
             }
         }
 
-        internal static void SetControlVisibility(int roleId, ref ControlCollection controls)
+        internal static void SetControlVisibility(int roleId, ControlCollection controls)
         {
             foreach (Control control in controls)
             {
