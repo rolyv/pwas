@@ -188,7 +188,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="lblShipAddressLine2" runat="server" Text="Adress Line 2:"></asp:Label>
+                                    <asp:Label ID="lblShipAddressLine2" runat="server" Text="Address Line 2:"></asp:Label>
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="txtShipAddressLine2" runat="server"></asp:TextBox>
