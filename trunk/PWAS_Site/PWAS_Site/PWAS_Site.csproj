@@ -126,6 +126,7 @@
     <Content Include="images\read-more.gif" />
     <Content Include="index.aspx" />
     <Content Include="index2.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="pre-PressView_Create_Run.aspx" />
     <Content Include="pre-PressView_Home.aspx" />
     <Content Include="privacy.aspx" />
@@ -165,6 +166,9 @@
       <DependentUpon>customerView_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="customerView_Home.aspx.designer.cs">
+      <DependentUpon>customerView_Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="customerView_View_Orders.aspx.cs">
       <DependentUpon>customerView_View_Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,6 +192,13 @@
     <Compile Include="index2.aspx.cs">
       <DependentUpon>index2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pre-PressView_Create_Run.aspx.cs">
       <DependentUpon>pre-PressView_Create_Run.aspx</DependentUpon>
