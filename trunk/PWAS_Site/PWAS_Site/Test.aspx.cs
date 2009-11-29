@@ -54,7 +54,7 @@ namespace PWAS_Site
             //userRepo.AddUser(newUser);
             //userRepo.SubmitChanges();
             int roleId = 1;// (int)Session[Constants.PWAS_SESSION_ID];
-            Security.SetControlVisibility(roleId, ref this.Controls);
+            Security.SetControlVisibility(roleId, this.Controls);
         }
     }
 }
