@@ -59,7 +59,7 @@
 <img src="images/ic-1.gif" alt="" class="img-box" />
 New <br>
 User?<br />
-<a href="#">Register here</a></div>
+<a href="Register.aspx">Register here</a></div>
 
 <div class="gray-box">
 <img src="images/ic-2.gif" alt="" class="img-box" />
