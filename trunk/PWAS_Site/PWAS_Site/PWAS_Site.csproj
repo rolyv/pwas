@@ -67,7 +67,7 @@
     <Content Include="contact-us.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Customer View_Create_Order.aspx" />
-    <Content Include="customerView_Edit_Profile.aspx" />
+    <Content Include="customerView_EditProfile.aspx" />
     <Content Include="customerView_Home.aspx" />
     <Content Include="customerView_View_Orders.aspx" />
     <Content Include="Employee_Finish_view.aspx" />
@@ -154,9 +154,12 @@
       <DependentUpon>Customer View_Create_Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="customerView_Edit_Profile.aspx.cs">
-      <DependentUpon>customerView_Edit_Profile.aspx</DependentUpon>
+    <Compile Include="customerView_EditProfile.aspx.cs">
+      <DependentUpon>customerView_EditProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerView_EditProfile.aspx.designer.cs">
+      <DependentUpon>customerView_EditProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="customerView_Home.aspx.cs">
       <DependentUpon>customerView_Home.aspx</DependentUpon>
