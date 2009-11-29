@@ -1,16 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customerView_EditProfile.aspx.cs" Inherits="PWAS_Site.customerView_EditProfile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customerView_EditProfile.aspx.cs"
+    Inherits="PWAS_Site.customerView_EditProfile" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 
     <script language="javascript" type="text/javascript" src="XYZ.js"></script>
+
+    <style type="text/css">
+        .style1
+        {
+            width: 185px;
+        }
+    </style>
+
 </head>
 <body>
-<div id="header">
+    <div id="header">
         <div class="top-head">
             <div class="logo">
                 Printing at the Speed of Life.</div>
@@ -81,7 +89,7 @@
         <div class="right-body">
             <h1>
                 Edit Profile</h1>
-    <form id="EditProfile" runat="server">
+            <form id="EditProfile" runat="server">
             <table width="600">
                 <tr>
                     <td>
@@ -95,49 +103,53 @@
                         </asp:Table>
                     </td>
                 </tr>
+            </table>
+            <table width="600">
                 <tr>
                     <td>
                         <h3>
                             Login Information</h3>
                         <table id="tableLoginInformation">
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmailAddress" runat="server" Width="225px"></asp:TextBox>
                                 </td>
                                 <td>
                                     <img src="images/red_asterisk.png" alt="required" />
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblNewPassword" runat="server" Text="New Password:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtNewPassword" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtNewPassword" runat="server" Width="225px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblNewPasswordConfirm" runat="server" Text="Confirm New Password:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtNewPasswordConfirm" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtNewPasswordConfirm" runat="server" Width="225px"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnEditLoginInfo" runat="server" Text="Submit" Style="float:left;
+                                        margin:10px 0 0 48px;" OnClick="btnEditLoginInfo_Click" />
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                 <tr>
-                    <td>
-                        <asp:Button ID="btnEditLoginInfo" runat="server" Text="Submit" Style="float: right; margin-top: 10px;"
-                            OnClick="btnEditLoginInfo_Click" />
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+            </table>
+            <table width="600">
                 <tr>
                     <td>
                         <h3>
@@ -344,8 +356,8 @@
                 </tr>
                 <tr>
                     <td>
-                    <asp:Button ID="btnEditOtherInfo" runat="server" Text="Submit" Style="float: right; margin-top: 10px;"
-                            OnClick="btnEditOtherInfo_Click" />
+                        <asp:Button ID="btnEditOtherInfo" runat="server" Text="Submit" Style="float: right;
+                            margin-top: 10px;" OnClick="btnEditOtherInfo_Click" />
                     </td>
                     <td>
                     </td>
@@ -354,7 +366,7 @@
             </table>
             <br />
             </form>
-             <br />
+            <br />
             <img src="images/br-body.gif" alt="" />
         </div>
         <div class="clear">
