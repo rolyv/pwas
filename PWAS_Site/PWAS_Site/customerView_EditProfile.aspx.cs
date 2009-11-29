@@ -22,7 +22,7 @@ namespace PWAS_Site
             lblErrorMessage.Visible = false;
             lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "red");
 
-            userId = Int32.Parse(Session["PWAS_ID"].ToString());
+            userId = (int)Session[Security.PWAS_SESSION_ID];
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             user = userRepo.GetById(userId);
@@ -82,7 +82,7 @@ namespace PWAS_Site
                 return;
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User newUser = userRepo.GetById(Int32.Parse(Session["PWAS_ID"].ToString()));
+            User newUser = userRepo.GetById((int)Session[Security.PWAS_SESSION_ID]);
 
             //If username is changed
             if (!user.email.Equals(txtEmailAddress.Text))
@@ -135,7 +135,7 @@ namespace PWAS_Site
             }
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User newUser = userRepo.GetById(Int32.Parse(Session["PWAS_ID"].ToString()));
+            User newUser = userRepo.GetById((int)Session[Security.PWAS_SESSION_ID]);
 
             newUser.firstName = txtFirstName.Text;
             newUser.lastName = txtLastName.Text;
@@ -159,6 +159,9 @@ namespace PWAS_Site
             newUser.s_city = txtShipCity.Text;
             newUser.s_state = txtShipState.Text;
             newUser.s_zip = txtShipZipCode.Text;
+
+            userRepo.UpdateUserInfo(newUser);
+            userRepo.SubmitChanges();
 
             lblErrorMessage.Text = "Request Completed";
             lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "green");

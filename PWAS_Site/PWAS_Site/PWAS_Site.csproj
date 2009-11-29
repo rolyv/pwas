@@ -73,6 +73,7 @@
     <Content Include="Employee_Finish_view.aspx" />
     <Content Include="Employee_Print_view.aspx" />
     <Content Include="Employee_Ship_view.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="images\arrow-list.gif" />
     <Content Include="images\arrow.png" />
     <Content Include="images\bg-strip.gif" />
@@ -184,6 +185,13 @@
     <Compile Include="Employee_Ship_view.aspx.cs">
       <DependentUpon>Employee_Ship_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
