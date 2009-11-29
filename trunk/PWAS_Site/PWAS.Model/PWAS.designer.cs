@@ -39,12 +39,12 @@ namespace PWAS.Model
     partial void InsertRolePermission(RolePermission instance);
     partial void UpdateRolePermission(RolePermission instance);
     partial void DeleteRolePermission(RolePermission instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertOrder(Order instance);
     partial void UpdateOrder(Order instance);
     partial void DeleteOrder(Order instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public PWASDataContext() : 
@@ -101,19 +101,19 @@ namespace PWAS.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Order> Orders
 		{
 			get
 			{
 				return this.GetTable<Order>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -741,641 +741,6 @@ namespace PWAS.Model
 		}
 	}
 	
-	[Table(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _userID;
-		
-		private string _firstName;
-		
-		private string _lastName;
-		
-		private string _company;
-		
-		private string _email;
-		
-		private string _homePhone;
-		
-		private string _otherPhone;
-		
-		private string _s_address1;
-		
-		private string _s_address2;
-		
-		private string _s_city;
-		
-		private string _s_state;
-		
-		private string _s_zip;
-		
-		private string _cc_num;
-		
-		private string _cc_type;
-		
-		private string _exp_date;
-		
-		private string _b_address1;
-		
-		private string _b_address2;
-		
-		private string _b_city;
-		
-		private string _b_state;
-		
-		private string _b_zip;
-		
-		private System.Nullable<int> _roleID;
-		
-		private string _password;
-		
-		private EntitySet<Order> _Orders;
-		
-		private EntityRef<Role> _Role;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnuserIDChanging(int value);
-    partial void OnuserIDChanged();
-    partial void OnfirstNameChanging(string value);
-    partial void OnfirstNameChanged();
-    partial void OnlastNameChanging(string value);
-    partial void OnlastNameChanged();
-    partial void OncompanyChanging(string value);
-    partial void OncompanyChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnhomePhoneChanging(string value);
-    partial void OnhomePhoneChanged();
-    partial void OnotherPhoneChanging(string value);
-    partial void OnotherPhoneChanged();
-    partial void Ons_address1Changing(string value);
-    partial void Ons_address1Changed();
-    partial void Ons_address2Changing(string value);
-    partial void Ons_address2Changed();
-    partial void Ons_cityChanging(string value);
-    partial void Ons_cityChanged();
-    partial void Ons_stateChanging(string value);
-    partial void Ons_stateChanged();
-    partial void Ons_zipChanging(string value);
-    partial void Ons_zipChanged();
-    partial void Oncc_numChanging(string value);
-    partial void Oncc_numChanged();
-    partial void Oncc_typeChanging(string value);
-    partial void Oncc_typeChanged();
-    partial void Onexp_dateChanging(string value);
-    partial void Onexp_dateChanged();
-    partial void Onb_address1Changing(string value);
-    partial void Onb_address1Changed();
-    partial void Onb_address2Changing(string value);
-    partial void Onb_address2Changed();
-    partial void Onb_cityChanging(string value);
-    partial void Onb_cityChanged();
-    partial void Onb_stateChanging(string value);
-    partial void Onb_stateChanged();
-    partial void Onb_zipChanging(string value);
-    partial void Onb_zipChanged();
-    partial void OnroleIDChanging(System.Nullable<int> value);
-    partial void OnroleIDChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    #endregion
-		
-		public User()
-		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			this._Role = default(EntityRef<Role>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_userID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int userID
-		{
-			get
-			{
-				return this._userID;
-			}
-			set
-			{
-				if ((this._userID != value))
-				{
-					this.OnuserIDChanging(value);
-					this.SendPropertyChanging();
-					this._userID = value;
-					this.SendPropertyChanged("userID");
-					this.OnuserIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_firstName", DbType="NChar(25) NOT NULL", CanBeNull=false)]
-		public string firstName
-		{
-			get
-			{
-				return this._firstName;
-			}
-			set
-			{
-				if ((this._firstName != value))
-				{
-					this.OnfirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._firstName = value;
-					this.SendPropertyChanged("firstName");
-					this.OnfirstNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_lastName", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string lastName
-		{
-			get
-			{
-				return this._lastName;
-			}
-			set
-			{
-				if ((this._lastName != value))
-				{
-					this.OnlastNameChanging(value);
-					this.SendPropertyChanging();
-					this._lastName = value;
-					this.SendPropertyChanged("lastName");
-					this.OnlastNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_company", DbType="NChar(20)")]
-		public string company
-		{
-			get
-			{
-				return this._company;
-			}
-			set
-			{
-				if ((this._company != value))
-				{
-					this.OncompanyChanging(value);
-					this.SendPropertyChanging();
-					this._company = value;
-					this.SendPropertyChanged("company");
-					this.OncompanyChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_email", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_homePhone", DbType="NChar(12) NOT NULL", CanBeNull=false)]
-		public string homePhone
-		{
-			get
-			{
-				return this._homePhone;
-			}
-			set
-			{
-				if ((this._homePhone != value))
-				{
-					this.OnhomePhoneChanging(value);
-					this.SendPropertyChanging();
-					this._homePhone = value;
-					this.SendPropertyChanged("homePhone");
-					this.OnhomePhoneChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_otherPhone", DbType="NChar(12)")]
-		public string otherPhone
-		{
-			get
-			{
-				return this._otherPhone;
-			}
-			set
-			{
-				if ((this._otherPhone != value))
-				{
-					this.OnotherPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._otherPhone = value;
-					this.SendPropertyChanged("otherPhone");
-					this.OnotherPhoneChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_s_address1", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string s_address1
-		{
-			get
-			{
-				return this._s_address1;
-			}
-			set
-			{
-				if ((this._s_address1 != value))
-				{
-					this.Ons_address1Changing(value);
-					this.SendPropertyChanging();
-					this._s_address1 = value;
-					this.SendPropertyChanged("s_address1");
-					this.Ons_address1Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_s_address2", DbType="NChar(50)")]
-		public string s_address2
-		{
-			get
-			{
-				return this._s_address2;
-			}
-			set
-			{
-				if ((this._s_address2 != value))
-				{
-					this.Ons_address2Changing(value);
-					this.SendPropertyChanging();
-					this._s_address2 = value;
-					this.SendPropertyChanged("s_address2");
-					this.Ons_address2Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_s_city", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string s_city
-		{
-			get
-			{
-				return this._s_city;
-			}
-			set
-			{
-				if ((this._s_city != value))
-				{
-					this.Ons_cityChanging(value);
-					this.SendPropertyChanging();
-					this._s_city = value;
-					this.SendPropertyChanged("s_city");
-					this.Ons_cityChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_s_state", DbType="NChar(2) NOT NULL", CanBeNull=false)]
-		public string s_state
-		{
-			get
-			{
-				return this._s_state;
-			}
-			set
-			{
-				if ((this._s_state != value))
-				{
-					this.Ons_stateChanging(value);
-					this.SendPropertyChanging();
-					this._s_state = value;
-					this.SendPropertyChanged("s_state");
-					this.Ons_stateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_s_zip", DbType="NChar(5) NOT NULL", CanBeNull=false)]
-		public string s_zip
-		{
-			get
-			{
-				return this._s_zip;
-			}
-			set
-			{
-				if ((this._s_zip != value))
-				{
-					this.Ons_zipChanging(value);
-					this.SendPropertyChanging();
-					this._s_zip = value;
-					this.SendPropertyChanged("s_zip");
-					this.Ons_zipChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_cc_num", DbType="NChar(20)")]
-		public string cc_num
-		{
-			get
-			{
-				return this._cc_num;
-			}
-			set
-			{
-				if ((this._cc_num != value))
-				{
-					this.Oncc_numChanging(value);
-					this.SendPropertyChanging();
-					this._cc_num = value;
-					this.SendPropertyChanged("cc_num");
-					this.Oncc_numChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_cc_type", DbType="NChar(2)")]
-		public string cc_type
-		{
-			get
-			{
-				return this._cc_type;
-			}
-			set
-			{
-				if ((this._cc_type != value))
-				{
-					this.Oncc_typeChanging(value);
-					this.SendPropertyChanging();
-					this._cc_type = value;
-					this.SendPropertyChanged("cc_type");
-					this.Oncc_typeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_exp_date", DbType="NChar(6)")]
-		public string exp_date
-		{
-			get
-			{
-				return this._exp_date;
-			}
-			set
-			{
-				if ((this._exp_date != value))
-				{
-					this.Onexp_dateChanging(value);
-					this.SendPropertyChanging();
-					this._exp_date = value;
-					this.SendPropertyChanged("exp_date");
-					this.Onexp_dateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_b_address1", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string b_address1
-		{
-			get
-			{
-				return this._b_address1;
-			}
-			set
-			{
-				if ((this._b_address1 != value))
-				{
-					this.Onb_address1Changing(value);
-					this.SendPropertyChanging();
-					this._b_address1 = value;
-					this.SendPropertyChanged("b_address1");
-					this.Onb_address1Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_b_address2", DbType="NChar(50)")]
-		public string b_address2
-		{
-			get
-			{
-				return this._b_address2;
-			}
-			set
-			{
-				if ((this._b_address2 != value))
-				{
-					this.Onb_address2Changing(value);
-					this.SendPropertyChanging();
-					this._b_address2 = value;
-					this.SendPropertyChanged("b_address2");
-					this.Onb_address2Changed();
-				}
-			}
-		}
-		
-		[Column(Storage="_b_city", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string b_city
-		{
-			get
-			{
-				return this._b_city;
-			}
-			set
-			{
-				if ((this._b_city != value))
-				{
-					this.Onb_cityChanging(value);
-					this.SendPropertyChanging();
-					this._b_city = value;
-					this.SendPropertyChanged("b_city");
-					this.Onb_cityChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_b_state", DbType="NChar(2) NOT NULL", CanBeNull=false)]
-		public string b_state
-		{
-			get
-			{
-				return this._b_state;
-			}
-			set
-			{
-				if ((this._b_state != value))
-				{
-					this.Onb_stateChanging(value);
-					this.SendPropertyChanging();
-					this._b_state = value;
-					this.SendPropertyChanged("b_state");
-					this.Onb_stateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_b_zip", DbType="NChar(5) NOT NULL", CanBeNull=false)]
-		public string b_zip
-		{
-			get
-			{
-				return this._b_zip;
-			}
-			set
-			{
-				if ((this._b_zip != value))
-				{
-					this.Onb_zipChanging(value);
-					this.SendPropertyChanging();
-					this._b_zip = value;
-					this.SendPropertyChanged("b_zip");
-					this.Onb_zipChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_roleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL")]
-		public System.Nullable<int> roleID
-		{
-			get
-			{
-				return this._roleID;
-			}
-			set
-			{
-				if ((this._roleID != value))
-				{
-					if (this._Role.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnroleIDChanging(value);
-					this.SendPropertyChanging();
-					this._roleID = value;
-					this.SendPropertyChanged("roleID");
-					this.OnroleIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_password", DbType="NChar(50)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[Association(Name="User_Order", Storage="_Orders", OtherKey="userID")]
-		public EntitySet<Order> Orders
-		{
-			get
-			{
-				return this._Orders;
-			}
-			set
-			{
-				this._Orders.Assign(value);
-			}
-		}
-		
-		[Association(Name="Role_User", Storage="_Role", ThisKey="roleID", IsForeignKey=true)]
-		public Role Role
-		{
-			get
-			{
-				return this._Role.Entity;
-			}
-			set
-			{
-				Role previousValue = this._Role.Entity;
-				if (((previousValue != value) 
-							|| (this._Role.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Role.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._Role.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._roleID = value.roleID;
-					}
-					else
-					{
-						this._roleID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Role");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-	}
-	
 	[Table(Name="dbo.[Order]")]
 	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1781,6 +1146,689 @@ namespace PWAS.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[Table(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _userID;
+		
+		private string _firstName;
+		
+		private string _lastName;
+		
+		private string _company;
+		
+		private string _email;
+		
+		private string _homePhone;
+		
+		private string _otherPhone;
+		
+		private string _s_address1;
+		
+		private string _s_address2;
+		
+		private string _s_city;
+		
+		private string _s_state;
+		
+		private string _s_zip;
+		
+		private string _cc_num;
+		
+		private string _cc_type;
+		
+		private string _exp_date;
+		
+		private string _cc_scode;
+		
+		private string _cc_nameOnCard;
+		
+		private string _b_address1;
+		
+		private string _b_address2;
+		
+		private string _b_city;
+		
+		private string _b_state;
+		
+		private string _b_zip;
+		
+		private System.Nullable<int> _roleID;
+		
+		private string _password;
+		
+		private EntitySet<Order> _Orders;
+		
+		private EntityRef<Role> _Role;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnuserIDChanging(int value);
+    partial void OnuserIDChanged();
+    partial void OnfirstNameChanging(string value);
+    partial void OnfirstNameChanged();
+    partial void OnlastNameChanging(string value);
+    partial void OnlastNameChanged();
+    partial void OncompanyChanging(string value);
+    partial void OncompanyChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnhomePhoneChanging(string value);
+    partial void OnhomePhoneChanged();
+    partial void OnotherPhoneChanging(string value);
+    partial void OnotherPhoneChanged();
+    partial void Ons_address1Changing(string value);
+    partial void Ons_address1Changed();
+    partial void Ons_address2Changing(string value);
+    partial void Ons_address2Changed();
+    partial void Ons_cityChanging(string value);
+    partial void Ons_cityChanged();
+    partial void Ons_stateChanging(string value);
+    partial void Ons_stateChanged();
+    partial void Ons_zipChanging(string value);
+    partial void Ons_zipChanged();
+    partial void Oncc_numChanging(string value);
+    partial void Oncc_numChanged();
+    partial void Oncc_typeChanging(string value);
+    partial void Oncc_typeChanged();
+    partial void Onexp_dateChanging(string value);
+    partial void Onexp_dateChanged();
+    partial void Oncc_scodeChanging(string value);
+    partial void Oncc_scodeChanged();
+    partial void Oncc_nameOnCardChanging(string value);
+    partial void Oncc_nameOnCardChanged();
+    partial void Onb_address1Changing(string value);
+    partial void Onb_address1Changed();
+    partial void Onb_address2Changing(string value);
+    partial void Onb_address2Changed();
+    partial void Onb_cityChanging(string value);
+    partial void Onb_cityChanged();
+    partial void Onb_stateChanging(string value);
+    partial void Onb_stateChanged();
+    partial void Onb_zipChanging(string value);
+    partial void Onb_zipChanged();
+    partial void OnroleIDChanging(System.Nullable<int> value);
+    partial void OnroleIDChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    #endregion
+		
+		public User()
+		{
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Role = default(EntityRef<Role>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_userID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int userID
+		{
+			get
+			{
+				return this._userID;
+			}
+			set
+			{
+				if ((this._userID != value))
+				{
+					this.OnuserIDChanging(value);
+					this.SendPropertyChanging();
+					this._userID = value;
+					this.SendPropertyChanged("userID");
+					this.OnuserIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_firstName", DbType="NChar(25) NOT NULL", CanBeNull=false)]
+		public string firstName
+		{
+			get
+			{
+				return this._firstName;
+			}
+			set
+			{
+				if ((this._firstName != value))
+				{
+					this.OnfirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._firstName = value;
+					this.SendPropertyChanged("firstName");
+					this.OnfirstNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_lastName", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string lastName
+		{
+			get
+			{
+				return this._lastName;
+			}
+			set
+			{
+				if ((this._lastName != value))
+				{
+					this.OnlastNameChanging(value);
+					this.SendPropertyChanging();
+					this._lastName = value;
+					this.SendPropertyChanged("lastName");
+					this.OnlastNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_company", DbType="NChar(20)")]
+		public string company
+		{
+			get
+			{
+				return this._company;
+			}
+			set
+			{
+				if ((this._company != value))
+				{
+					this.OncompanyChanging(value);
+					this.SendPropertyChanging();
+					this._company = value;
+					this.SendPropertyChanged("company");
+					this.OncompanyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_email", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_homePhone", DbType="NChar(12) NOT NULL", CanBeNull=false)]
+		public string homePhone
+		{
+			get
+			{
+				return this._homePhone;
+			}
+			set
+			{
+				if ((this._homePhone != value))
+				{
+					this.OnhomePhoneChanging(value);
+					this.SendPropertyChanging();
+					this._homePhone = value;
+					this.SendPropertyChanged("homePhone");
+					this.OnhomePhoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_otherPhone", DbType="NChar(12)")]
+		public string otherPhone
+		{
+			get
+			{
+				return this._otherPhone;
+			}
+			set
+			{
+				if ((this._otherPhone != value))
+				{
+					this.OnotherPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._otherPhone = value;
+					this.SendPropertyChanged("otherPhone");
+					this.OnotherPhoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_s_address1", DbType="NChar(50)")]
+		public string s_address1
+		{
+			get
+			{
+				return this._s_address1;
+			}
+			set
+			{
+				if ((this._s_address1 != value))
+				{
+					this.Ons_address1Changing(value);
+					this.SendPropertyChanging();
+					this._s_address1 = value;
+					this.SendPropertyChanged("s_address1");
+					this.Ons_address1Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_s_address2", DbType="NChar(50)")]
+		public string s_address2
+		{
+			get
+			{
+				return this._s_address2;
+			}
+			set
+			{
+				if ((this._s_address2 != value))
+				{
+					this.Ons_address2Changing(value);
+					this.SendPropertyChanging();
+					this._s_address2 = value;
+					this.SendPropertyChanged("s_address2");
+					this.Ons_address2Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_s_city", DbType="NChar(30)")]
+		public string s_city
+		{
+			get
+			{
+				return this._s_city;
+			}
+			set
+			{
+				if ((this._s_city != value))
+				{
+					this.Ons_cityChanging(value);
+					this.SendPropertyChanging();
+					this._s_city = value;
+					this.SendPropertyChanged("s_city");
+					this.Ons_cityChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_s_state", DbType="NChar(2)")]
+		public string s_state
+		{
+			get
+			{
+				return this._s_state;
+			}
+			set
+			{
+				if ((this._s_state != value))
+				{
+					this.Ons_stateChanging(value);
+					this.SendPropertyChanging();
+					this._s_state = value;
+					this.SendPropertyChanged("s_state");
+					this.Ons_stateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_s_zip", DbType="NChar(5)")]
+		public string s_zip
+		{
+			get
+			{
+				return this._s_zip;
+			}
+			set
+			{
+				if ((this._s_zip != value))
+				{
+					this.Ons_zipChanging(value);
+					this.SendPropertyChanging();
+					this._s_zip = value;
+					this.SendPropertyChanged("s_zip");
+					this.Ons_zipChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_cc_num", DbType="NChar(20)")]
+		public string cc_num
+		{
+			get
+			{
+				return this._cc_num;
+			}
+			set
+			{
+				if ((this._cc_num != value))
+				{
+					this.Oncc_numChanging(value);
+					this.SendPropertyChanging();
+					this._cc_num = value;
+					this.SendPropertyChanged("cc_num");
+					this.Oncc_numChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_cc_type", DbType="NChar(2)")]
+		public string cc_type
+		{
+			get
+			{
+				return this._cc_type;
+			}
+			set
+			{
+				if ((this._cc_type != value))
+				{
+					this.Oncc_typeChanging(value);
+					this.SendPropertyChanging();
+					this._cc_type = value;
+					this.SendPropertyChanged("cc_type");
+					this.Oncc_typeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_exp_date", DbType="NChar(6)")]
+		public string exp_date
+		{
+			get
+			{
+				return this._exp_date;
+			}
+			set
+			{
+				if ((this._exp_date != value))
+				{
+					this.Onexp_dateChanging(value);
+					this.SendPropertyChanging();
+					this._exp_date = value;
+					this.SendPropertyChanged("exp_date");
+					this.Onexp_dateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_cc_scode", DbType="NChar(5)")]
+		public string cc_scode
+		{
+			get
+			{
+				return this._cc_scode;
+			}
+			set
+			{
+				if ((this._cc_scode != value))
+				{
+					this.Oncc_scodeChanging(value);
+					this.SendPropertyChanging();
+					this._cc_scode = value;
+					this.SendPropertyChanged("cc_scode");
+					this.Oncc_scodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_cc_nameOnCard", DbType="NChar(100)")]
+		public string cc_nameOnCard
+		{
+			get
+			{
+				return this._cc_nameOnCard;
+			}
+			set
+			{
+				if ((this._cc_nameOnCard != value))
+				{
+					this.Oncc_nameOnCardChanging(value);
+					this.SendPropertyChanging();
+					this._cc_nameOnCard = value;
+					this.SendPropertyChanged("cc_nameOnCard");
+					this.Oncc_nameOnCardChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_b_address1", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		public string b_address1
+		{
+			get
+			{
+				return this._b_address1;
+			}
+			set
+			{
+				if ((this._b_address1 != value))
+				{
+					this.Onb_address1Changing(value);
+					this.SendPropertyChanging();
+					this._b_address1 = value;
+					this.SendPropertyChanged("b_address1");
+					this.Onb_address1Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_b_address2", DbType="NChar(50)")]
+		public string b_address2
+		{
+			get
+			{
+				return this._b_address2;
+			}
+			set
+			{
+				if ((this._b_address2 != value))
+				{
+					this.Onb_address2Changing(value);
+					this.SendPropertyChanging();
+					this._b_address2 = value;
+					this.SendPropertyChanged("b_address2");
+					this.Onb_address2Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_b_city", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string b_city
+		{
+			get
+			{
+				return this._b_city;
+			}
+			set
+			{
+				if ((this._b_city != value))
+				{
+					this.Onb_cityChanging(value);
+					this.SendPropertyChanging();
+					this._b_city = value;
+					this.SendPropertyChanged("b_city");
+					this.Onb_cityChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_b_state", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string b_state
+		{
+			get
+			{
+				return this._b_state;
+			}
+			set
+			{
+				if ((this._b_state != value))
+				{
+					this.Onb_stateChanging(value);
+					this.SendPropertyChanging();
+					this._b_state = value;
+					this.SendPropertyChanged("b_state");
+					this.Onb_stateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_b_zip", DbType="NChar(5) NOT NULL", CanBeNull=false)]
+		public string b_zip
+		{
+			get
+			{
+				return this._b_zip;
+			}
+			set
+			{
+				if ((this._b_zip != value))
+				{
+					this.Onb_zipChanging(value);
+					this.SendPropertyChanging();
+					this._b_zip = value;
+					this.SendPropertyChanged("b_zip");
+					this.Onb_zipChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_roleID", DbType="Int NOT NULL")]
+		public System.Nullable<int> roleID
+		{
+			get
+			{
+				return this._roleID;
+			}
+			set
+			{
+				if ((this._roleID != value))
+				{
+					if (this._Role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnroleIDChanging(value);
+					this.SendPropertyChanging();
+					this._roleID = value;
+					this.SendPropertyChanged("roleID");
+					this.OnroleIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_password", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[Association(Name="User_Order", Storage="_Orders", OtherKey="userID")]
+		public EntitySet<Order> Orders
+		{
+			get
+			{
+				return this._Orders;
+			}
+			set
+			{
+				this._Orders.Assign(value);
+			}
+		}
+		
+		[Association(Name="Role_User", Storage="_Role", ThisKey="roleID", IsForeignKey=true)]
+		public Role Role
+		{
+			get
+			{
+				return this._Role.Entity;
+			}
+			set
+			{
+				Role previousValue = this._Role.Entity;
+				if (((previousValue != value) 
+							|| (this._Role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Role.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._Role.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._roleID = value.roleID;
+					}
+					else
+					{
+						this._roleID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Role");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }

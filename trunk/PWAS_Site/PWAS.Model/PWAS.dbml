@@ -33,34 +33,6 @@
       <Association Name="Role_RolePermission" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="firstName" Type="System.String" DbType="NChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="lastName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="company" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="homePhone" Type="System.String" DbType="NChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="otherPhone" Type="System.String" DbType="NChar(12)" CanBeNull="true" />
-      <Column Name="s_address1" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="s_address2" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="s_city" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="s_state" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="s_zip" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="cc_num" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-      <Column Name="cc_type" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
-      <Column Name="exp_date" Type="System.String" DbType="NChar(6)" CanBeNull="true" />
-      <Column Name="b_address1" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="b_address2" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="b_city" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="b_state" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="b_zip" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="roleID" AutoSync="OnInsert" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
-      <Column Name="password" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
-      <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="orderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -77,6 +49,36 @@
       <Column Name="ship" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
       <Association Name="User_Order" Member="User" ThisKey="userID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="NChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="lastName" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="company" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="homePhone" Type="System.String" DbType="NChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="otherPhone" Type="System.String" DbType="NChar(12)" CanBeNull="true" />
+      <Column Name="s_address1" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="s_address2" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="s_city" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s_state" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="s_zip" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Column Name="cc_num" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="cc_type" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="exp_date" Type="System.String" DbType="NChar(6)" CanBeNull="true" />
+      <Column Name="cc_scode" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Column Name="cc_nameOnCard" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="b_address1" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="b_address2" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="b_city" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="b_state" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="b_zip" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
+      <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -27,19 +27,6 @@
         <classShapeMoniker Id="7e554ce6-6c88-435d-b20c-2c13732de3e8" />
       </nodes>
     </associationConnector>
-    <classShape Id="380a2ad7-4381-4359-bd9f-2c38f40eba26" absoluteBounds="3.25, 2.375, 2, 4.3830997721354166">
-      <DataClassMoniker Name="/PWASDataContext/User" />
-      <nestedChildShapes>
-        <elementListCompartment Id="00e939cd-a37b-46d9-9745-229e729aba59" absoluteBounds="3.265, 2.835, 1.9700000000000002, 3.823099772135417" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(6.375 : 4.38025024414063); (5.25 : 4.38025024414063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/PWASDataContext/Role/Role_User" />
-      <nodes>
-        <classShapeMoniker Id="6db8fbf0-8f26-4def-b4ff-c6674139914a" />
-        <classShapeMoniker Id="380a2ad7-4381-4359-bd9f-2c38f40eba26" />
-      </nodes>
-    </associationConnector>
     <classShape Id="e26b6bff-60d3-4e83-943d-56b821606e9b" absoluteBounds="0.625, 3.375, 2, 2.73962646484375">
       <DataClassMoniker Name="/PWASDataContext/Order" />
       <nestedChildShapes>
@@ -53,11 +40,24 @@
         <classShapeMoniker Id="e26b6bff-60d3-4e83-943d-56b821606e9b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.25 : 4.74481323242188); (2.625 : 4.74481323242188)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <classShape Id="61715a13-92f3-4266-bcbd-e85e24153991" absoluteBounds="3.375, 2.125, 2, 4.71179443359375">
+      <DataClassMoniker Name="/PWASDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94a257fe-df77-42da-8efd-2873608ebb21" absoluteBounds="3.39, 2.585, 1.9700000000000002, 4.15179443359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 4.74481323242188); (2.625 : 4.74481323242188)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/User/User_Order" />
       <nodes>
-        <classShapeMoniker Id="380a2ad7-4381-4359-bd9f-2c38f40eba26" />
+        <classShapeMoniker Id="61715a13-92f3-4266-bcbd-e85e24153991" />
         <classShapeMoniker Id="e26b6bff-60d3-4e83-943d-56b821606e9b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 4.38025024414063); (5.375 : 4.38025024414063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PWASDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="6db8fbf0-8f26-4def-b4ff-c6674139914a" />
+        <classShapeMoniker Id="61715a13-92f3-4266-bcbd-e85e24153991" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
