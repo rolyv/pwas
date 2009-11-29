@@ -16,6 +16,7 @@ namespace PWAS_Site
         {
             tableErrorMessage.Visible = false;
             lblErrorMessage.Visible = false;
+            lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "red");
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace PWAS_Site
                 String.IsNullOrEmpty(txtBillState.Text) ||
                 String.IsNullOrEmpty(txtBillZipCode.Text))
             {
-                lblErrorMessage.Text = "Some fields are empty";
+                lblErrorMessage.Text = "Please enter required (*) information";
                 lblErrorMessage.Visible = true;
                 tableErrorMessage.Visible = true;
                 return;
