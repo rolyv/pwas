@@ -15,4 +15,15 @@ namespace PWAS.Model
             }
         }
     }
+
+    public partial class Order
+    {
+        partial void OnCreated()
+        {
+            if (this.currentStatus == null)
+            {
+                this.currentStatus = 1;
+            }
+        }
+    }
 }
