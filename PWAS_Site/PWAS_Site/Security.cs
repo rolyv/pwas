@@ -16,15 +16,11 @@ using System.Text;
 
 namespace PWAS_Site
 {
-    public static class Security
+    internal static class Security
     {
         private static IQueryable<Role> Roles { get; set; }
         private static IQueryable<RolePermission> RolePermissions { get; set; }
         private static IQueryable<User> Users { get; set; }
-
-        internal const string PWAS_SESSION_ID = "PWAS_ID";
-        internal const string PWAS_SESSION_NAME = "PWAS_NAME";
-
 
         static Security()
         {
@@ -33,7 +29,7 @@ namespace PWAS_Site
             Security.Users = RepositoryFactory.Get<IUserRepository>().Users;
         }
 
-        public static int Authenticate(string email, string password)
+        internal static int Authenticate(string email, string password)
         {
             if (Security.Users.Any(u => u.email.Equals(email)))
             {
@@ -54,14 +50,14 @@ namespace PWAS_Site
             }
         }
 
-        public static bool IsAuthorized(int roleId, PwasObject obj, PwasAction action, PwasScope scope)
+        internal static bool IsAuthorized(int roleId, PwasObject obj, PwasAction action, PwasScope scope)
         {
             PwasScope permissionScope = IsAuthorized(roleId, obj, action);
 
             return permissionScope >= scope;
         }
 
-        public static PwasScope IsAuthorized(int roleId, PwasObject obj, PwasAction action)
+        internal static PwasScope IsAuthorized(int roleId, PwasObject obj, PwasAction action)
         {
             RolePermission permission = Security.RolePermissions.Single(rp => rp.roleID == roleId && rp.@object == obj.StringValue());
 
@@ -77,6 +73,21 @@ namespace PWAS_Site
                     return (PwasScope)permission.obj_delete;
                 default:
                     return PwasScope.None;
+            }
+        }
+
+        internal static void SetControlVisibility(int roleId, ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                var temp = control as WebControl;
+                if (temp != null && temp.HasPwasAttributes())
+                {
+                    PwasObject obj = (PwasObject)Enum.Parse(typeof(PwasObject), temp.Attributes["pwasObj"], true);
+                    PwasAction action = (PwasAction)Enum.Parse(typeof(PwasAction), temp.Attributes["pwasAction"], true);
+                    PwasScope scope = (PwasScope)Enum.Parse(typeof(PwasScope), temp.Attributes["pwasScope"], true);
+                    control.Visible = Security.IsAuthorized(roleId, obj, action, scope);
+                }
             }
         }
 
@@ -97,7 +108,7 @@ namespace PWAS_Site
         }
     }
 
-    public enum PwasObject
+    internal enum PwasObject
     {
         User,
         Order,
@@ -106,7 +117,7 @@ namespace PWAS_Site
         RolePermission
     }
 
-    public enum PwasAction
+    internal enum PwasAction
     {
         View,
         Create,
@@ -114,20 +125,20 @@ namespace PWAS_Site
         Delete
     }
 
-    public enum PwasScope
+    internal enum PwasScope
     {
         None,
         Self,
         All
     }
 
-    public enum AuthenticationResult
+    internal enum AuthenticationResult
     {
         InvalidPassword = -1,
         UserDoesNotExist = -2
     }
 
-    public static class PwasEnumUtilities
+    internal static class PwasEnumUtilities
     {
          internal static string StringValue(this PwasObject obj)
          {
