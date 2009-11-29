@@ -9,6 +9,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using PWAS.Model;
+using PWAS.DataAccess.Interfaces;
+using System.Web.SessionState;
 
 namespace PWAS_Site
 {
@@ -27,6 +30,14 @@ namespace PWAS_Site
 
             return false;
         }
+
+        public static void doLogout(HttpSessionState s, HttpResponse r)
+        {
+            s.Remove(Constants.PWAS_SESSION_ID);
+            s.Remove(Constants.PWAS_SESSION_NAME);
+            r.Redirect("index.aspx");
+        }
+
     }
 
     public static class Constants
