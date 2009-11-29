@@ -137,28 +137,28 @@ namespace PWAS_Site
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             User newUser = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
 
-            newUser.firstName = txtFirstName.Text;
-            newUser.lastName = txtLastName.Text;
-            newUser.company = txtCompanyName.Text;
-            newUser.homePhone = txtPhoneNumber.Text;
+            newUser.firstName = txtFirstName.Text.Trim();
+            newUser.lastName = txtLastName.Text.Trim();
+            newUser.company = txtCompanyName.Text.Trim();
+            newUser.homePhone = txtPhoneNumber.Text.Trim();
 
-            newUser.cc_num = txtCreditCardNumber.Text;
+            newUser.cc_num = txtCreditCardNumber.Text.Trim();
             newUser.cc_type = ddCardType.SelectedValue;
-            newUser.exp_date = txtExpDate.Text;
-            newUser.cc_scode = txtSecurityCode.Text;
-            newUser.cc_nameOnCard = txtNameOnCard.Text;
+            newUser.exp_date = txtExpDate.Text.Trim();
+            newUser.cc_scode = txtSecurityCode.Text.Trim();
+            newUser.cc_nameOnCard = txtNameOnCard.Text.Trim();
 
-            newUser.b_address1 = txtBillAddressLine1.Text;
-            newUser.b_address2 = txtBillAddressLine2.Text;
-            newUser.b_city = txtBillCity.Text;
-            newUser.b_state = txtBillState.Text;
-            newUser.b_zip = txtBillZipCode.Text;
+            newUser.b_address1 = txtBillAddressLine1.Text.Trim();
+            newUser.b_address2 = txtBillAddressLine2.Text.Trim();
+            newUser.b_city = txtBillCity.Text.Trim();
+            newUser.b_state = txtBillState.Text.Trim();
+            newUser.b_zip = txtBillZipCode.Text.Trim();
 
-            newUser.s_address1 = txtShipAddressLine1.Text;
-            newUser.s_address2 = txtShipAddressLine2.Text;
-            newUser.s_city = txtShipCity.Text;
-            newUser.s_state = txtShipState.Text;
-            newUser.s_zip = txtShipZipCode.Text;
+            newUser.s_address1 = txtShipAddressLine1.Text.Trim();
+            newUser.s_address2 = txtShipAddressLine2.Text.Trim();
+            newUser.s_city = txtShipCity.Text.Trim();
+            newUser.s_state = txtShipState.Text.Trim();
+            newUser.s_zip = txtShipZipCode.Text.Trim();
 
             //userRepo.UpdateUserInfo(newUser);
             userRepo.SubmitChanges();
