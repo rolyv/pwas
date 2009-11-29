@@ -14,6 +14,14 @@
         {
             width: 185px;
         }
+        .style2
+        {
+            width: 93px;
+        }
+        .style4
+        {
+            width: 330px;
+        }
     </style>
 
 </head>
@@ -137,12 +145,14 @@
                                     <asp:TextBox ID="txtNewPasswordConfirm" runat="server" Width="225px"></asp:TextBox>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
+                        </table>
+                        <table width="600">
+                        <tr>
+                                <td class="style4">
+                                    <asp:Button ID="btnEditLoginInfo" runat="server" Text="Submit" Style="float: right;margin-top: 10px;"
+                                        OnClick="btnEditLoginInfo_Click" />
                                 </td>
                                 <td>
-                                    <asp:Button ID="btnEditLoginInfo" runat="server" Text="Submit" Style="float:left;
-                                        margin:10px 0 0 48px;" OnClick="btnEditLoginInfo_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -251,7 +261,7 @@
                             Billing Information</h3>
                         <table id="tableBillingInformation">
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style2">
                                     <asp:Label ID="lblCreditCardNumber" runat="server" Text="Credit Card #"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -259,7 +269,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style2">
                                     <asp:Label ID="lblCardType" runat="server" Text="Card Type"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -270,7 +280,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style2">
                                     <asp:Label ID="lblExpDate" runat="server" Text="Exp. Date"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -278,7 +288,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style2">
                                     <asp:Label ID="lblSecurityCode" runat="server" Text="Security Code"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -286,7 +296,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style2">
                                     <asp:Label ID="lblNameOnCard" runat="server" Text="Name on Card"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -354,8 +364,10 @@
                         </table>
                     </td>
                 </tr>
+            </table>
+            <table width="600">
                 <tr>
-                    <td>
+                    <td class="style4">
                         <asp:Button ID="btnEditOtherInfo" runat="server" Text="Submit" Style="float: right;
                             margin-top: 10px;" OnClick="btnEditOtherInfo_Click" />
                     </td>
