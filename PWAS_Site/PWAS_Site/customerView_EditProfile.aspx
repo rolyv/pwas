@@ -274,8 +274,10 @@
                                 </td>
                                 <td align="left">
                                     <asp:DropDownList ID="ddCardType" runat="server">
-                                        <asp:ListItem>AMEX</asp:ListItem>
-                                        <asp:ListItem>Visa</asp:ListItem>
+                                        <asp:ListItem Value="AX">AMEX</asp:ListItem>
+                                        <asp:ListItem Value="VI">Visa</asp:ListItem>
+                                        <asp:ListItem Value="MC">MasterCard</asp:ListItem>
+                                        <asp:ListItem Value="DV">Discover</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
