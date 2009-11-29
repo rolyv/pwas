@@ -58,22 +58,6 @@
                     <li class="last"><a href="#">Search.</a></li>
                 </ul>
             </div>
-            <div class="left-body-bt">
-                <h2>
-                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Company News!</h2>
-                <strong>Vestibulum sit amet nulla era</strong>
-                <ul>
-                    <li>20th May 2009</li>
-                </ul>
-                <p>
-                    <a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-                <img src="images/br-line.gif" alt="" />
-                <ul>
-                    <li>20th May 2009</li>
-                </ul>
-                <p>
-                    <a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-            </div>
         </div>
         <div class="right-body">
             <h1>
@@ -118,19 +102,22 @@
                         <td>
                         </td>
                         <td>
-                            &nbsp;</td>
+                            &nbsp;
+                        </td>
                         <td>
                             <asp:Button ID="loginSubmit" runat="server" Text="Login" OnClick="doLogin" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            &nbsp;</td>
+                            &nbsp;
+                        </td>
                         <td>
-                            &nbsp;</td>
+                            &nbsp;
+                        </td>
                         <td>
                             <asp:Label ID="messageLabel" runat="server" Text="" Visible="false"></asp:Label>
-                            </td>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -139,7 +126,6 @@
         <div class="clear">
         </div>
     </div>
-    
     <div id="footer-back">
         <div class="footer-right">
             <a href="index.aspx">Home</a> | <a href="about-us.aspx">About Us</a> | <a href="projects.aspx">
@@ -148,7 +134,5 @@
             <br />
             <span>&copy; Copyright XYZ Printing Co. All Right Reserved</span></div>
     </div>
-    
-    
 </body>
 </html>
