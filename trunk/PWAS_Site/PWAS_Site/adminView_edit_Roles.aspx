@@ -122,14 +122,14 @@ Customer Support<br />
         GridLines="None">
         <RowStyle BackColor="#EFF3FB" />
         <Columns>
-            <asp:BoundField DataField="userID" HeaderText="User ID" ReadOnly="True" 
+            <asp:BoundField DataField="userID" HeaderText="userID" ReadOnly="True" 
                 SortExpression="userID" />
-            <asp:BoundField DataField="firstName" HeaderText="First Name" 
+            <asp:BoundField DataField="firstName" HeaderText="firstName" 
                 SortExpression="firstName" />
-            <asp:BoundField DataField="lastName" HeaderText="Last Name" 
+            <asp:BoundField DataField="lastName" HeaderText="lastName" 
                 SortExpression="lastName" />
-            <asp:BoundField DataField="roleID" HeaderText="Role ID" 
-                SortExpression="roleID" />
+            <asp:BoundField DataField="role_name" HeaderText="role_name" 
+                SortExpression="role_name" />
         </Columns>
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
@@ -140,61 +140,9 @@ Customer Support<br />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:PWAS_DBConnectionString1 %>" 
-        DeleteCommand="DELETE FROM [User] WHERE [userID] = @userID" 
-        InsertCommand="INSERT INTO [User] ([firstName], [lastName], [company], [email], [homePhone], [otherPhone], [s_address1], [s_address2], [s_city], [s_state], [s_zip], [cc_num], [cc_type], [exp_date], [b_address1], [b_address2], [b_city], [b_state], [b_zip], [roleID], [password]) VALUES (@firstName, @lastName, @company, @email, @homePhone, @otherPhone, @s_address1, @s_address2, @s_city, @s_state, @s_zip, @cc_num, @cc_type, @exp_date, @b_address1, @b_address2, @b_city, @b_state, @b_zip, @roleID, @password)" 
         ProviderName="<%$ ConnectionStrings:PWAS_DBConnectionString1.ProviderName %>" 
-        SelectCommand="SELECT [userID], [firstName], [lastName], [company], [email], [homePhone], [otherPhone], [s_address1], [s_address2], [s_city], [s_state], [s_zip], [cc_num], [cc_type], [exp_date], [b_address1], [b_address2], [b_city], [b_state], [b_zip], [roleID], [password] FROM [User]" 
-        UpdateCommand="UPDATE [User] SET [firstName] = @firstName, [lastName] = @lastName, [company] = @company, [email] = @email, [homePhone] = @homePhone, [otherPhone] = @otherPhone, [s_address1] = @s_address1, [s_address2] = @s_address2, [s_city] = @s_city, [s_state] = @s_state, [s_zip] = @s_zip, [cc_num] = @cc_num, [cc_type] = @cc_type, [exp_date] = @exp_date, [b_address1] = @b_address1, [b_address2] = @b_address2, [b_city] = @b_city, [b_state] = @b_state, [b_zip] = @b_zip, [roleID] = @roleID, [password] = @password WHERE [userID] = @userID">
-        <DeleteParameters>
-            <asp:Parameter Name="userID" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="firstName" Type="String" />
-            <asp:Parameter Name="lastName" Type="String" />
-            <asp:Parameter Name="company" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="homePhone" Type="String" />
-            <asp:Parameter Name="otherPhone" Type="String" />
-            <asp:Parameter Name="s_address1" Type="String" />
-            <asp:Parameter Name="s_address2" Type="String" />
-            <asp:Parameter Name="s_city" Type="String" />
-            <asp:Parameter Name="s_state" Type="String" />
-            <asp:Parameter Name="s_zip" Type="String" />
-            <asp:Parameter Name="cc_num" Type="String" />
-            <asp:Parameter Name="cc_type" Type="String" />
-            <asp:Parameter Name="exp_date" Type="String" />
-            <asp:Parameter Name="b_address1" Type="String" />
-            <asp:Parameter Name="b_address2" Type="String" />
-            <asp:Parameter Name="b_city" Type="String" />
-            <asp:Parameter Name="b_state" Type="String" />
-            <asp:Parameter Name="b_zip" Type="String" />
-            <asp:Parameter Name="roleID" Type="Int32" />
-            <asp:Parameter Name="password" Type="String" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="firstName" Type="String" />
-            <asp:Parameter Name="lastName" Type="String" />
-            <asp:Parameter Name="company" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="homePhone" Type="String" />
-            <asp:Parameter Name="otherPhone" Type="String" />
-            <asp:Parameter Name="s_address1" Type="String" />
-            <asp:Parameter Name="s_address2" Type="String" />
-            <asp:Parameter Name="s_city" Type="String" />
-            <asp:Parameter Name="s_state" Type="String" />
-            <asp:Parameter Name="s_zip" Type="String" />
-            <asp:Parameter Name="cc_num" Type="String" />
-            <asp:Parameter Name="cc_type" Type="String" />
-            <asp:Parameter Name="exp_date" Type="String" />
-            <asp:Parameter Name="b_address1" Type="String" />
-            <asp:Parameter Name="b_address2" Type="String" />
-            <asp:Parameter Name="b_city" Type="String" />
-            <asp:Parameter Name="b_state" Type="String" />
-            <asp:Parameter Name="b_zip" Type="String" />
-            <asp:Parameter Name="roleID" Type="Int32" />
-            <asp:Parameter Name="password" Type="String" />
-            <asp:Parameter Name="userID" Type="Int32" />
-        </UpdateParameters>
+        
+        SelectCommand="SELECT [userID], [firstName], [lastName], [role_name] FROM [UserRoles]">
     </asp:SqlDataSource>
 <br />
 <img src="images/br-body.gif" alt="" />
