@@ -54,7 +54,7 @@
                 <ul>
                     <li><a href="#">Place an Order.</a></li>
                     <li><a href="#">View Order Status.</a></li>
-                    <li><a href="#">Edit Profile.</a></li>
+                    <li><a href="customerView_EditProfile.aspx">Edit Profile.</a></li>
                     <li class="last"><a href="#">Search.</a></li>
                 </ul>
             </div>

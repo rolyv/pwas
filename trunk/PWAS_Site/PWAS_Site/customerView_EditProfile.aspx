@@ -129,8 +129,8 @@
                 </tr>
                  <tr>
                     <td>
-                        <asp:Button ID="btnEditLogin" runat="server" Text="Submit" Style="float: right; margin-top: 10px;"
-                            OnClick="btnEditLogin_Click" />
+                        <asp:Button ID="btnEditLoginInfo" runat="server" Text="Submit" Style="float: right; margin-top: 10px;"
+                            OnClick="btnEditLoginInfo_Click" />
                     </td>
                     <td>
                     </td>

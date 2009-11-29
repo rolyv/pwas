@@ -89,7 +89,7 @@
                         <td>
                         </td>
                         <td>
-                            <asp:TextBox ID="loginEmail" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="loginEmail" runat="server" Width="200"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -99,7 +99,19 @@
                         <td>
                         </td>
                         <td>
-                            <asp:TextBox ID="pwd" runat="server" TextMode="password"></asp:TextBox>
+                            <asp:TextBox ID="pwd" runat="server" TextMode="password" Width="200"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <a href="Register.aspx">Register</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="ForgotPassword.aspx">Forgot Password</a>
                         </td>
                     </tr>
                     <tr>

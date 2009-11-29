@@ -8,6 +8,25 @@
 
     <script language="javascript" type="text/javascript" src="XYZ.js"></script>
 
+    <style type="text/css">
+        #tableLoginInformation
+        {
+            width: 300px;
+        }
+        #tableContactInformation
+        {
+            width: 300px;
+        }
+        #tableBillingAddress
+        {
+            width: 300px;
+        }
+        .style1
+        {
+            width: 125px;
+        }
+    </style>
+
 </head>
 <body>
     <div id="header">
@@ -100,7 +119,7 @@
                             Login Information</h3>
                         <table id="tableLoginInformation">
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -108,7 +127,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -116,7 +135,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblPasswordConfirm" runat="server" Text="Confirm Password:" ></asp:Label>
                                 </td>
                                 <td align="left">
@@ -132,7 +151,7 @@
                             Contact Information</h3>
                         <table id="tableContactInformation">
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -140,7 +159,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -148,7 +167,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblCompanyName" runat="server" Text="Company Name:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -156,7 +175,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblPhoneNumber" runat="server" Text="Phone #:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -172,7 +191,7 @@
                             Billing Address</h3>
                         <table id="tableBillingAddress">
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblBillAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -180,7 +199,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblBillAddressLine2" runat="server" Text="Address Line 2:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -188,7 +207,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblBillCity" runat="server" Text="City:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -196,7 +215,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblBillState" runat="server" Text="State:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -204,7 +223,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="right" class="style1">
                                     <asp:Label ID="lblBillZipCode" runat="server" Text="Zip Code:"></asp:Label>
                                 </td>
                                 <td align="left">
@@ -216,7 +235,7 @@
                 </tr>
                 <tr>
                     <td>
-                    <asp:Button ID="btnRegister" runat="server" Text="Register" float="right" OnClick="btnRegister_Click" />
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" style="margin:10px 0 0 133px" OnClick="btnRegister_Click" />
                     </td>
                 </tr>
                 <br />
