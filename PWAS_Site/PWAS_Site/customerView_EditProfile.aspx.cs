@@ -160,7 +160,7 @@ namespace PWAS_Site
             newUser.s_state = txtShipState.Text;
             newUser.s_zip = txtShipZipCode.Text;
 
-            userRepo.UpdateUserInfo(newUser);
+            //userRepo.UpdateUserInfo(newUser);
             userRepo.SubmitChanges();
 
             lblErrorMessage.Text = "Request Completed";
