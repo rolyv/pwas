@@ -22,7 +22,7 @@ namespace PWAS_Site
             lblErrorMessage.Visible = false;
             lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "red");
 
-            userId = (int)Session[Security.PWAS_SESSION_ID];
+            userId = Convert.ToInt32(Session[Constants.PWAS_SESSION_ID]);
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             user = userRepo.GetById(userId);
@@ -82,7 +82,7 @@ namespace PWAS_Site
                 return;
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User newUser = userRepo.GetById((int)Session[Security.PWAS_SESSION_ID]);
+            User newUser = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
 
             //If username is changed
             if (!user.email.Equals(txtEmailAddress.Text))
@@ -135,7 +135,7 @@ namespace PWAS_Site
             }
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User newUser = userRepo.GetById((int)Session[Security.PWAS_SESSION_ID]);
+            User newUser = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
 
             newUser.firstName = txtFirstName.Text;
             newUser.lastName = txtLastName.Text;

@@ -18,7 +18,7 @@ namespace PWAS_Site
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            welcomeName.Text = (string)Session[Security.PWAS_SESSION_NAME];
+            //welcomeName.Text = (string)Session[Security.PWAS_SESSION_NAME];
         }
     }
 }
