@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PWAS.master.cs" Inherits="PWAS_Site.PWAS" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+        <title>
+            <asp:ContentPlaceHolder ID="page_title" runat="server">
+                PWAS</asp:ContentPlaceHolder>
+        </title>
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+        <div class="top-head">
+            <div class="logo">
+                Printing at the Speed of Life.</div>
+            <div class="nav-bar">
+                <form id="menuForm" runat="server">
+                <ul>
+                    <li><a href="index.aspx" class="ist">Home</a></li>
+                    <li><a href="about-us.aspx" class="two">About Us</a></li>
+                    <li>
+                        <asp:LinkButton ID="logoutLnk" runat="server" OnClick="doLogout" CssClass="three">Logout</asp:LinkButton>
+                    </li>
+                    <li><a href="projects.aspx" class="four">Projects</a></li>
+                    <li><a href="contact-us.aspx" class="five">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="head-cont">
+            
+                <span>XYZ Printing is your one-stop shop for all your printing needs.</span><br />
+                </b> Enjoy your stay.
+           
+        </div>
+        <div class="box-outs">
+            <div class="gray-box">
+                <img src="images/ic-1.gif" alt="" class="img-box" />
+                <asp:ContentPlaceHolder ID="box1_text" runat="server">
+                    My Text
+                    <br />
+                    Goes Here
+                    <br />
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="box1_link" runat="server">
+                    <a href="#">My Link</a></asp:ContentPlaceHolder>
+            </div>
+            <div class="gray-box">
+                <img src="images/ic-2.gif" alt="" class="img-box" />
+                <asp:ContentPlaceHolder ID="box2_text" runat="server">
+                    My Text
+                    <br />
+                    Goes Here
+                    <br />
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="box2_link" runat="server">
+                    <a href="#">My Link</a></asp:ContentPlaceHolder>
+            </div>
+            <div class="gray-box">
+                <img src="images/ic-3.gif" alt="" class="img-box" />
+                <asp:ContentPlaceHolder ID="box3_text" runat="server">
+                    My Text
+                    <br />
+                    Goes Here
+                    <br />
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="box3_link" runat="server">
+                    <a href="#">My Link</a></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div id="body-part">
+        <div class="left-body">
+            <div class="left-body-top">
+                <h2>
+                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
+                <asp:ContentPlaceHolder ID="navigation_menu" runat="server">
+                    <ul>
+                        <li><a href="#">Place an Order.</a></li>
+                        <li><a href="#">View Order Status.</a></li>
+                        <li><a href="#">Edit Profile.</a></li>
+                        <li class="last"><a href="#">Search.</a></li>
+                    </ul>
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="right-body">
+            <h1>
+                <asp:ContentPlaceHolder ID="body_title" runat="server">
+                    Page Header Goes Here</asp:ContentPlaceHolder>
+            </h1>
+            <asp:ContentPlaceHolder ID="body_content" runat="server">
+                <p>
+                    Content Goes Here</p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    </form>
+    <div id="footer-back">
+        <div class="footer-right">
+            <a href="index.aspx">Home</a> | <a href="about-us.aspx">About Us</a> | <a href="projects.aspx">
+                Recent Projects</a> | <a href="support.aspx">Support</a> | <a href="privacy.aspx">Privacy</a>
+            | <a href="contact-us.aspx">Contact Us</a>
+            <br />
+            <span>&copy; Copyright XYZ Printing Co. All Right Reserved</span></div>
+    </div>
+</body>
+</html>
