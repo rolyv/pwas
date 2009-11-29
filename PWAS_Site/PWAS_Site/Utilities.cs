@@ -31,12 +31,6 @@ namespace PWAS_Site
             return false;
         }
 
-        public static void doLogout(HttpSessionState s, HttpResponse r)
-        {
-            s.Remove(Constants.PWAS_SESSION_ID);
-            s.Remove(Constants.PWAS_SESSION_NAME);
-            r.Redirect("index.aspx");
-        }
 
     }
 
