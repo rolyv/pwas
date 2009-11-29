@@ -70,8 +70,10 @@ namespace PWAS_Site
             newUser.password = Security.MD5Encode(txtPassword.Text.Trim());
             newUser.firstName = txtFirstName.Text.Trim();
             newUser.lastName = txtLastName.Text.Trim();
+            newUser.company = txtCompanyName.Text.Trim();
             newUser.homePhone = txtPhoneNumber.Text.Trim();
             newUser.b_address1 = txtBillAddressLine1.Text.Trim();
+            newUser.b_address2 = txtBillAddressLine2.Text.Trim();
             newUser.b_city = txtBillCity.Text.Trim();
             newUser.b_state = txtBillState.Text.Trim();
             newUser.b_zip = txtBillZipCode.Text.Trim();
