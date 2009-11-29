@@ -90,8 +90,7 @@ namespace PWAS_Site
                 //if password is also changed, also add it to the db
                 if (!String.IsNullOrEmpty(txtNewPassword.Text.Trim()))
                 {
-                    newUser.password = txtNewPassword.Text.Trim();
-                    //Add in MD5Encode
+                    newUser.password = Security.MD5Encode(txtNewPassword.Text.Trim());
                 }
 
                 //userRepo.UpdateUserInfo(newUser);
