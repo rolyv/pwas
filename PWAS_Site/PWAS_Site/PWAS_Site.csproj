@@ -129,6 +129,7 @@
     <Content Include="index.aspx" />
     <Content Include="index2.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="NewFolder1\Navigation.ascx" />
     <Content Include="pre-PressView_Create_Run.aspx" />
     <Content Include="pre-PressView_Home.aspx" />
     <Content Include="privacy.aspx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\Navigation.ascx.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewFolder1\Navigation.ascx.designer.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
     </Compile>
     <Compile Include="pre-PressView_Create_Run.aspx.cs">
       <DependentUpon>pre-PressView_Create_Run.aspx</DependentUpon>
