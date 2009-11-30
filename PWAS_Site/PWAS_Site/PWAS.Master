@@ -20,12 +20,12 @@
                 <form id="menuForm" runat="server">
                 <ul>
                     <li><a href="index.aspx" class="ist">Home</a></li>
-                    <li><a href="about-us.aspx" class="two">About Us</a></li>
+                    <li><a href="customerView_EditProfile.aspx" class="two">Profile</a></li>
                     <li>
                         <asp:LinkButton ID="logoutLnk" runat="server" OnClick="doLogout" CssClass="three">Logout</asp:LinkButton>
                     </li>
-                    <li><a href="projects.aspx" class="four">Projects</a></li>
-                    <li><a href="contact-us.aspx" class="five">Contacts</a></li>
+                    <li><a href="customerView_View_Orders.aspx" class="four">Orders</a></li>
+                    <li><a href="contact-us.aspx" class="five">Link 5</a></li>
                 </ul>
             </div>
         </div>
