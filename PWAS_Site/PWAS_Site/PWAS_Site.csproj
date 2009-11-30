@@ -68,7 +68,6 @@
     <Content Include="css\style.css" />
     <Content Include="Customer View_Create_Order.aspx" />
     <Content Include="customerView_EditProfile.aspx" />
-    <Content Include="customerView_Home.aspx" />
     <Content Include="customerView_View_Orders.aspx" />
     <Content Include="Employee_Finish_view.aspx" />
     <Content Include="Employee_Print_view.aspx" />
@@ -126,10 +125,7 @@
     <Content Include="images\projectimg3.jpg" />
     <Content Include="images\read-more.gif" />
     <Content Include="images\red_asterisk.png" />
-    <Content Include="index.aspx" />
-    <Content Include="index2.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="NewFolder1\Navigation.ascx" />
     <Content Include="pre-PressView_Create_Run.aspx" />
     <Content Include="pre-PressView_Home.aspx" />
     <Content Include="privacy.aspx" />
@@ -168,13 +164,6 @@
     <Compile Include="customerView_EditProfile.aspx.designer.cs">
       <DependentUpon>customerView_EditProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="customerView_Home.aspx.cs">
-      <DependentUpon>customerView_Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="customerView_Home.aspx.designer.cs">
-      <DependentUpon>customerView_Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="customerView_View_Orders.aspx.cs">
       <DependentUpon>customerView_View_Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,27 +190,12 @@
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="index2.aspx.cs">
-      <DependentUpon>index2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewFolder1\Navigation.ascx.cs">
-      <DependentUpon>Navigation.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewFolder1\Navigation.ascx.designer.cs">
-      <DependentUpon>Navigation.ascx</DependentUpon>
     </Compile>
     <Compile Include="pre-PressView_Create_Run.aspx.cs">
       <DependentUpon>pre-PressView_Create_Run.aspx</DependentUpon>
@@ -246,6 +220,13 @@
     </Compile>
     <Compile Include="PWAS.Master.designer.cs">
       <DependentUpon>PWAS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PWAS_Out.Master.cs">
+      <DependentUpon>PWAS_Out.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PWAS_Out.Master.designer.cs">
+      <DependentUpon>PWAS_Out.Master</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -272,11 +253,28 @@
       <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
+    <Compile Include="customerView_Home.aspx.cs">
+      <DependentUpon>customerView_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerView_Home.aspx.designer.cs">
+      <DependentUpon>customerView_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
+    <Content Include="PWAS_Out.Master" />
     <Content Include="PWAS.Master" />
+    <Content Include="customerView_Home.aspx" />
+    <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PWAS.DataAccess\PWAS.DataAccess.csproj">
