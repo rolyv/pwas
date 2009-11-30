@@ -17,7 +17,8 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session[Constants.PWAS_SESSION_ID] == null)
+                doLogout(sender, e);
         }
 
         protected void doLogout(object sender, EventArgs e)
