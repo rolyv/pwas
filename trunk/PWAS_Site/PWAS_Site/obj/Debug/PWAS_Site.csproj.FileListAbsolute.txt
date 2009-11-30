@@ -29,3 +29,16 @@ C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Cas
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.MicroKernel.xml
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Windsor.xml
 C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\bin\Castle.Core.xml
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\obj\Debug\ResolveAssemblyReference.cache
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\obj\Debug\PWAS_Site.dll
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS_Site.dll
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS_Site.pdb
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS.DataAccess.dll
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS.Model.dll
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\Castle.DynamicProxy2.xml
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS.DataAccess.pdb
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\PWAS.Model.pdb
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\Castle.MicroKernel.xml
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\Castle.Windsor.xml
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\bin\Castle.Core.xml
+C:\SmartSVN_Repo\PWAS_Site\PWAS_Site\obj\Debug\PWAS_Site.pdb
