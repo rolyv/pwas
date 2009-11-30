@@ -19,4 +19,5 @@
     Welcome to the XYZ Printshop company website !!
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="body_content" runat="server">
+    This is where we put the content of our company website.
 </asp:Content>
