@@ -15,7 +15,11 @@ namespace PWAS_Site
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
-        private string companyEmail = "XYZPrintShop@gmail.com";
+        //private string companyEmail = "XYZPrintShop@gmail.com";
+        //private string companyPassword = "1234abcd";
+        private string companyEmail = "javiermesa85@gmail.com";
+        private string companyPassword = "reivaJ4u";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblResetEmailMessage.Text = "Please enter the email address associated with the account.";
@@ -28,34 +32,42 @@ namespace PWAS_Site
         {
             Regex regex = new Regex("[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}");
 
-            if (String.IsNullOrEmpty(txtEmailAddress.Text.Trim()) || !regex.IsMatch(txtEmailAddress.Text.Trim().ToUpperInvariant()))
+            string emailAddress = txtEmailAddress.Text.Trim().ToUpperInvariant();
+            if (String.IsNullOrEmpty(emailAddress) || !regex.IsMatch(emailAddress))
             {
                 lblErrorMessage.Visible = true;
                 return;
             }
 
-            //Updates User Password
-            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User editUser = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
-
             //Test if Email doesn't correspond to an account
-            //Prints success for security reasons (Account Harvesting)
-            if (editUser == null)
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            bool userExists = userRepo.Users.Any(u => u.email.Equals(emailAddress));
+            if (! userExists)
             {
+                //Prints success for security reasons (Account Harvesting)
                 lblResetEmailMessage.Text = "Success! A new password has been sent if the email provided was registered to an account";
                 lblResetEmailMessage.Style.Add(HtmlTextWriterStyle.Color, "Green");
                 return;
             }
 
+            //Already checked that db entry exists. Now pull the user object!
+            User editUser = userRepo.Users.First(u => u.email.Equals(emailAddress));
+
             //Generate Password
             string passwordGenerated = Membership.GeneratePassword(8, 0);
+            
+            //Work-around for bug in Membership.GeneratePassword() which adds 1 non-alphanumeric character
+            Regex regexPW = new Regex("[^A-Za-z0-9]");
+            passwordGenerated = regexPW.Replace(passwordGenerated,"");
+ 
+            //Stores new Password in User table
             editUser.password = passwordGenerated;
             userRepo.SubmitChanges();
 
             //Emails Password
             string message = String.Empty;
             string from = companyEmail;
-            string to = txtEmailAddress.Text.Trim();
+            string to = emailAddress;
             string subject = "Password Reset Message";
             string body = "Dear jmesa,\n"
                          + "\n"
@@ -98,12 +110,12 @@ namespace PWAS_Site
                 theMailMessage.From = new MailAddress(from);
                 theMailMessage.To.Add(to);
                 theMailMessage.Subject = subject;
-                theMailMessage.Body = body;
+                theMailMessage.Body = "TEST BODY";
                 
                 SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
                 theClient.UseDefaultCredentials = true;
                 theClient.EnableSsl = true;
-                System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential("XYZPrintShop@gmail.com", "1234abcd");
+                System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential(companyEmail, companyPassword);
                 theClient.Credentials = theCredential;
                 theClient.Send(theMailMessage);
 
