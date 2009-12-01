@@ -15,10 +15,8 @@ namespace PWAS_Site
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
-        //private string companyEmail = "XYZPrintShop@gmail.com";
-        //private string companyPassword = "1234abcd";
-        private string companyEmail = "javiermesa85@gmail.com";
-        private string companyPassword = "reivaJ4u";
+        private string companyEmail = "XYZPrintShop@gmail.com";
+        private string companyPassword = "1234abcd";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +40,7 @@ namespace PWAS_Site
             //Test if Email doesn't correspond to an account
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             bool userExists = userRepo.Users.Any(u => u.email.Equals(emailAddress));
-            if (! userExists)
+            if (!userExists)
             {
                 //Prints success for security reasons (Account Harvesting)
                 lblResetEmailMessage.Text = "Success! A new password has been sent if the email provided was registered to an account";
@@ -55,11 +53,11 @@ namespace PWAS_Site
 
             //Generate Password
             string passwordGenerated = Membership.GeneratePassword(8, 0);
-            
+
             //Work-around for bug in Membership.GeneratePassword() which adds 1 non-alphanumeric character
             Regex regexPW = new Regex("[^A-Za-z0-9]");
-            passwordGenerated = regexPW.Replace(passwordGenerated,"");
- 
+            passwordGenerated = regexPW.Replace(passwordGenerated, "");
+
             //Stores new Password in User table
             editUser.password = passwordGenerated;
             userRepo.SubmitChanges();
@@ -94,38 +92,49 @@ namespace PWAS_Site
             else
                 lblResetEmailMessage.Text = message;
 
-            
+
         }
 
-        private bool SendEMail( string from,   // e.g., "sender@csharp-online.net"
+        private bool SendEMail(string from,   // e.g., "sender@csharp-online.net"
                                 string to,     // e.g., "receiver@csharp-online.net"
                                 string subject,// e.g., "Please read this!"
                                 string body,   // e.g., "Thanks for the memories."
                                 ref string message)
         {
+            //MailMessage theMailMessage = new MailMessage("administrator@crm.com", "test@hotmail.com");
+            MailMessage theMailMessage = new MailMessage();
+            theMailMessage.From = new MailAddress(from);
+            theMailMessage.To.Add(to);
+            theMailMessage.Subject = subject;
+            theMailMessage.Body = "TEST BODY";
+
+            SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
+            theClient.UseDefaultCredentials = true;
+            theClient.EnableSsl = true;
+            System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential(companyEmail, companyPassword);
+            theClient.Credentials = theCredential;
+
             try
             {
-                //MailMessage theMailMessage = new MailMessage("administrator@crm.com", "test@hotmail.com");
-                MailMessage theMailMessage = new MailMessage();
-                theMailMessage.From = new MailAddress(from);
-                theMailMessage.To.Add(to);
-                theMailMessage.Subject = subject;
-                theMailMessage.Body = "TEST BODY";
-                
-                SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
-                theClient.UseDefaultCredentials = true;
-                theClient.EnableSsl = true;
-                System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential(companyEmail, companyPassword);
-                theClient.Credentials = theCredential;
                 theClient.Send(theMailMessage);
-
-                return true;
             }
+
             catch (Exception ex)
             {
                 message = ex.ToString();
-                return false;
+
+                theClient.Port = 465;
+                try
+                {
+                    theClient.Send(theMailMessage);
+                }
+                catch (Exception ex2)
+                {
+                    message += "\n" + ex2.ToString();
+                }
+                return false;                
             }
+            return true;
         }
     }
 }
