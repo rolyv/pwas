@@ -108,7 +108,8 @@ namespace PWAS_Site
             theMailMessage.Subject = subject;
             theMailMessage.Body = "TEST BODY";
 
-            SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
+            //SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient theClient = new SmtpClient("mail.google.com", 587);
             theClient.UseDefaultCredentials = true;
             theClient.EnableSsl = true;
             System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential(companyEmail, companyPassword);
