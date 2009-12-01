@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Mail;
-using AOSMTPLib;
 
 namespace PWAS_Site
 {
