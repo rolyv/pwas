@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PWAS_Out.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="PWAS_Site.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PWAS_Out.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="PWAS_Site.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">
