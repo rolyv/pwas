@@ -11,6 +11,7 @@
         </title>
     
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="page_head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <div id="header">
