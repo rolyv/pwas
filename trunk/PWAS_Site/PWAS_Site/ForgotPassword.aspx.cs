@@ -7,11 +7,15 @@ using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Mail;
+using System.Web.Security;
+using PWAS.DataAccess.Interfaces;
+using PWAS.Model;
 
 namespace PWAS_Site
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class ForgotPassword : System.Web.UI.Page
     {
+        private string companyEmail = "XYZPrintShop@gmail.com";
         protected void Page_Load(object sender, EventArgs e)
         {
             lblResetEmailMessage.Text = "Please enter the email address associated with the account.";
@@ -30,9 +34,47 @@ namespace PWAS_Site
                 return;
             }
 
-            string message = String.Empty;
+            //Updates User Password
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            User editUser = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
 
-            if (SendEMail("XYZPrintShop@gmail.com", txtEmailAddress.Text.Trim(), "Password Reset Message", "This is a test body where a randomized password should go", ref message))
+            //Test if Email doesn't correspond to an account
+            //Prints success for security reasons (Account Harvesting)
+            if (editUser == null)
+            {
+                lblResetEmailMessage.Text = "Success! A new password has been sent if the email provided was registered to an account";
+                lblResetEmailMessage.Style.Add(HtmlTextWriterStyle.Color, "Green");
+                return;
+            }
+
+            //Generate Password
+            string passwordGenerated = Membership.GeneratePassword(8, 0);
+            editUser.password = passwordGenerated;
+            userRepo.SubmitChanges();
+
+            //Emails Password
+            string message = String.Empty;
+            string from = companyEmail;
+            string to = txtEmailAddress.Text.Trim();
+            string subject = "Password Reset Message";
+            string body = "Dear jmesa,\n"
+                         + "\n"
+                         + "You have requested a new password to access XYZ Print Shop's website.\n"
+                         + "\n"
+                         + "Use the following password to sign on\n"
+                         + "\n"
+                         + "Password: " + passwordGenerated + "\n"
+                         + "\n"
+                         + "If you have any questions, please feel free to contact us at " + companyEmail + "\n"
+                         + "\n"
+                         + "Sincerely, "
+                         + "XYZ Support Group\n"
+                         + "\n"
+                         + "ABOUT THIS MESSAGE\n"
+                         + "This is a service e-mail message about the XYZ Print Shop Website.\n"
+                         + "Please do not reply to this service e-mail message as no response will be returned to you.\n";
+
+            if (SendEMail(from, to, subject, body, ref message))
             {
                 lblResetEmailMessage.Text = "Success! A new password has been sent if the email provided was registered to an account";
                 lblResetEmailMessage.Style.Add(HtmlTextWriterStyle.Color, "Green");
