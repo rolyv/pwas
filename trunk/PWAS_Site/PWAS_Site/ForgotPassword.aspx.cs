@@ -118,7 +118,6 @@ namespace PWAS_Site
             {
                 theClient.Send(theMailMessage);
             }
-
             catch (Exception ex)
             {
                 message = ex.ToString();
@@ -130,7 +129,7 @@ namespace PWAS_Site
                 }
                 catch (Exception ex2)
                 {
-                    message += "\n" + ex2.ToString();
+                    message += "\n<br />Message2:<br />" + ex2.ToString();
                 }
                 return false;                
             }
