@@ -59,7 +59,7 @@ namespace PWAS_Site
             //passwordGenerated = regexPW.Replace(passwordGenerated, "");
 
             //Stores new Password in User table
-            editUser.password = passwordGenerated;
+            editUser.password = Security.MD5Encode(passwordGenerated);
             userRepo.SubmitChanges();
 
             //Emails Password
