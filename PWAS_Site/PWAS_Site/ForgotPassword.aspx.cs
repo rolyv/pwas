@@ -55,8 +55,8 @@ namespace PWAS_Site
             string passwordGenerated = Membership.GeneratePassword(8, 0);
 
             //Work-around for bug in Membership.GeneratePassword() which adds 1 non-alphanumeric character
-            Regex regexPW = new Regex("[^A-Za-z0-9]");
-            passwordGenerated = regexPW.Replace(passwordGenerated, "");
+            //Regex regexPW = new Regex("[^A-Za-z0-9]");
+            //passwordGenerated = regexPW.Replace(passwordGenerated, "");
 
             //Stores new Password in User table
             editUser.password = passwordGenerated;
@@ -67,7 +67,7 @@ namespace PWAS_Site
             string from = companyEmail;
             string to = emailAddress;
             string subject = "Password Reset Message";
-            string body = "Dear jmesa,\n"
+            string body = "Dear " + editUser.firstName.Trim() + ",\n"
                          + "\n"
                          + "You have requested a new password to access XYZ Print Shop's website.\n"
                          + "\n"
@@ -81,7 +81,7 @@ namespace PWAS_Site
                          + "XYZ Support Group\n"
                          + "\n"
                          + "ABOUT THIS MESSAGE\n"
-                         + "This is a service e-mail message about the XYZ Print Shop Website.\n"
+                         + "This is a service e-mail message from the XYZ Print Shop Website.\n"
                          + "Please do not reply to this service e-mail message as no response will be returned to you.\n";
 
             if (SendEMail(from, to, subject, body, ref message))
@@ -90,6 +90,7 @@ namespace PWAS_Site
                 lblResetEmailMessage.Style.Add(HtmlTextWriterStyle.Color, "Green");
             }
             else
+                //Will need to be changed to protect against Account Harvesting.
                 lblResetEmailMessage.Text = message;
 
 
@@ -106,10 +107,9 @@ namespace PWAS_Site
             theMailMessage.From = new MailAddress(from);
             theMailMessage.To.Add(to);
             theMailMessage.Subject = subject;
-            theMailMessage.Body = "TEST BODY";
+            theMailMessage.Body = body;
 
-            //SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
-            SmtpClient theClient = new SmtpClient("mail.google.com", 587);
+            SmtpClient theClient = new SmtpClient("smtp.gmail.com", 587);
             theClient.UseDefaultCredentials = true;
             theClient.EnableSsl = true;
             System.Net.NetworkCredential theCredential = new System.Net.NetworkCredential(companyEmail, companyPassword);
@@ -121,6 +121,7 @@ namespace PWAS_Site
             }
             catch (Exception ex)
             {
+                //for debugging purposes
                 message = ex.ToString();
 
                 theClient.Port = 465;
@@ -130,6 +131,7 @@ namespace PWAS_Site
                 }
                 catch (Exception ex2)
                 {
+                    //for debugging purposes
                     message += "\n<br />Message2:<br />" + ex2.ToString();
                 }
                 return false;                
