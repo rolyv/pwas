@@ -96,25 +96,12 @@ namespace PWAS_Site
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
             IStatusRepository statusReposiory = RepositoryFactory.Get<IStatusRepository>();
-            Order currentOrder = orderRepository.GetById(orderID);                       
+            Order currentOrder = orderRepository.GetById(orderID);
+            currentOrder.Status = new Status { statusId= 2,statusName = "Paid"};// statusReposiory.GetById(2);
 
-            Order orderCreate = new Order
-            {
-                orderID = currentOrder.orderID,
-                userID = currentOrder.userID,
-                job_name = currentOrder.job_name,
-                width = currentOrder.width,
-                height = currentOrder.height,
-                quantity = currentOrder.quantity,
-                stock_finish = currentOrder.stock_finish,
-                stock_weight = currentOrder.stock_weight,
-                two_sided = currentOrder.two_sided,
-                folded = currentOrder.folded,
-                ship =  currentOrder.ship,
-                Status = statusReposiory.GetById(2)
-            };
-                
-            orderRepository.UpdateOrderInfo(orderCreate);
+            orderRepository.SubmitChanges();
+            
+            Response.Redirect(Request.Url.ToString());
         }
 
         private Status getCurrentOrderStatus(int orderID)
