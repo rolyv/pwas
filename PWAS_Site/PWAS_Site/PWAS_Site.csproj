@@ -280,6 +280,13 @@
     <Compile Include="adminView_ManageAccounts.aspx.designer.cs">
       <DependentUpon>adminView_ManageAccounts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminView_EditProfile.aspx.cs">
+      <DependentUpon>adminView_EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminView_EditProfile.aspx.designer.cs">
+      <DependentUpon>adminView_EditProfile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Thumbs.db" />
@@ -293,6 +300,7 @@
     <Content Include="index.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="adminView_ManageAccounts.aspx" />
+    <Content Include="adminView_EditProfile.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PWAS.DataAccess\PWAS.DataAccess.csproj">
