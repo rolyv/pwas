@@ -1,16 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Xml.Linq;
 using PWAS.DataAccess.Interfaces;
 using PWAS.Model;
 using PWAS.DataAccess.SQLRepositories;
 
 namespace PWAS_Site
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class WebForm6 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +43,7 @@ namespace PWAS_Site
                 tableErrorMessage.Visible = true;
                 return;
             }
-            
+
             //Do Validation for fields
             //=========================
             if (!txtPassword.Text.Equals(txtPasswordConfirm.Text))
