@@ -72,13 +72,14 @@ namespace PWAS_Site
         {
             ImageButton btn = sender as ImageButton;
             int userId = Int32.Parse(btn.CommandArgument);
+            
             Session["PWAS_UserToEdit"] = userId;
             Response.Redirect("adminView_EditProfile.aspx");
         }
 
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            Response.Redirect("http://www.msn.com");
+            //Needs to be implemented.
         }
     }
 }

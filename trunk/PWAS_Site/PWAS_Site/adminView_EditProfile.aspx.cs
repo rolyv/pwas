@@ -16,21 +16,30 @@ namespace PWAS_Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["PWAS_UserToEdit"] != null)
+            {
+                ViewState["PWAS_UserToEdit"] = Session["PWAS_UserToEdit"];
+                Session.Remove("PWAS_UserToEdit");
+            }
+
+            if (ViewState["PWAS_UserToEdit"] != null)
             {
                 tableErrorMessage.Visible = false;
                 lblErrorMessage.Visible = false;
                 lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "red");
 
                 //need to set as a constant later on
-                userId = Convert.ToInt32(Session["PWAS_UserToEdit"]);
+                userId = Convert.ToInt32(ViewState["PWAS_UserToEdit"]);
 
                 IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                 user = userRepo.GetById(userId);
 
                 if (!IsPostBack)
                     populateInformation();
+            }
+            else
+            {
+                Response.Redirect("adminView_ManageAccounts.aspx");
             }
         }
 
@@ -170,6 +179,12 @@ namespace PWAS_Site
             lblErrorMessage.Style.Add(HtmlTextWriterStyle.Color, "green");
             lblErrorMessage.Visible = true;
             tableErrorMessage.Visible = true;
+        }
+
+        protected void btnBackToUserAccounts_Click(object sender, EventArgs e)
+        {
+            ViewState.Remove("PWAS_UserToEdit");
+            Response.Redirect("adminView_ManageAccounts.aspx");
         }
     }
 }

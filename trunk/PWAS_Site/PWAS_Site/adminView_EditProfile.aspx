@@ -309,10 +309,12 @@
     <table width="600">
         <tr>
             <td class="style4">
-                <asp:Button ID="btnEditOtherInfo" runat="server" Text="Submit" Style="float: right;
-                    margin-top: 10px;" OnClick="btnEditOtherInfo_Click" />
+                <asp:Button ID="btnBackToUserAccounts" runat="server" Text="Back" Style="float: right;
+                    margin-top: 10px;" OnClick="btnBackToUserAccounts_Click" />
             </td>
-            <td>
+            <td class="style4">
+                <asp:Button ID="btnEditOtherInfo" runat="server" Text="Submit" Style="float: left;
+                    margin-top: 10px;" OnClick="btnEditOtherInfo_Click" />
             </td>
         </tr>
         <br />
