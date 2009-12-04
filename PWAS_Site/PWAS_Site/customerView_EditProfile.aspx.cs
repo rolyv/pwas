@@ -34,12 +34,12 @@ namespace PWAS_Site
         private void populateInformation()
         {
             txtEmailAddress.Text = user.email;
-            
+
             txtFirstName.Text = user.firstName;
             txtLastName.Text = user.lastName;
             txtCompanyName.Text = user.company;
             txtPhoneNumber.Text = user.homePhone;
-            
+
             txtCreditCardNumber.Text = user.cc_num;
             ddCardType.SelectedValue = user.cc_type;
             txtExpDate.Text = user.exp_date;
@@ -98,7 +98,7 @@ namespace PWAS_Site
                     //return email already in use error message
                     return;
                 }
-                
+
                 newUser.email = txtEmailAddress.Text;
             }
 
