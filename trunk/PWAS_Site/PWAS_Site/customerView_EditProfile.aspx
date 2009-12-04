@@ -2,6 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 185px;
+        }
+        .style2
+        {
+            width: 93px;
+        }
+        .style4
+        {
+            width: 330px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="box1_text" runat="server">
 </asp:Content>
