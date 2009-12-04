@@ -13,8 +13,7 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            
                 //load all users and populate tableManageUsers
                 IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                 List<User> users = userRepo.Users.ToList();
@@ -25,13 +24,19 @@ namespace PWAS_Site
                     tableRow.CssClass = "orderRow";
                     
                     TableCell cellEdit = new TableCell();
-                    Image edit = new Image();
+                    ImageButton edit = new ImageButton();
                     edit.ImageUrl = "/images/edit.gif";
+                    edit.ToolTip = "Edit";
+                    edit.CommandArgument = user.userID.ToString();
+                    edit.Command += new CommandEventHandler(btnEditUser_Click);
                     cellEdit.Controls.Add(edit);
-                    
+
                     TableCell cellDelete = new TableCell();
-                    Image delete = new Image();
+                    ImageButton delete = new ImageButton();
                     delete.ImageUrl = "/images/delete.gif";
+                    delete.ToolTip = "Delete";
+                    delete.CommandArgument = user.userID.ToString();
+                    delete.Command += new CommandEventHandler(btnDeleteUser_Click);
                     cellDelete.Controls.Add(delete);
 
                     TableCell cellUsername = new TableCell();
@@ -60,9 +65,20 @@ namespace PWAS_Site
                     tableRow.Cells.Add(cellEmail);
 
                     tableManageUsers.Rows.Add(tableRow);
-
-                }
             }
+        }
+
+        protected void btnEditUser_Click(object sender, EventArgs e)
+        {
+            ImageButton btn = sender as ImageButton;
+            int userId = Int32.Parse(btn.CommandArgument);
+            Session["PWAS_UserToEdit"] = userId;
+            Response.Redirect("adminView_EditProfile.aspx");
+        }
+
+        protected void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://www.msn.com");
         }
     }
 }
