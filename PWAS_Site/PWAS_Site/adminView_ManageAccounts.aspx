@@ -29,8 +29,6 @@
                 <asp:TableHeaderCell>
                 </asp:TableHeaderCell>
                 <asp:TableHeaderCell>
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
                     Username
                 </asp:TableHeaderCell>
                 <asp:TableHeaderCell>
