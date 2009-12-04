@@ -134,7 +134,7 @@
                                     <asp:Label ID="lblNewPassword" runat="server" Text="New Password:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtNewPassword" runat="server" Width="225px"></asp:TextBox>
+                                    <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" Width="225px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@
                                     <asp:Label ID="lblNewPasswordConfirm" runat="server" Text="Confirm New Password:"></asp:Label>
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtNewPasswordConfirm" runat="server" Width="225px"></asp:TextBox>
+                                    <asp:TextBox ID="txtNewPasswordConfirm" runat="server" TextMode="Password" Width="225px"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -208,105 +208,8 @@
                             </tr>
                         </table>
                     </td>
-                    <td>
-                        <h3>
-                            Shipping Information</h3>
-                        <table id="tableShippingInformation">
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblShipAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtShipAddressLine1" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblShipAddressLine2" runat="server" Text="Address Line 2:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtShipAddressLine2" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblShipCity" runat="server" Text="City:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtShipCity" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblShipState" runat="server" Text="State:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtShipState" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="lblShipZipCode" runat="server" Text="Zip code:"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtShipZipCode" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
                 </tr>
                 <tr>
-                    <td>
-                        <h3>
-                            Billing Information</h3>
-                        <table id="tableBillingInformation">
-                            <tr>
-                                <td align="right" class="style2">
-                                    <asp:Label ID="lblCreditCardNumber" runat="server" Text="Credit Card #"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtCreditCardNumber" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="style2">
-                                    <asp:Label ID="lblCardType" runat="server" Text="Card Type"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:DropDownList ID="ddCardType" runat="server">
-                                        <asp:ListItem Value="AX">AMEX</asp:ListItem>
-                                        <asp:ListItem Value="VI">Visa</asp:ListItem>
-                                        <asp:ListItem Value="MC">MasterCard</asp:ListItem>
-                                        <asp:ListItem Value="DV">Discover</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="style2">
-                                    <asp:Label ID="lblExpDate" runat="server" Text="Exp. Date"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtExpDate" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="style2">
-                                    <asp:Label ID="lblSecurityCode" runat="server" Text="Security Code"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtSecurityCode" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="style2">
-                                    <asp:Label ID="lblNameOnCard" runat="server" Text="Name on Card"></asp:Label>
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="txtNameOnCard" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
                     <td>
                         <h3>
                             Billing Address</h3>
@@ -361,6 +264,105 @@
                                 </td>
                                 <td>
                                     <img src="images/red_asterisk.png" alt="required" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <h3>
+                            Shipping Address</h3>
+                        <table id="tableShippingAddress">
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipAddressLine1" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipAddressLine2" runat="server" Text="Address Line 2:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipAddressLine2" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipCity" runat="server" Text="City:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipCity" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipState" runat="server" Text="State:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipState" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <asp:Label ID="lblShipZipCode" runat="server" Text="Zip code:"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtShipZipCode" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        <h3>
+                            Credit Card Information</h3>
+                        <table id="tableCreditCardInformation">
+                            <tr>
+                                <td align="right" class="style2">
+                                    <asp:Label ID="lblCreditCardNumber" runat="server" Text="Credit Card #"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtCreditCardNumber" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="style2">
+                                    <asp:Label ID="lblCardType" runat="server" Text="Card Type"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:DropDownList ID="ddCardType" runat="server">
+                                        <asp:ListItem Value="AX">AMEX</asp:ListItem>
+                                        <asp:ListItem Value="VI">Visa</asp:ListItem>
+                                        <asp:ListItem Value="MC">MasterCard</asp:ListItem>
+                                        <asp:ListItem Value="DV">Discover</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="style2">
+                                    <asp:Label ID="lblExpDate" runat="server" Text="Exp. Date"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtExpDate" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="style2">
+                                    <asp:Label ID="lblSecurityCode" runat="server" Text="Security Code"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtSecurityCode" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="style2">
+                                    <asp:Label ID="lblNameOnCard" runat="server" Text="Name on Card"></asp:Label>
+                                </td>
+                                <td align="left">
+                                    <asp:TextBox ID="txtNameOnCard" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
