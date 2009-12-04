@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -273,16 +273,26 @@
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminView_ManageAccounts.aspx.cs">
+      <DependentUpon>adminView_ManageAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminView_ManageAccounts.aspx.designer.cs">
+      <DependentUpon>adminView_ManageAccounts.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\edit.gif" />
     <Content Include="NavMenu\Navigation.ascx" />
     <Content Include="PWAS_Out.Master" />
     <Content Include="PWAS.Master" />
     <Content Include="customerView_Home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="adminView_ManageAccounts.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PWAS.DataAccess\PWAS.DataAccess.csproj">
@@ -314,6 +324,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
