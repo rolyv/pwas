@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -145,6 +145,10 @@
       <DependentUpon>adminView_edit_Roles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="adminView_edit_Roles_Permissions.aspx.cs">
+      <DependentUpon>adminView_edit_Roles_Permissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="contact-us.aspx.cs">
       <DependentUpon>contact-us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -169,6 +173,27 @@
     </Compile>
     <Compile Include="customerView_View_Orders.aspx.designer.cs">
       <DependentUpon>customerView_View_Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer_create_order.aspx.cs">
+      <DependentUpon>customer_create_order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer_create_order.aspx.designer.cs">
+      <DependentUpon>customer_create_order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer_edit_order.aspx.cs">
+      <DependentUpon>customer_edit_order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer_edit_order.aspx.designer.cs">
+      <DependentUpon>customer_edit_order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer_view_order.aspx.cs">
+      <DependentUpon>customer_view_order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer_view_order.aspx.designer.cs">
+      <DependentUpon>customer_view_order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee_Finish_view.aspx.cs">
       <DependentUpon>Employee_Finish_view.aspx</DependentUpon>
@@ -291,6 +316,10 @@
   <ItemGroup>
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
+    <Content Include="adminView_edit_Roles_Permissions.aspx" />
+    <Content Include="customer_create_order.aspx" />
+    <Content Include="customer_edit_order.aspx" />
+    <Content Include="customer_view_order.aspx" />
     <Content Include="images\delete.gif" />
     <Content Include="images\edit.gif" />
     <Content Include="NavMenu\Navigation.ascx" />
@@ -332,9 +361,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
