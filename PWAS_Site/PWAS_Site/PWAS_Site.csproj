@@ -331,6 +331,9 @@
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
     <Content Include="admin_ManageRoles.aspx" />
+    <Content Include="delete_gray.gif" />
+    <Content Include="edit_gray.gif" />
+    <Content Include="left-list_gray.gif" />
     <Content Include="NavMenu\NavigationControl.ascx" />
     <Content Include="adminView_edit_Roles_Permissions.aspx" />
     <Content Include="customer_create_order.aspx" />
