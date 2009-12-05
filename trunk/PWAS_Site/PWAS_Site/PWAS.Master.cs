@@ -24,7 +24,7 @@ namespace PWAS_Site
         protected void doLogout(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("index.aspx");
+            Response.Redirect("login.aspx");
         }
     }
 }
