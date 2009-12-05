@@ -8,12 +8,12 @@
     <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
         HorizontalPadding="5px" VerticalPadding="0px" />
     <Nodes>
-        <asp:TreeNode Text="Edit Profile" Value="Edit Profile" 
-            NavigateUrl="~/WebForm4.aspx"></asp:TreeNode>
         <asp:TreeNode Text="Manage Users" Value="Manage Users" 
             NavigateUrl="~/WebForm3.aspx"></asp:TreeNode>
-        <asp:TreeNode Text="Create Order" Value="Create Order"></asp:TreeNode>
-        <asp:TreeNode Text="Manage Orders" Value="Manage Orders"></asp:TreeNode>
+        <asp:TreeNode Text="Create Order" Value="Create Order"
+            NavigateUrl="~/customer_create_order.aspx"></asp:TreeNode>
+        <asp:TreeNode Text="Manage Orders" Value="Manage Orders"
+            NavigateUrl="~/customer_view_order.aspx" pwasObj="order" pwasAction="view"></asp:TreeNode>
         <asp:TreeNode Text="Manage Print Runs" Value="Manage Print Runs"></asp:TreeNode>
         <asp:TreeNode Text="Manage Security Roles" Value="Manage Security Roles">
         </asp:TreeNode>
