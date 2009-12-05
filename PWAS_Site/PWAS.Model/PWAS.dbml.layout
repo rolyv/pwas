@@ -46,7 +46,7 @@
         <elementListCompartment Id="f6e5ab74-342e-4d0f-8efe-516ca0eecac8" absoluteBounds="0.515, 0.96, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.5 : 2.58223714192708); (1.5 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 2.58223714192708); (1.5 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/PrintRun/PrintRun_Order" />
       <nodes>
         <classShapeMoniker Id="1130f041-1256-4b47-84b0-216a5a4477bc" />
@@ -59,7 +59,7 @@
         <elementListCompartment Id="1d9e6a34-b19f-4da7-8b0e-61c8f825bbe4" absoluteBounds="1.3900000000000001, 9.585, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.68229166666666 : 9.125); (1.68229166666666 : 6.02897379557292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.68229166666666 : 9.125); (1.68229166666666 : 6.02897379557292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/Status/Status_Order" />
       <nodes>
         <classShapeMoniker Id="23e93bab-e7fb-4bbd-9949-7a0ca88bbdd5" />
@@ -73,7 +73,7 @@
         <classShapeMoniker Id="e775341c-1813-4b26-b899-3f7ed9b63004" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.906248 : 9.125); (2.906248 : 1.54111857096354); (2.5 : 1.54111857096354)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.906248 : 9.125); (2.906248 : 1.54111857096354); (2.5 : 1.54111857096354)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/Status/Status_PrintRun" />
       <nodes>
         <classShapeMoniker Id="23e93bab-e7fb-4bbd-9949-7a0ca88bbdd5" />
@@ -86,14 +86,14 @@
         <elementListCompartment Id="1e47bee0-ba68-492a-8697-c27af88e078d" absoluteBounds="3.515, 2.085, 1.9700000000000002, 4.3161417643229161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.5 : 4.57698689778646); (2.98958133333333 : 4.57698689778646 : JumpStart); (2.82291466666667 : 4.57698689778646 : JumpEnd); (2.5 : 4.57698689778646)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.5 : 4.57698689778646); (2.98958133333333 : 4.57698689778646 : JumpStart); (2.82291466666667 : 4.57698689778646 : JumpEnd); (2.5 : 4.57698689778646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/User/User_Order" />
       <nodes>
         <classShapeMoniker Id="1eda7984-65a0-4156-bdbb-65dae33e86f9" />
         <classShapeMoniker Id="42d3a81a-8b33-4c11-90a5-4f6834401232" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.375 : 4.38025024414063); (5.5 : 4.38025024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.375 : 4.38025024414063); (5.5 : 4.38025024414063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PWASDataContext/Role/Role_User" />
       <nodes>
         <classShapeMoniker Id="6db8fbf0-8f26-4def-b4ff-c6674139914a" />
