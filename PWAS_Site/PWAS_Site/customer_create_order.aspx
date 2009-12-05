@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="customer_create_order.aspx.cs" Inherits="PWAS_Site.Formulario_web1" Title="Página sin título" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="customer_create_order.aspx.cs" Inherits="PWAS_Site.customer_create_order" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 Create Order
 </asp:Content>
