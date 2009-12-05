@@ -9,6 +9,7 @@ namespace PWAS.DataAccess.Interfaces
         IQueryable<User> Users { get; }
         void AddUser(User user);
         void DeleteUser(int userId);
+        void DeactivateUser(int userId);
         User GetById(int userId);
         void UpdateUserInfo(User newUser);
         void SubmitChanges();
