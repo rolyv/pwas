@@ -9,9 +9,10 @@
 //------------------------------------------------------------------------------
 
 namespace PWAS_Site {
-    
-    
-    public partial class customer_view_order {
+
+
+    public partial class customer_view_order
+    {
         
         /// <summary>
         /// lblNotify control.
