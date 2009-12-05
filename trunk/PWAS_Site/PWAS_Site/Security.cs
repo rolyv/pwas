@@ -18,22 +18,22 @@ namespace PWAS_Site
 {
     internal static class Security
     {
-        private static IQueryable<Role> Roles { get; set; }
-        private static IQueryable<RolePermission> RolePermissions { get; set; }
-        private static IQueryable<User> Users { get; set; }
+        private static IRoleRepository RolesRepo { get; set; }
+        private static IRolePermissionRepository RolePermissionsRepo { get; set; }
+        private static IUserRepository UsersRepo { get; set; }
 
         static Security()
         {
-            Security.Roles = RepositoryFactory.Get<IRoleRepository>().Roles;
-            Security.RolePermissions = RepositoryFactory.Get<IRolePermissionRepository>().RolePermissions;
-            Security.Users = RepositoryFactory.Get<IUserRepository>().Users;
+            Security.RolesRepo = RepositoryFactory.Get<IRoleRepository>();
+            Security.RolePermissionsRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+            Security.UsersRepo = RepositoryFactory.Get<IUserRepository>();
         }
 
         internal static int Authenticate(string email, string password)
         {
-            if (Security.Users.Any(u => u.email.Equals(email)))
+            if (Security.UsersRepo.Users.Any(u => u.email.Equals(email)))
             {
-                User user = Security.Users.Single(u => u.email.Equals(email));
+                User user = Security.UsersRepo.Users.Single(u => u.email.Equals(email));
 
                 if (MD5Encode(password).Equals(user.password.Trim()))
                 {
@@ -50,16 +50,16 @@ namespace PWAS_Site
             }
         }
 
-        internal static bool IsAuthorized(int roleId, PwasObject obj, PwasAction action, PwasScope scope)
+        internal static bool IsAuthorized(int userId, PwasObject obj, PwasAction action, PwasScope scope)
         {
-            PwasScope permissionScope = IsAuthorized(roleId, obj, action);
+            PwasScope permissionScope = IsAuthorized(userId, obj, action);
 
             return permissionScope >= scope;
         }
 
-        internal static PwasScope IsAuthorized(int roleId, PwasObject obj, PwasAction action)
+        internal static PwasScope IsAuthorized(int userId, PwasObject obj, PwasAction action)
         {
-            RolePermission permission = Security.RolePermissions.Single(rp => rp.roleID == roleId && rp.@object == obj.StringValue());
+            RolePermission permission = Security.RolePermissionsRepo.RolePermissions.Single(rp => rp.roleID == Security.UsersRepo.GetById(userId).roleID && rp.@object == obj.StringValue());
 
             switch (action)
             {
@@ -76,7 +76,7 @@ namespace PWAS_Site
             }
         }
 
-        internal static void SetControlVisibility(int roleId, ControlCollection controls)
+        internal static void SetControlVisibility(int userId, ControlCollection controls)
         {
             foreach (Control control in controls)
             {
@@ -86,7 +86,7 @@ namespace PWAS_Site
                     PwasObject obj = (PwasObject)Enum.Parse(typeof(PwasObject), temp.Attributes["pwasObj"], true);
                     PwasAction action = (PwasAction)Enum.Parse(typeof(PwasAction), temp.Attributes["pwasAction"], true);
                     PwasScope scope = (PwasScope)Enum.Parse(typeof(PwasScope), temp.Attributes["pwasScope"], true);
-                    control.Visible = Security.IsAuthorized(roleId, obj, action, scope);
+                    control.Visible = Security.IsAuthorized(userId, obj, action, scope);
                 }
             }
         }

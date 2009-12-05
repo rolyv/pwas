@@ -104,13 +104,13 @@ namespace PWAS_Site {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder box3_link;
         
         /// <summary>
-        /// navigation_menu control.
+        /// NavigationControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder navigation_menu;
+        protected global::PWAS_Site.NavMenu.NavigationControl NavigationControl;
         
         /// <summary>
         /// body_title control.

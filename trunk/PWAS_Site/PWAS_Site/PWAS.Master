@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PWAS.master.cs" Inherits="PWAS_Site.PWAS" %>
 
+<%@ Register src="NavMenu/NavigationControl.ascx" tagname="NavigationControl" tagprefix="uc1" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -77,16 +79,8 @@
     <div id="body-part">
         <div class="left-body">
             <div class="left-body-top">
-                <h2>
-                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
-                <asp:ContentPlaceHolder ID="navigation_menu" runat="server">
-                    <ul>
-                        <li><a href="#">Place an Order.</a></li>
-                        <li><a href="#">View Order Status.</a></li>
-                        <li><a href="#">Edit Profile.</a></li>
-                        <li class="last"><a href="#">Search.</a></li>
-                    </ul>
-                </asp:ContentPlaceHolder>
+                <h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
+                    <uc1:NavigationControl ID="NavigationControl" runat="server" />
             </div>
         </div>
         <div class="right-body">
