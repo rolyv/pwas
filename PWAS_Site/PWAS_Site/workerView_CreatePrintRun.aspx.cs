@@ -17,7 +17,7 @@ using PWAS.DataAccess.Interfaces;
 
 namespace PWAS_Site
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class workerView_CreatePrintRun : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

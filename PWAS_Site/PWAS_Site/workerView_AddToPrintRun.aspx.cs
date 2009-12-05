@@ -18,7 +18,7 @@ using PWAS.Model;
 
 namespace PWAS_Site
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class workerView_AddToPrintRun : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
