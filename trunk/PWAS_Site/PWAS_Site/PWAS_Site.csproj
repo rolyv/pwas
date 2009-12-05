@@ -66,7 +66,6 @@
     </Content>
     <Content Include="contact-us.aspx" />
     <Content Include="css\style.css" />
-    <Content Include="Customer View_Create_Order.aspx" />
     <Content Include="customerView_EditProfile.aspx" />
     <Content Include="customerView_View_Orders.aspx" />
     <Content Include="Employee_Finish_view.aspx" />
@@ -153,13 +152,6 @@
       <DependentUpon>contact-us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer View_Create_Order.aspx.cs">
-      <DependentUpon>Customer View_Create_Order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer View_Create_Order.aspx.designer.cs">
-      <DependentUpon>Customer View_Create_Order.aspx</DependentUpon>
-    </Compile>
     <Compile Include="customerView_EditProfile.aspx.cs">
       <DependentUpon>customerView_EditProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,13 +172,6 @@
     </Compile>
     <Compile Include="customer_create_order.aspx.designer.cs">
       <DependentUpon>customer_create_order.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="customer_edit_order.aspx.cs">
-      <DependentUpon>customer_edit_order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="customer_edit_order.aspx.designer.cs">
-      <DependentUpon>customer_edit_order.aspx</DependentUpon>
     </Compile>
     <Compile Include="customer_view_order.aspx.cs">
       <DependentUpon>customer_view_order.aspx</DependentUpon>
@@ -333,11 +318,9 @@
     <Content Include="NavMenu\NavigationControl.ascx" />
     <Content Include="adminView_edit_Roles_Permissions.aspx" />
     <Content Include="customer_create_order.aspx" />
-    <Content Include="customer_edit_order.aspx" />
     <Content Include="customer_view_order.aspx" />
     <Content Include="images\delete.gif" />
     <Content Include="images\edit.gif" />
-    <Content Include="NavMenu\Navigation.ascx" />
     <Content Include="PWAS_Out.Master" />
     <Content Include="PWAS.Master" />
     <Content Include="customerView_Home.aspx" />
