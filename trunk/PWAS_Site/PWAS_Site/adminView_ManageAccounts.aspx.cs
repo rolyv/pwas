@@ -35,6 +35,8 @@ namespace PWAS_Site
                 edit.ToolTip = "Edit";
                 edit.CommandArgument = user.userID.ToString();
                 edit.Command += new CommandEventHandler(btnEditUser_Click);
+                if (!Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All))
+                    edit.Enabled = false;
                 cellEdit.Controls.Add(edit);
 
                 TableCell cellDelete = new TableCell();
@@ -43,6 +45,8 @@ namespace PWAS_Site
                 delete.ToolTip = "Delete";
                 delete.CommandArgument = user.userID.ToString();
                 delete.Command += new CommandEventHandler(btnDeleteUser_Click);
+                if (!Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All))
+                    delete.Enabled = false;
                 cellDelete.Controls.Add(delete);
 
                 TableCell cellUsername = new TableCell();
@@ -89,7 +93,7 @@ namespace PWAS_Site
             int userId = Int32.Parse(btn.CommandArgument);
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            userRepo.Deactivate(userId);
+            userRepo.DeactivateUser(userId);
             userRepo.SubmitChanges();
         }
     }
