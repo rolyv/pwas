@@ -27,6 +27,14 @@ namespace PWAS_Site
         static RepositoryFactory()
         {
             container = new WindsorContainer(new XmlInterpreter(new ConfigResource("castle")));
+
+            //container.Register(
+            //    Component.For(typeof(IRepository<>))
+            //        .ImplementedBy(typeof(Repository<>))
+            //            .Parameters(
+            //                Castle.MicroKernel.Registration.Parameter.ForKey("connectionString")
+            //                    .Eq("#{SQLConnectionString}")
+            //             ));
         }
 
         internal static T Get<T>()

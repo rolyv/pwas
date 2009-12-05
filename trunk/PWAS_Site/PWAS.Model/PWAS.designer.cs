@@ -30,9 +30,6 @@ namespace PWAS.Model
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertPrintRun(PrintRun instance);
-    partial void UpdatePrintRun(PrintRun instance);
-    partial void DeletePrintRun(PrintRun instance);
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
@@ -48,6 +45,9 @@ namespace PWAS.Model
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertPrintRun(PrintRun instance);
+    partial void UpdatePrintRun(PrintRun instance);
+    partial void DeletePrintRun(PrintRun instance);
     partial void InsertStatus(Status instance);
     partial void UpdateStatus(Status instance);
     partial void DeleteStatus(Status instance);
@@ -81,14 +81,6 @@ namespace PWAS.Model
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<PrintRun> PrintRuns
-		{
-			get
-			{
-				return this.GetTable<PrintRun>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Role> Roles
@@ -131,222 +123,20 @@ namespace PWAS.Model
 			}
 		}
 		
+		public System.Data.Linq.Table<PrintRun> PrintRuns
+		{
+			get
+			{
+				return this.GetTable<PrintRun>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Status> Status
 		{
 			get
 			{
 				return this.GetTable<Status>();
 			}
-		}
-	}
-	
-	[Table(Name="dbo.PrintRun")]
-	public partial class PrintRun : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _runID;
-		
-		private double _height;
-		
-		private double _width;
-		
-		private int _quantity;
-		
-		private string _stock_finish;
-		
-		private string _stock_weight;
-		
-		private EntitySet<Order> _Orders;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnrunIDChanging(int value);
-    partial void OnrunIDChanged();
-    partial void OnheightChanging(double value);
-    partial void OnheightChanged();
-    partial void OnwidthChanging(double value);
-    partial void OnwidthChanged();
-    partial void OnquantityChanging(int value);
-    partial void OnquantityChanged();
-    partial void Onstock_finishChanging(string value);
-    partial void Onstock_finishChanged();
-    partial void Onstock_weightChanging(string value);
-    partial void Onstock_weightChanged();
-    #endregion
-		
-		public PrintRun()
-		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			OnCreated();
-		}
-		
-		[Column(Storage="_runID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int runID
-		{
-			get
-			{
-				return this._runID;
-			}
-			set
-			{
-				if ((this._runID != value))
-				{
-					this.OnrunIDChanging(value);
-					this.SendPropertyChanging();
-					this._runID = value;
-					this.SendPropertyChanged("runID");
-					this.OnrunIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_height", DbType="Float NOT NULL")]
-		public double height
-		{
-			get
-			{
-				return this._height;
-			}
-			set
-			{
-				if ((this._height != value))
-				{
-					this.OnheightChanging(value);
-					this.SendPropertyChanging();
-					this._height = value;
-					this.SendPropertyChanged("height");
-					this.OnheightChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_width", DbType="Float NOT NULL")]
-		public double width
-		{
-			get
-			{
-				return this._width;
-			}
-			set
-			{
-				if ((this._width != value))
-				{
-					this.OnwidthChanging(value);
-					this.SendPropertyChanging();
-					this._width = value;
-					this.SendPropertyChanged("width");
-					this.OnwidthChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_quantity", DbType="Int NOT NULL")]
-		public int quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this.OnquantityChanging(value);
-					this.SendPropertyChanging();
-					this._quantity = value;
-					this.SendPropertyChanged("quantity");
-					this.OnquantityChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_stock_finish", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string stock_finish
-		{
-			get
-			{
-				return this._stock_finish;
-			}
-			set
-			{
-				if ((this._stock_finish != value))
-				{
-					this.Onstock_finishChanging(value);
-					this.SendPropertyChanging();
-					this._stock_finish = value;
-					this.SendPropertyChanged("stock_finish");
-					this.Onstock_finishChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_stock_weight", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string stock_weight
-		{
-			get
-			{
-				return this._stock_weight;
-			}
-			set
-			{
-				if ((this._stock_weight != value))
-				{
-					this.Onstock_weightChanging(value);
-					this.SendPropertyChanging();
-					this._stock_weight = value;
-					this.SendPropertyChanged("stock_weight");
-					this.Onstock_weightChanged();
-				}
-			}
-		}
-		
-		[Association(Name="PrintRun_Order", Storage="_Orders", OtherKey="runID")]
-		public EntitySet<Order> Orders
-		{
-			get
-			{
-				return this._Orders;
-			}
-			set
-			{
-				this._Orders.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.PrintRun = this;
-		}
-		
-		private void detach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.PrintRun = null;
 		}
 	}
 	
@@ -797,9 +587,9 @@ namespace PWAS.Model
 		
 		private EntitySet<OrderHistory> _OrderHistories;
 		
-		private EntityRef<PrintRun> _PrintRun;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<PrintRun> _PrintRun;
 		
 		private EntityRef<Status> _Status;
 		
@@ -838,8 +628,8 @@ namespace PWAS.Model
 		public Order()
 		{
 			this._OrderHistories = new EntitySet<OrderHistory>(new Action<OrderHistory>(this.attach_OrderHistories), new Action<OrderHistory>(this.detach_OrderHistories));
-			this._PrintRun = default(EntityRef<PrintRun>);
 			this._User = default(EntityRef<User>);
+			this._PrintRun = default(EntityRef<PrintRun>);
 			this._Status = default(EntityRef<Status>);
 			OnCreated();
 		}
@@ -1129,40 +919,6 @@ namespace PWAS.Model
 			}
 		}
 		
-		[Association(Name="PrintRun_Order", Storage="_PrintRun", ThisKey="runID", IsForeignKey=true)]
-		public PrintRun PrintRun
-		{
-			get
-			{
-				return this._PrintRun.Entity;
-			}
-			set
-			{
-				PrintRun previousValue = this._PrintRun.Entity;
-				if (((previousValue != value) 
-							|| (this._PrintRun.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PrintRun.Entity = null;
-						previousValue.Orders.Remove(this);
-					}
-					this._PrintRun.Entity = value;
-					if ((value != null))
-					{
-						value.Orders.Add(this);
-						this._runID = value.runID;
-					}
-					else
-					{
-						this._runID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PrintRun");
-				}
-			}
-		}
-		
 		[Association(Name="User_Order", Storage="_User", ThisKey="userID", IsForeignKey=true)]
 		public User User
 		{
@@ -1193,6 +949,40 @@ namespace PWAS.Model
 						this._userID = default(int);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[Association(Name="PrintRun_Order", Storage="_PrintRun", ThisKey="runID", IsForeignKey=true)]
+		public PrintRun PrintRun
+		{
+			get
+			{
+				return this._PrintRun.Entity;
+			}
+			set
+			{
+				PrintRun previousValue = this._PrintRun.Entity;
+				if (((previousValue != value) 
+							|| (this._PrintRun.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PrintRun.Entity = null;
+						previousValue.Orders.Remove(this);
+					}
+					this._PrintRun.Entity = value;
+					if ((value != null))
+					{
+						value.Orders.Add(this);
+						this._runID = value.runID;
+					}
+					else
+					{
+						this._runID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PrintRun");
 				}
 			}
 		}
@@ -2139,6 +1929,305 @@ namespace PWAS.Model
 		}
 	}
 	
+	[Table(Name="dbo.PrintRun")]
+	public partial class PrintRun : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _runID;
+		
+		private double _height;
+		
+		private double _width;
+		
+		private int _quantity;
+		
+		private string _stock_finish;
+		
+		private string _stock_weight;
+		
+		private string _run_name;
+		
+		private System.Nullable<int> _run_status;
+		
+		private EntitySet<Order> _Orders;
+		
+		private EntityRef<Status> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnrunIDChanging(int value);
+    partial void OnrunIDChanged();
+    partial void OnheightChanging(double value);
+    partial void OnheightChanged();
+    partial void OnwidthChanging(double value);
+    partial void OnwidthChanged();
+    partial void OnquantityChanging(int value);
+    partial void OnquantityChanged();
+    partial void Onstock_finishChanging(string value);
+    partial void Onstock_finishChanged();
+    partial void Onstock_weightChanging(string value);
+    partial void Onstock_weightChanged();
+    partial void Onrun_nameChanging(string value);
+    partial void Onrun_nameChanged();
+    partial void Onrun_statusChanging(System.Nullable<int> value);
+    partial void Onrun_statusChanged();
+    #endregion
+		
+		public PrintRun()
+		{
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Status = default(EntityRef<Status>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_runID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int runID
+		{
+			get
+			{
+				return this._runID;
+			}
+			set
+			{
+				if ((this._runID != value))
+				{
+					this.OnrunIDChanging(value);
+					this.SendPropertyChanging();
+					this._runID = value;
+					this.SendPropertyChanged("runID");
+					this.OnrunIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_height", DbType="Float NOT NULL")]
+		public double height
+		{
+			get
+			{
+				return this._height;
+			}
+			set
+			{
+				if ((this._height != value))
+				{
+					this.OnheightChanging(value);
+					this.SendPropertyChanging();
+					this._height = value;
+					this.SendPropertyChanged("height");
+					this.OnheightChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_width", DbType="Float NOT NULL")]
+		public double width
+		{
+			get
+			{
+				return this._width;
+			}
+			set
+			{
+				if ((this._width != value))
+				{
+					this.OnwidthChanging(value);
+					this.SendPropertyChanging();
+					this._width = value;
+					this.SendPropertyChanged("width");
+					this.OnwidthChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_stock_finish", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string stock_finish
+		{
+			get
+			{
+				return this._stock_finish;
+			}
+			set
+			{
+				if ((this._stock_finish != value))
+				{
+					this.Onstock_finishChanging(value);
+					this.SendPropertyChanging();
+					this._stock_finish = value;
+					this.SendPropertyChanged("stock_finish");
+					this.Onstock_finishChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_stock_weight", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string stock_weight
+		{
+			get
+			{
+				return this._stock_weight;
+			}
+			set
+			{
+				if ((this._stock_weight != value))
+				{
+					this.Onstock_weightChanging(value);
+					this.SendPropertyChanging();
+					this._stock_weight = value;
+					this.SendPropertyChanged("stock_weight");
+					this.Onstock_weightChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_run_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string run_name
+		{
+			get
+			{
+				return this._run_name;
+			}
+			set
+			{
+				if ((this._run_name != value))
+				{
+					this.Onrun_nameChanging(value);
+					this.SendPropertyChanging();
+					this._run_name = value;
+					this.SendPropertyChanged("run_name");
+					this.Onrun_nameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_run_status", DbType="Int NOT NULL")]
+		public System.Nullable<int> run_status
+		{
+			get
+			{
+				return this._run_status;
+			}
+			set
+			{
+				if ((this._run_status != value))
+				{
+					if (this._Status.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onrun_statusChanging(value);
+					this.SendPropertyChanging();
+					this._run_status = value;
+					this.SendPropertyChanged("run_status");
+					this.Onrun_statusChanged();
+				}
+			}
+		}
+		
+		[Association(Name="PrintRun_Order", Storage="_Orders", OtherKey="runID")]
+		public EntitySet<Order> Orders
+		{
+			get
+			{
+				return this._Orders;
+			}
+			set
+			{
+				this._Orders.Assign(value);
+			}
+		}
+		
+		[Association(Name="Status_PrintRun", Storage="_Status", ThisKey="run_status", IsForeignKey=true)]
+		public Status Status
+		{
+			get
+			{
+				return this._Status.Entity;
+			}
+			set
+			{
+				Status previousValue = this._Status.Entity;
+				if (((previousValue != value) 
+							|| (this._Status.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Status.Entity = null;
+						previousValue.PrintRuns.Remove(this);
+					}
+					this._Status.Entity = value;
+					if ((value != null))
+					{
+						value.PrintRuns.Add(this);
+						this._run_status = value.statusId;
+					}
+					else
+					{
+						this._run_status = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Status");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.PrintRun = this;
+		}
+		
+		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.PrintRun = null;
+		}
+	}
+	
 	[Table(Name="dbo.Status")]
 	public partial class Status : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2152,6 +2241,8 @@ namespace PWAS.Model
 		private EntitySet<Order> _Orders;
 		
 		private EntitySet<OrderHistory> _OrderHistories;
+		
+		private EntitySet<PrintRun> _PrintRuns;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2167,6 +2258,7 @@ namespace PWAS.Model
 		{
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._OrderHistories = new EntitySet<OrderHistory>(new Action<OrderHistory>(this.attach_OrderHistories), new Action<OrderHistory>(this.detach_OrderHistories));
+			this._PrintRuns = new EntitySet<PrintRun>(new Action<PrintRun>(this.attach_PrintRuns), new Action<PrintRun>(this.detach_PrintRuns));
 			OnCreated();
 		}
 		
@@ -2190,7 +2282,7 @@ namespace PWAS.Model
 			}
 		}
 		
-		[Column(Storage="_statusName", DbType="NChar(15) NOT NULL", CanBeNull=false)]
+		[Column(Storage="_statusName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string statusName
 		{
 			get
@@ -2236,6 +2328,19 @@ namespace PWAS.Model
 			}
 		}
 		
+		[Association(Name="Status_PrintRun", Storage="_PrintRuns", OtherKey="run_status")]
+		public EntitySet<PrintRun> PrintRuns
+		{
+			get
+			{
+				return this._PrintRuns;
+			}
+			set
+			{
+				this._PrintRuns.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2275,6 +2380,18 @@ namespace PWAS.Model
 		}
 		
 		private void detach_OrderHistories(OrderHistory entity)
+		{
+			this.SendPropertyChanging();
+			entity.Status = null;
+		}
+		
+		private void attach_PrintRuns(PrintRun entity)
+		{
+			this.SendPropertyChanging();
+			entity.Status = this;
+		}
+		
+		private void detach_PrintRuns(PrintRun entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status = null;

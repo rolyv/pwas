@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="PWAS_DB" Class="PWASDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=&quot;C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\App_Data\PWAS_DB.mdf&quot;;Integrated Security=True;User Instance=True" SettingsObjectName="PWAS.Model.Properties.Settings" SettingsPropertyName="PWAS_DBConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.PrintRun" Member="PrintRuns">
-    <Type Name="PrintRun">
-      <Column Name="runID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="stock_finish" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="stock_weight" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="PrintRun_Order" Member="Orders" OtherKey="runID" Type="Order" />
-    </Type>
-  </Table>
   <Table Name="dbo.Role" Member="Roles">
     <Type Name="Role">
       <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -49,8 +38,8 @@
       <Column Name="ship" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="currentStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
       <Association Name="Order_OrderHistory" Member="OrderHistories" OtherKey="orderId" Type="OrderHistory" />
-      <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
       <Association Name="User_Order" Member="User" ThisKey="userID" Type="User" IsForeignKey="true" />
+      <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
       <Association Name="Status_Order" Member="Status" ThisKey="currentStatus" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
@@ -93,12 +82,27 @@
       <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.PrintRun" Member="PrintRuns">
+    <Type Name="PrintRun">
+      <Column Name="runID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_finish" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="stock_weight" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="run_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="run_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Association Name="PrintRun_Order" Member="Orders" OtherKey="runID" Type="Order" />
+      <Association Name="Status_PrintRun" Member="Status" ThisKey="run_status" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Status" Member="Status">
     <Type Name="Status">
       <Column Name="statusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="statusName" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="statusName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Status_Order" Member="Orders" OtherKey="currentStatus" Type="Order" />
       <Association Name="Status_OrderHistory" Member="OrderHistories" OtherKey="statusId" Type="OrderHistory" />
+      <Association Name="Status_PrintRun" Member="PrintRuns" OtherKey="run_status" Type="PrintRun" />
     </Type>
   </Table>
 </Database>

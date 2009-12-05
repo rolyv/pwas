@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IOrderHistoryRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStatusRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IPrintRunRepository.cs" />
@@ -64,6 +65,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SQLRepositories\PrintRunRepository.cs" />
+    <Compile Include="SQLRepositories\Repository.cs" />
     <Compile Include="SQLRepositories\RolePermissionRepository.cs" />
     <Compile Include="SQLRepositories\RoleRepository.cs" />
     <Compile Include="SQLRepositories\StatusRepository.cs" />

@@ -11,9 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-namespace PWAS_Site.NewFolder1
+namespace PWAS_Site.NavMenu
 {
-    public partial class Navigation : System.Web.UI.UserControl
+    public partial class NavigationControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
