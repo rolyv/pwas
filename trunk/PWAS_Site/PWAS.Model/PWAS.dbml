@@ -99,7 +99,7 @@
       <Column Name="b_city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="b_state" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="b_zip" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="roleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
       <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
       <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
