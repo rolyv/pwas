@@ -17,7 +17,7 @@ using PWAS.DataAccess.Interfaces;
 
 namespace PWAS_Site
 {
-    public partial class Formulario_web1 : System.Web.UI.Page
+    public partial class customer_create_order : System.Web.UI.Page
     {
 
         protected void saveOrder(object sender, EventArgs e)
@@ -38,9 +38,9 @@ namespace PWAS_Site
                     stock_weight = this.lstWeight.SelectedValue,
                     two_sided = this.chkTwoSide.Checked,
                     folded = this.chkfolded.Checked,
-                    ship = this.chkShip.Checked                    
+                    ship = this.chkShip.Checked
                 };
-                
+
                 orderRepository.AddOrder(orderCreate);
                 orderRepository.SubmitChanges();
 
@@ -49,6 +49,14 @@ namespace PWAS_Site
                 this.lblNotify.Visible = true;
                 func_clearFields(false);
             }
+        }
+        protected void func_clear(object sender, EventArgs e)
+        {
+            func_clearFields(true);
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void func_clearFields(bool notify)
@@ -63,13 +71,10 @@ namespace PWAS_Site
             this.chkfolded.Checked = false;
             this.chkShip.Checked = false;
         }
-
-
         private int getUserID()
         {
             return (int)Session[Constants.PWAS_SESSION_ID];
         }
-
         private bool validateFields()
         {
             int test;
@@ -103,14 +108,5 @@ namespace PWAS_Site
             return ret;
         }
 
-        protected void func_clear(object sender, EventArgs e)
-        {
-            func_clearFields(true);
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
