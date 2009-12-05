@@ -68,6 +68,10 @@ namespace PWAS_Site
         internal const int ORDER_STATUS_PRINTING = 3;
         internal const int ORDER_STATUS_FINISHING = 4;
         internal const int ORDER_STATUS_SHIPPING = 5;
-        internal const int ORDER_STATUS_CLOSED = 6;        
+        internal const int ORDER_STATUS_CLOSED = 6;
+        internal const int ORDER_STATUS_PREPRINTING = 7;
+        internal const int ORDER_STATUS_PROCESSING = 8;
+        internal const int ORDER_STATUS_SHIPPED = 9;
+
     }
 }
