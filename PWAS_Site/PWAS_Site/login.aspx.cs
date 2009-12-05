@@ -31,12 +31,12 @@ namespace PWAS_Site
 
             int userID = Security.Authenticate(email, password);
 
-            if (userID > 0)
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            User userObj = userRepo.GetById(userID);
+
+            if ((userObj.active == true) && userID > 0)
             {
                 Session[Constants.PWAS_SESSION_ID] = userID;
-
-                IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-                User userObj = userRepo.GetById(userID);
 
                 Session[Constants.PWAS_SESSION_NAME] = userObj.firstName;
 
