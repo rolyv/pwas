@@ -31,6 +31,14 @@ namespace PWAS.DataAccess.SQLRepositories
             return userTable.FirstOrDefault(u => u.userID == userId);
         }
 
+        public void ActivateUser(int userId)
+        {
+            User user = GetById(userId);
+            user.active = true;
+
+            SubmitChanges();
+        }
+
         public void DeactivateUser(int userId)
         {
             User user = GetById(userId);
