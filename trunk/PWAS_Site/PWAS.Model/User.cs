@@ -15,7 +15,7 @@ namespace PWAS.Model
             }
             if (this.active == null)
             {
-                this.active = 1;
+                this.active = true;
             }
         }
     }
