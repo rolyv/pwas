@@ -11,7 +11,7 @@
 namespace PWAS_Site {
     
     
-    public partial class WebForm6 {
+    public partial class Register {
         
         /// <summary>
         /// tableErrorMessage control.

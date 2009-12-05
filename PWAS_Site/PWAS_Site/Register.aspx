@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PWAS_Out.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="PWAS_Site.WebForm6" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PWAS_Out.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="PWAS_Site.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">

@@ -30,24 +30,42 @@ namespace PWAS_Site
                 tableRow.CssClass = "orderRow";
                 
                 TableCell cellEdit = new TableCell();
-                ImageButton edit = new ImageButton();
-                edit.ImageUrl = "/images/edit.gif";
-                edit.ToolTip = "Edit";
-                edit.CommandArgument = user.userID.ToString();
-                edit.Command += new CommandEventHandler(btnEditUser_Click);
-                if (!Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All))
-                    edit.Enabled = false;
-                cellEdit.Controls.Add(edit);
+                if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All))
+                {
+                    ImageButton edit = new ImageButton();
+                    edit.ImageUrl = "/images/edit.gif";
+                    edit.ToolTip = "Edit";
+                    edit.CommandArgument = user.userID.ToString();
+                    edit.Command += new CommandEventHandler(btnEditUser_Click);
+                    cellEdit.Controls.Add(edit);
+                }
+                else
+                {
+                    Image edit = new Image();
+                    edit.ImageUrl = "/images/edit_gray.gif";
+                    edit.ToolTip = "Edit";
+                    cellEdit.Controls.Add(edit);
+                }
+                
 
                 TableCell cellDelete = new TableCell();
-                ImageButton delete = new ImageButton();
-                delete.ImageUrl = "/images/delete.gif";
-                delete.ToolTip = "Delete";
-                delete.CommandArgument = user.userID.ToString();
-                delete.Command += new CommandEventHandler(btnDeleteUser_Click);
-                if (!Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All))
-                    delete.Enabled = false;
-                cellDelete.Controls.Add(delete);
+                if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All))
+                {
+                    ImageButton delete = new ImageButton();
+                    delete.ImageUrl = "/images/delete.gif";
+                    delete.ToolTip = "Delete";
+                    delete.CommandArgument = user.userID.ToString();
+                    delete.Command += new CommandEventHandler(btnDeleteUser_Click);
+                    cellDelete.Controls.Add(delete);
+                }
+                else
+                {
+                    Image delete = new Image();
+                    delete.ImageUrl = "/images/delete_gray.gif";
+                    delete.ToolTip = "Delete";
+                    cellDelete.Controls.Add(delete);
+                }
+                
 
                 TableCell cellUsername = new TableCell();
                 string username = user.email.Trim();
