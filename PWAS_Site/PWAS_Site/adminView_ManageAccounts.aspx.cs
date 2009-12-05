@@ -17,7 +17,7 @@ namespace PWAS_Site
                 //load all users and populate tableManageUsers
                 IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                 List<User> users = userRepo.Users.ToList();
-
+                
                 foreach (User user in users)
                 {
                     TableRow tableRow = new TableRow();
@@ -79,6 +79,12 @@ namespace PWAS_Site
 
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
+            ImageButton btn = sender as ImageButton;
+            int userId = Int32.Parse(btn.CommandArgument);
+
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            userRepo.DeleteUser(userId);
+            userRepo.SubmitChanges();
             //Needs to be implemented.
         }
     }
