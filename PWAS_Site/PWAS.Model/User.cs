@@ -13,6 +13,10 @@ namespace PWAS.Model
             {
                 this.roleID = 1;
             }
+            if (this.active == null)
+            {
+                this.active = 1;
+            }
         }
     }
 
@@ -37,4 +41,6 @@ namespace PWAS.Model
             }
         }
     }
+
+    
 }
