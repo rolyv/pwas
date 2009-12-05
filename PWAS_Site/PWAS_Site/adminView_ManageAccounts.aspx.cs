@@ -15,7 +15,7 @@ namespace PWAS_Site
         {
             //check that user has access
                 //if not -> redirect to home page
-            if (!Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.View, PwasScope.All))
+            if (Session[Constants.PWAS_SESSION_ID] == null || !Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.View, PwasScope.All))
             {
                 Response.Redirect("customerView_Home.aspx");
             }
