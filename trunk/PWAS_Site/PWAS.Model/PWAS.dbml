@@ -22,34 +22,13 @@
       <Association Name="Role_RolePermission" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.[Order]" Member="Orders">
-    <Type Name="Order">
-      <Column Name="orderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="runID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="job_name" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="stock_finish" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="stock_weight" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="two_sided" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="folded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ship" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="currentStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
-      <Association Name="Order_OrderHistory" Member="OrderHistories" OtherKey="orderId" Type="OrderHistory" />
-      <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
-      <Association Name="Status_Order" Member="Status" ThisKey="currentStatus" Type="Status" IsForeignKey="true" />
-      <Association Name="User_Order" Member="User" ThisKey="userID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.OrderHistory" Member="OrderHistories">
     <Type Name="OrderHistory">
       <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="statusId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="modifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Order_OrderHistory" Member="Order" ThisKey="orderId" Type="Order" IsForeignKey="true" />
       <Association Name="Status_OrderHistory" Member="Status" ThisKey="statusId" Type="Status" IsForeignKey="true" />
+      <Association Name="Order_OrderHistory" Member="Order" ThisKey="orderId" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PrintRun" Member="PrintRuns">
@@ -70,9 +49,9 @@
     <Type Name="Status">
       <Column Name="statusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="statusName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Status_Order" Member="Orders" OtherKey="currentStatus" Type="Order" />
       <Association Name="Status_OrderHistory" Member="OrderHistories" OtherKey="statusId" Type="OrderHistory" />
       <Association Name="Status_PrintRun" Member="PrintRuns" OtherKey="run_status" Type="PrintRun" />
+      <Association Name="Status_Order" Member="Orders" OtherKey="currentStatus" Type="Order" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
@@ -104,6 +83,28 @@
       <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="true" />
       <Association Name="User_Order" Member="Orders" OtherKey="userID" Type="Order" />
       <Association Name="Role_User" Member="Role" ThisKey="roleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="orderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="runID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="job_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_finish" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="stock_weight" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="two_sided" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="folded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ship" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="currentStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Order_OrderHistory" Member="OrderHistories" OtherKey="orderId" Type="OrderHistory" />
+      <Association Name="PrintRun_Order" Member="PrintRun" ThisKey="runID" Type="PrintRun" IsForeignKey="true" />
+      <Association Name="Status_Order" Member="Status" ThisKey="currentStatus" Type="Status" IsForeignKey="true" />
+      <Association Name="User_Order" Member="User" ThisKey="userID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>
