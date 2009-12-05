@@ -148,6 +148,13 @@
       <DependentUpon>adminView_edit_Roles_Permissions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="admin_ManageRoles.aspx.cs">
+      <DependentUpon>admin_ManageRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_ManageRoles.aspx.designer.cs">
+      <DependentUpon>admin_ManageRoles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contact-us.aspx.cs">
       <DependentUpon>contact-us.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,6 +322,7 @@
   <ItemGroup>
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
+    <Content Include="admin_ManageRoles.aspx" />
     <Content Include="NavMenu\NavigationControl.ascx" />
     <Content Include="adminView_edit_Roles_Permissions.aspx" />
     <Content Include="customer_create_order.aspx" />

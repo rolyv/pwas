@@ -21,8 +21,8 @@ namespace PWAS_Site
         {
             if (control.HasAttributes)
             {
-                if (!string.IsNullOrEmpty(control.Attributes["pwasObj"]) && !string.IsNullOrEmpty(control.Attributes["pwasAction"]) 
-                    && !string.IsNullOrEmpty(control.Attributes["pwasScope"]))
+                if (!string.IsNullOrEmpty(control.Attributes["pwasObj"]) || !string.IsNullOrEmpty(control.Attributes["pwasAction"]) 
+                    || !string.IsNullOrEmpty(control.Attributes["pwasScope"]))
                 {
                     return true;
                 }
