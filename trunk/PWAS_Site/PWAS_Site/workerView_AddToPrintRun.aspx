@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="workerView_AddToPrintRun.aspx.cs" Inherits="PWAS_Site.WebForm5" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="workerView_AddToPrintRun.aspx.cs" Inherits="PWAS_Site.workerView_AddToPrintRun" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">

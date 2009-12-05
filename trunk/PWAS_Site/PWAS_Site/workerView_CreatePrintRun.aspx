@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="workerView_CreatePrintRun.aspx.cs"
-    Inherits="PWAS_Site.WebForm4" Title="Create Print Run" %>
+    Inherits="PWAS_Site.workerView_CreatePrintRun" Title="Create Print Run" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 Create Print Run

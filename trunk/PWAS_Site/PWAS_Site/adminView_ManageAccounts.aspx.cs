@@ -23,6 +23,8 @@ namespace PWAS_Site
             //load active users and populate tableManageUsers
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             List<User> users = userRepo.Users.Where(u => u.active == true).ToList();
+            bool canEdit = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All);
+            bool canDelete = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All);
 
             foreach (User user in users)
             {
@@ -30,7 +32,7 @@ namespace PWAS_Site
                 tableRow.CssClass = "orderRow";
                 
                 TableCell cellEdit = new TableCell();
-                if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All))
+                if (canEdit)
                 {
                     ImageButton edit = new ImageButton();
                     edit.ImageUrl = "/images/edit.gif";
@@ -49,7 +51,7 @@ namespace PWAS_Site
                 
 
                 TableCell cellDelete = new TableCell();
-                if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All))
+                if (canDelete)
                 {
                     ImageButton delete = new ImageButton();
                     delete.ImageUrl = "/images/delete.gif";
@@ -64,6 +66,7 @@ namespace PWAS_Site
                     delete.ImageUrl = "/images/delete_gray.gif";
                     delete.ToolTip = "Delete";
                     cellDelete.Controls.Add(delete);
+                    cellDelete.Enabled = false;
                 }
                 
 
