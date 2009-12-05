@@ -20,10 +20,14 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.Get<IRolePermissionRepository>();
-            IRoleRepository rolesRepo = RepositoryFactory.Get<IRoleRepository>();
-            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-                        
+            //IRolePermissionRepository rolePermissionsRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+            //IRoleRepository rolesRepo = RepositoryFactory.Get<IRoleRepository>();
+            //IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+
+            IRepository<Role> rolesRepo = RepositoryFactory.Get<IRepository<Role>>();
+            IRepository<RolePermission> rolePermissionsRepo = RepositoryFactory.Get<IRepository<RolePermission>>();
+            IRepository<User> userRepo = RepositoryFactory.Get<IRepository<User>>();
+
             RolePermission firstPermission = rolePermissionsRepo.GetById(1);
             Role firstRole = rolesRepo.GetById(firstPermission.roleID);
 
@@ -31,7 +35,7 @@ namespace PWAS_Site
             msg += "The first RolePermission is for '" + firstRole.role_name + "' on objects of type '"
                     + firstPermission.@object + "'<br /></p>";
 
-            this.Label1.Text = msg;
+            //this.Label1.Text = msg;
 
             //bool auth = Security.IsAuthorized(2, PwasObject.Order, PwasAction.Create, PwasScope.All);
 
@@ -53,8 +57,8 @@ namespace PWAS_Site
 
             //userRepo.AddUser(newUser);
             //userRepo.SubmitChanges();
-            int roleId = 1;// (int)Session[Constants.PWAS_SESSION_ID];
-            Security.SetControlVisibility(roleId, this.Controls);
+            int roleId = 1; //(int)Session[Constants.PWAS_SESSION_ID];
+            Security.SetControlVisibility(roleId, this.Form.Controls);
         }
     }
 }

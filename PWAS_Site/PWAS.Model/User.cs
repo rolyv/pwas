@@ -26,4 +26,15 @@ namespace PWAS.Model
             }
         }
     }
+
+    public partial class PrintRun
+    {
+        partial void OnCreated()
+        {
+            if (this.run_status == null)
+            {
+                this.run_status = 1;
+            }
+        }
+    }
 }
