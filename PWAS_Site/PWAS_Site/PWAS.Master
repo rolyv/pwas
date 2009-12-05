@@ -80,7 +80,11 @@
         <div class="left-body">
             <div class="left-body-top">
                 <h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
+                <asp:ContentPlaceHolder ID="navigation_menu" runat="server">
+                    
                     <uc1:NavigationControl ID="NavigationControl" runat="server" />
+                    
+                </asp:ContentPlaceHolder>
             </div>
         </div>
         <div class="right-body">
