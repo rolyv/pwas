@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
-
+using System.Collections.Generic;
 
 using PWAS.Model;
 using PWAS.DataAccess.Interfaces;
@@ -23,20 +23,17 @@ namespace PWAS_Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             this.tblViewOrder.Visible = true;
-            this.formEditOrder.Visible = false;
+            this.formEditOrder.Visible = false;            
 
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
 
-            int userID = (int)Session[Constants.PWAS_SESSION_ID];
+            int userID = getUserID();
 
-
-            var query = from p
-                        in orderRepository.Orders
-                        where p.userID == userID
-                        select p;
-
-            foreach (var current_order in query)
+            IQueryable<Order> orders_User = OrderUtilities.getOrdersByUser(userID, Response);// getOrdersByUser(userID);
+                        
+            foreach (Order current_order in orders_User)
             {
                 TableRow row = new TableRow();
 
@@ -66,6 +63,13 @@ namespace PWAS_Site
                 cellStatus.Width = Unit.Pixel(150);
                 cellDate.Width = Unit.Pixel(200);
 
+                //Center
+                cellEdit.HorizontalAlign = HorizontalAlign.Center;
+                cellDate.HorizontalAlign = HorizontalAlign.Center;
+                cellStatus.HorizontalAlign = HorizontalAlign.Center;
+                cellOrderID.HorizontalAlign = HorizontalAlign.Center;
+                cellPrice.HorizontalAlign = HorizontalAlign.Center;
+                cellView.HorizontalAlign = HorizontalAlign.Center;
 
                 row.Cells.Add(cellEdit);
                 row.Cells.Add(cellView);
@@ -73,43 +77,86 @@ namespace PWAS_Site
                 row.Cells.Add(cellJobName);
                 row.Cells.Add(cellPrice);
                 row.Cells.Add(cellStatus);
-                row.Cells.Add(cellDate);
+                row.Cells.Add(cellDate);               
 
                 row.CssClass = "orderRow";
 
                 this.orderHistoryTable.Rows.Add(row);
             }
         }
-
+        
         private Control getViewButton(Order current_order)
-        {
-            ImageButton viewButton = new ImageButton();
+        {          
+            Control retControl = null;
 
-            viewButton.ID = current_order.orderID + "v";
-            viewButton.CommandArgument = current_order.orderID.ToString();
-            viewButton.ImageUrl = "/images/left-list.gif";
-            viewButton.Visible = true;
-            viewButton.Command += new CommandEventHandler(func_View);
+            if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.All))
+            {
+                ImageButton viewButton = new ImageButton();
 
-            return viewButton;
+                viewButton.ID = current_order.orderID + "v";
+                viewButton.CommandArgument = current_order.orderID.ToString();
+                viewButton.ImageUrl = "/images/left-list.gif";                
+                viewButton.Command += new CommandEventHandler(func_View);
+
+                retControl = viewButton;
+            }
+            else if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.Self)
+                    && OrderUtilities.isMyOrder(current_order.orderID,getUserID()))
+            {
+                ImageButton viewButton = new ImageButton();
+
+                viewButton.ID = current_order.orderID + "v";
+                viewButton.CommandArgument = current_order.orderID.ToString();
+                viewButton.ImageUrl = "/images/left-list.gif";
+                viewButton.Command += new CommandEventHandler(func_View);
+
+                retControl = viewButton;
+            }
+            else
+            {
+                Image image = new Image();
+                image.ImageUrl = "/images/left-list_gray.gif";
+                retControl = image;
+            }
+
+            return retControl;
         }
-
+              
         private Control getEditButton(Order current_order)
         {
 
-            ImageButton editButton = new ImageButton();
+            Control retControl = null;
+            
+            if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.All))
+            {
+                ImageButton editButton = new ImageButton();
+                editButton.ID = current_order.orderID + "e";
+                editButton.CommandArgument = current_order.orderID.ToString();
+                editButton.ImageUrl = "/images/edit.gif";
+                editButton.Command += new CommandEventHandler(func_Edit);
+                retControl = editButton;
+            }
+            else if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.Self) 
+                    && current_order.Status.statusId == OrderConstants.ORDER_STATUS_CREATED  
+                    && OrderUtilities.isMyOrder(current_order.orderID,getUserID()))
+            {
+                ImageButton editButton = new ImageButton();
+                editButton.ID = current_order.orderID + "e";
+                editButton.CommandArgument = current_order.orderID.ToString();
+                editButton.ImageUrl = "/images/edit.gif";
+                editButton.Command += new CommandEventHandler(func_Edit);
+                retControl = editButton;
+            }
+            else
+            {
+                Image image = new Image();
+                image.ImageUrl = "/images/edit_gray.gif";
+                retControl = image;
+            }
 
-            editButton.ID = current_order.orderID + "e";
-            editButton.CommandArgument = current_order.orderID.ToString();
-            editButton.ImageUrl = "/images/edit.gif";
-            editButton.Visible = true;
-            editButton.Command += new CommandEventHandler(func_Edit);
-
-
-
-            return editButton;
-        }
-
+            return retControl;
+        }      
+ 
         private Control getStatusControl(Order currentOrder)
         {
             Status status = currentOrder.Status;
@@ -117,15 +164,15 @@ namespace PWAS_Site
             Control ret = new LiteralControl("---");
             Button payButton;
 
-            if (status.statusId == 1)
+            if (status.statusId == OrderConstants.ORDER_STATUS_CREATED)
             {
                 payButton = new Button();
                 payButton.ID = currentOrder.orderID + "s";
                 payButton.Text = "Pay Now";
                 payButton.Visible = true;
-                payButton.Width = Unit.Pixel(150);
+                payButton.Width = Unit.Pixel(150);                
                 payButton.CommandArgument = currentOrder.orderID.ToString();
-                payButton.Command += new CommandEventHandler(func_Pay);
+                payButton.Command += new CommandEventHandler(func_Pay);                
 
                 ret = payButton;
             }
@@ -156,9 +203,9 @@ namespace PWAS_Site
 
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
 
-            int orderID = System.Int32.Parse(e.CommandArgument.ToString());
+            int orderID =  System.Int32.Parse(e.CommandArgument.ToString());
             Session["PWAS_order_id"] = orderID;
-
+                                    
             Order current_order = orderRepository.GetById(orderID);
 
             this.txtJobName.Text = current_order.job_name;
@@ -170,7 +217,7 @@ namespace PWAS_Site
             this.chkTwoSide.Checked = current_order.two_sided;
             this.chkfolded.Checked = current_order.folded;
             this.chkShip.Checked = current_order.ship;
-
+            
         }
 
         protected void func_Save(object sender, EventArgs e)
@@ -179,7 +226,7 @@ namespace PWAS_Site
 
             if (Session["PWAS_order_id"] != null)
             {
-                int orderID = System.Int32.Parse(Session["PWAS_order_id"].ToString());
+                int orderID = System.Int32.Parse(Session["PWAS_order_id"].ToString());   
                 Order orderEdit = orderRepository.GetById(orderID);
 
                 if (validateFields())
@@ -275,6 +322,6 @@ namespace PWAS_Site
             }
             return ret;
         }
-
+  
     }
 }

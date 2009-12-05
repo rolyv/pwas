@@ -1,9 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="customer_view_order.aspx.cs" Inherits="PWAS_Site.customer_view_order" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="customer_view_order.aspx.cs" Inherits="PWAS_Site.customer_view_order" Title="Página sin título" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="box1_text" runat="server">
+Create Order
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="box1_link" runat="server">
+<a href="customer_create_order.aspx"></a>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="box2_text" runat="server">
 </asp:Content>
@@ -23,13 +25,13 @@ Order List
     <asp:Panel ID="tblViewOrder" runat="server">
         <asp:Table ID="orderHistoryTable" runat="server">
             <asp:TableRow ID="headerTable1" runat="server" CssClass="orderTopRow">
-                <asp:TableHeaderCell ></asp:TableHeaderCell>                
-                <asp:TableHeaderCell ></asp:TableHeaderCell>
-                <asp:TableHeaderCell Text="Job  #" ></asp:TableHeaderCell>
-                <asp:TableHeaderCell Text="Job Name" ></asp:TableHeaderCell>
-                <asp:TableHeaderCell Text="Price"  ></asp:TableHeaderCell>
-                <asp:TableHeaderCell Text="Status" ></asp:TableHeaderCell>
-                <asp:TableHeaderCell Text="Date" ></asp:TableHeaderCell>                               
+                <asp:TableHeaderCell Width="50" ></asp:TableHeaderCell>                
+                <asp:TableHeaderCell Width="50" ></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Job  #" Width="100" ></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Job Name" Width="200" ></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Price" Width="150"  ></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Status" Width="150"  ></asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Date" Width="200" ></asp:TableHeaderCell>                               
             </asp:TableRow>
         </asp:Table>
         <br />

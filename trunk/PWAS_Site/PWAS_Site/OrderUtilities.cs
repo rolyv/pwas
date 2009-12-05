@@ -17,7 +17,6 @@ namespace PWAS_Site
 {
     public static class OrderUtilities
     {
-
         public static IQueryable<Order> getOrdersByUser(int userID, HttpResponse r)
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
@@ -43,7 +42,6 @@ namespace PWAS_Site
             }
             return orders_User;
         }
-
 
         public static void updateOrderStatus(int orderID, int statusID)
         {
@@ -87,6 +85,17 @@ namespace PWAS_Site
             return "100 $us";
         }
 
+
+        internal static bool isMyOrder(int orderID, int userID)
+        {            
+            IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
+            Order currentOrder = orderRepository.GetById(orderID);
+
+            if (currentOrder.userID == userID)
+                return true;
+            else
+                return false;           
+        }
     }
 
     public static class OrderConstants
@@ -99,7 +108,6 @@ namespace PWAS_Site
         internal const int ORDER_STATUS_CLOSED = 6;
         internal const int ORDER_STATUS_PREPRINTING = 7;
         internal const int ORDER_STATUS_PROCESSING = 8;
-        internal const int ORDER_STATUS_SHIPPED = 9;
-
+        internal const int ORDER_STATUS_SHIPPED = 9;      
     }
 }
