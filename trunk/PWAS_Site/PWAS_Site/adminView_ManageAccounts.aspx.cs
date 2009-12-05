@@ -13,11 +13,11 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
                 //load all users and populate tableManageUsers
                 IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
                 List<User> users = userRepo.Users.ToList();
-                
+                List<User> users2 = userRepo.Users.SkipWhile(u => u.active == false).ToList();
+
                 foreach (User user in users)
                 {
                     TableRow tableRow = new TableRow();
