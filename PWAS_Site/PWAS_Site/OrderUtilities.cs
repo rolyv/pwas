@@ -17,6 +17,34 @@ namespace PWAS_Site
 {
     public static class OrderUtilities
     {
+
+        public static IQueryable<Order> getOrdersByUser(int userID, HttpResponse r)
+        {
+            IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
+
+            IQueryable<Order> orders_User = null;
+
+            if (Security.IsAuthorized(userID, PwasObject.Order, PwasAction.View, PwasScope.All))
+            {
+                orders_User = from p
+                              in orderRepository.Orders
+                              select p;
+            }
+            else if (Security.IsAuthorized(userID, PwasObject.Order, PwasAction.View, PwasScope.Self))
+            {
+                orders_User = from p
+                              in orderRepository.Orders
+                              where p.userID == userID
+                              select p;
+            }
+            else
+            {
+                r.Redirect("index.aspx");
+            }
+            return orders_User;
+        }
+
+
         public static void updateOrderStatus(int orderID, int statusID)
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
