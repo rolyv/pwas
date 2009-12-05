@@ -34,7 +34,7 @@ namespace PWAS_Site
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             User userObj = userRepo.GetById(userID);
 
-            if ((userObj.active == true) && userID > 0)
+            if (userObj != null && (userObj.active == true) && userID > 0)
             {
                 Session[Constants.PWAS_SESSION_ID] = userID;
 
