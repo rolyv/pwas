@@ -89,7 +89,7 @@ namespace PWAS_Site
             int userId = Int32.Parse(btn.CommandArgument);
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            userRepo.Deactive(userId);
+            userRepo.Deactivate(userId);
             userRepo.SubmitChanges();
         }
     }

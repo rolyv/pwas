@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -213,6 +213,7 @@
     <Compile Include="NavMenu\NavigationControl.ascx.designer.cs">
       <DependentUpon>NavigationControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="OrderUtilities.cs" />
     <Compile Include="pre-PressView_Create_Run.aspx.cs">
       <DependentUpon>pre-PressView_Create_Run.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,6 +291,13 @@
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="view_Single_Order.aspx.cs">
+      <DependentUpon>view_Single_Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_Single_Order.aspx.designer.cs">
+      <DependentUpon>view_Single_Order.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm3.aspx.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -334,6 +342,7 @@
     <Content Include="customerView_Home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="view_Single_Order.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
     <Content Include="adminView_ManageAccounts.aspx" />
@@ -369,6 +378,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
