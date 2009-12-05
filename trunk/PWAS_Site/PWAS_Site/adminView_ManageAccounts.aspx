@@ -21,27 +21,25 @@
     Manage User Accounts
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
-    <div class="right-body">
-        <asp:Table id="tableManageUsers" runat="server">
-            <asp:TableHeaderRow CssClass="orderTopRow">
-                <asp:TableHeaderCell>
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
+    <asp:Table ID="tableManageUsers" runat="server">
+        <asp:TableHeaderRow CssClass="orderTopRow">
+            <asp:TableHeaderCell>
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
                     Username
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
                     Full Name
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
                     Telephone
-                </asp:TableHeaderCell>
-                <asp:TableHeaderCell>
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
                     Email
-                </asp:TableHeaderCell>
-            </asp:TableHeaderRow>
-        </asp:Table>
-        <br />
-    </div>
+            </asp:TableHeaderCell>
+        </asp:TableHeaderRow>
+    </asp:Table>
+    <br />
 </asp:Content>
