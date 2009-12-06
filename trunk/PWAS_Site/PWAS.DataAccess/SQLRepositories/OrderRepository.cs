@@ -36,10 +36,12 @@ namespace PWAS.DataAccess.SQLRepositories
             orderTable.DeleteOnSubmit(GetById(orderId));
         }
 
-        public void UpdateOrderInfo(Order newOrder)
+        public void UpdateOrderStatus(int orderId, int statusId)
         {
-            Order orderOriginal = orderTable.Single(o => o.orderID == newOrder.orderID);
-            orderTable.Attach(newOrder, orderOriginal);
+            Order o = GetById(orderId);
+            Status newStatus = orderTable.Context.GetTable<Status>().Single(s => s.statusId == statusId);
+            o.Status = newStatus;
+            orderTable.Context.SubmitChanges();
         }
 
         public IQueryable<Order> Orders
