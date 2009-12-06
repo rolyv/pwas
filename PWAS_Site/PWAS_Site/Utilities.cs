@@ -15,6 +15,24 @@ using System.Web.SessionState;
 
 namespace PWAS_Site
 {
+    public enum PrintRunStatus{
+        CREATED = 1,
+        PRE_PRINTING =7,
+        PRINTING = 3,
+        FINISHING =4,
+        SHIPPING = 5,
+        CLOSED = 6
+    };
+    public enum OrderStatus
+    {
+        CREATED=1,
+        PAID=2,
+        PROCESSING=8,
+        SHIPPED=9,
+        CLOSED=6
+    }
+
+
     public static class Utilities
     {
         public static bool HasPwasAttributes(this WebControl control)
