@@ -37,6 +37,7 @@ namespace PWAS_Site
             foreach (PrintRun pr in prList)
             {
                 tempItem = new ListItem("Run "+pr.runID, pr.runID.ToString());
+                tempItem.Value = pr.runID.ToString();
                 runList.Items.Add(tempItem);
             }
        
@@ -97,37 +98,21 @@ namespace PWAS_Site
            //go to each order, and update the runID, and update status to Processing (8), and update print run status to PrePrinting (7)
             //public static void updateOrderStatus(int orderID, int statusID)
 
-            List<Order> ordersToAdd = new List<Order>();
-
-            foreach (TableRow row in tableCreatedOrders.Rows)
-            {
-                
-                if (((CheckBox)row.Cells[0].Controls[0]).Checked)
-                {
-                    OrderUtilities.updateOrderStatus(Int32.Parse(row.Cells[0].Text), OrderConstants.ORDER_STATUS_PROCESSING);
-                }
-            }
-
-
-
-
         }
 
-        public static void updatePrintRunStatus(int runID, int statusID)
+
+        //this will not work
+        //System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+        //must be fixed !!
+        public static void updatePrintRunStatus(int printRunID, int statusID)
         {
-            IPrintRunRepository printRunRepository = RepositoryFactory.Get<IPrintRunRepository>();
-            IStatusRepository statusReposiory = RepositoryFactory.Get<IStatusRepository>();
+            IPrintRunRepository prRepository = RepositoryFactory.Get<IPrintRunRepository>();
 
-            PrintRun currentPrintRun = printRunRepository.GetById(runID);
-            Status currentStatus = statusReposiory.GetById(statusID);
+            PrintRun currentPrintRun = prRepository.GetById(printRunID);
 
-            currentPrintRun.Status = new Status
-            {
-                statusId = currentStatus.statusId,
-                statusName = currentStatus.statusName
-            };
+            currentPrintRun.run_status = statusID;
 
-            printRunRepository.SubmitChanges();
+            prRepository.SubmitChanges();
         }
 
     }
