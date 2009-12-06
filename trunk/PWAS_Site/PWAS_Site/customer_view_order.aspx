@@ -15,8 +15,6 @@ Create Order
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="box3_link" runat="server">
 </asp:Content>
-<asp:Content ID="Content8" ContentPlaceHolderID="navigation_menu" runat="server">
-</asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="body_title" runat="server">
 Order List
 </asp:Content>
@@ -25,8 +23,8 @@ Order List
     <asp:Panel ID="tblViewOrder" runat="server">
         <asp:Table ID="orderHistoryTable" runat="server">
             <asp:TableRow ID="headerTable1" runat="server" CssClass="orderTopRow">
-                <asp:TableHeaderCell Width="50" ></asp:TableHeaderCell>                
-                <asp:TableHeaderCell Width="50" ></asp:TableHeaderCell>
+                <asp:TableHeaderCell ></asp:TableHeaderCell>                
+                <asp:TableHeaderCell ></asp:TableHeaderCell>
                 <asp:TableHeaderCell Text="Job  #" Width="100" ></asp:TableHeaderCell>
                 <asp:TableHeaderCell Text="Job Name" Width="200" ></asp:TableHeaderCell>
                 <asp:TableHeaderCell Text="Price" Width="150"  ></asp:TableHeaderCell>
