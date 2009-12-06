@@ -44,6 +44,14 @@ namespace PWAS.DataAccess.SQLRepositories
             orderTable.Context.SubmitChanges();
         }
 
+        public void UpdateOrderRunId(int orderId, int runId)
+        {
+            Order o = GetById(orderId);
+            PrintRun pr = orderTable.Context.GetTable<PrintRun>().Single(s => s.runID == runId);
+            o.PrintRun= pr;
+            orderTable.Context.SubmitChanges();
+        }
+
         public IQueryable<Order> Orders
         {
             get { return orderTable; }
