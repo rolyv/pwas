@@ -49,7 +49,7 @@ namespace PWAS_Site
             
             Order currentOrder = orderRepository.GetById(orderID);
 
-            currentOrder.Status = statusID;
+            currentOrder.currentStatus = statusID;
 
             orderRepository.SubmitChanges();            
         }
