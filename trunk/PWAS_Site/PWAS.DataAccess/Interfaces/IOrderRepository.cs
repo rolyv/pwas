@@ -11,6 +11,7 @@ namespace PWAS.DataAccess.Interfaces
         void DeleteOrder(int orderId);
         Order GetById(int orderId);
         void UpdateOrderStatus(int orderId, int statusId);
+        void UpdateOrderRunId(int orderId, int runId);
         void SubmitChanges();
     }
 }
