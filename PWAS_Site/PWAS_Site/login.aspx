@@ -1,70 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PWAS_Site.login" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Untitled Page</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <div id="header">
-        <div class="top-head">
-            <div class="logo">
-                Printing at the Speed of Life.</div>
-            <div class="nav-bar">
-                <ul>
-                    <li><a href="index.aspx" class="ist">Home</a></li>
-                    <li><a href="about-us.aspx" class="two">About Us</a></li>
-                    <li><a href="login.aspx" class="three">Login</a></li>
-                    <li><a href="projects.aspx" class="four">Projects</a></li>
-                    <li><a href="contact-us.aspx" class="five">Contacts</a></li>
-                </ul>
-                <!--Hidden Pop up login prompt-->
-            </div>
-        </div>
-        <div class="head-cont">
-            <span>XYZ Printing is your one-stop shop for all your printing needs.</span><br />
-            </b> Enjoy your stay.
-        </div>
-        <div class="box-outs">
-            <div class="gray-box">
-                <img src="images/ic-1.gif" alt="" class="img-box" />
-                Place an
-                <br />
-                Order
-                <br />
-                <a href="#">Click here</a></div>
-            <div class="gray-box">
-                <img src="images/ic-2.gif" alt="" class="img-box" />
-                View Order
-                <br />
-                Status<br />
-                <a href="#">click here</a></div>
-            <div class="gray-box">
-                <img src="images/ic-3.gif" alt="" class="img-box" />
-                Customer Support<br />
-                <a href="#">click here</a></div>
-        </div>
-    </div>
-    <div id="body-part">
-        <div class="left-body">
-            <div class="left-body-top">
-                <h2>
-                    <img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
-                <ul>
-                    <li><a href="#">Place an Order.</a></li>
-                    <li><a href="#">View Order Status.</a></li>
-                    <li><a href="#">Edit Profile.</a></li>
-                    <li class="last"><a href="#">Search.</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="right-body">
-            <h1>
-                Login
-            </h1>
-            <form id="form1" runat="server">
-            <div>
+﻿<%@ Page Language="C#" MasterPageFile="~/PWAS_Out.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PWAS_Site.login" Title="Untitled Page" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="box1_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="box1_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="box2_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="box2_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="box3_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="box3_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content9" ContentPlaceHolderID="body_title" runat="server">
+</asp:Content>
+<asp:Content ID="Content10" ContentPlaceHolderID="body_content" runat="server">
+<div>
                 <table>
                     <tr>
                         <td>
@@ -121,18 +75,4 @@
                     </tr>
                 </table>
             </div>
-            </form>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div id="footer-back">
-        <div class="footer-right">
-            <a href="index.aspx">Home</a> | <a href="about-us.aspx">About Us</a> | <a href="projects.aspx">
-                Recent Projects</a> | <a href="support.aspx">Support</a> | <a href="privacy.aspx">Privacy</a>
-            | <a href="contact-us.aspx">Contact Us</a>
-            <br />
-            <span>&copy; Copyright XYZ Printing Co. All Right Reserved</span></div>
-    </div>
-</body>
-</html>
+</asp:Content>

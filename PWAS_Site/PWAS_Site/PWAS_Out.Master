@@ -76,14 +76,14 @@
             <div class="left-body-top">
                 <h2>
                     <img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
-                <asp:ContentPlaceHolder ID="navigation_menu" runat="server">
+                
                     <ul>
                         <li><a href="#">Place an Order.</a></li>
                         <li><a href="#">View Order Status.</a></li>
                         <li><a href="#">Edit Profile.</a></li>
                         <li class="last"><a href="#">Search.</a></li>
                     </ul>
-                </asp:ContentPlaceHolder>
+                
             </div>
         </div>
         <div class="right-body">

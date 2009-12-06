@@ -28,19 +28,19 @@ namespace PWAS_Site
 
             if (validateFields())
             {
-                orderCreate = new Order
-                {
-                    userID = getUserID(),
-                    job_name = this.txtJobName.Text,
-                    width = Int32.Parse(this.txtFinalSizeX.Text),
-                    height = Int32.Parse(this.txtFinalSizeY.Text),
-                    quantity = Int32.Parse(this.txtQty.Text),
-                    stock_finish = this.lstFinish.SelectedValue,
-                    stock_weight = this.lstWeight.SelectedValue,
-                    two_sided = this.chkTwoSide.Checked,
-                    folded = this.chkfolded.Checked,
-                    ship = this.chkShip.Checked
-                };
+                orderCreate = new Order();
+                orderCreate.userID = getUserID();                                                  
+                orderCreate.job_name = this.txtJobName.Text;
+                orderCreate.width = Int32.Parse(this.txtFinalSizeX.Text);
+                orderCreate.height = Int32.Parse(this.txtFinalSizeY.Text);
+                orderCreate.quantity = Int32.Parse(this.txtQty.Text);
+                orderCreate.stock_finish = this.lstFinish.SelectedValue;
+                orderCreate.stock_weight = this.lstWeight.SelectedValue;
+                orderCreate.two_sided = this.chkTwoSide.Checked;
+                orderCreate.folded = this.chkfolded.Checked;
+                orderCreate.ship = this.chkShip.Checked;
+                orderCreate.price = calculatePrice(orderCreate);    
+                
 
                 orderRepository.AddOrder(orderCreate);
                 orderRepository.SubmitChanges();
@@ -50,6 +50,15 @@ namespace PWAS_Site
                 this.lblNotify.Visible = true;
                 func_clearFields(false);
             }
+        }
+
+        private decimal calculatePrice(Order orderCreate)
+        {
+            decimal price = 0;
+            //----------calculate the price
+            price = (decimal)(orderCreate.quantity * (0.5*orderCreate.width * orderCreate.height));
+            //----------------------------
+            return price;
         }
         protected void func_clear(object sender, EventArgs e)
         {
