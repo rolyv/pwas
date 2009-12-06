@@ -55,8 +55,8 @@ namespace PWAS_Site
                 cellView.Controls.Add(getViewButton(current_order));
 
                 //pixels
-                cellEdit.Width = Unit.Pixel(50);
-                cellView.Width = Unit.Pixel(50);
+                //cellEdit.Width = Unit.Pixel(50);
+                //cellView.Width = Unit.Pixel(50);
                 cellOrderID.Width = Unit.Pixel(100);
                 cellJobName.Width = Unit.Pixel(200);
                 cellPrice.Width = Unit.Pixel(150);

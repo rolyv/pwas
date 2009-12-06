@@ -78,6 +78,8 @@ namespace PWAS_Site
         }
         private int getUserID()
         {
+            if (Session[Constants.PWAS_SESSION_ID] == null)
+                Response.Redirect("login.aspx");
             return (int)Session[Constants.PWAS_SESSION_ID];
         }
         private bool validateFields()
