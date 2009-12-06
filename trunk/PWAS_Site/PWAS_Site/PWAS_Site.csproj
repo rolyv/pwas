@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -146,6 +146,13 @@
     <Compile Include="adminView_edit_Roles_Permissions.aspx.cs">
       <DependentUpon>adminView_edit_Roles_Permissions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_ManageRolePermissions.aspx.cs">
+      <DependentUpon>admin_ManageRolePermissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_ManageRolePermissions.aspx.designer.cs">
+      <DependentUpon>admin_ManageRolePermissions.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin_ManageRoles.aspx.cs">
       <DependentUpon>admin_ManageRoles.aspx</DependentUpon>
@@ -322,6 +329,7 @@
   <ItemGroup>
     <None Include="images\Thumbs.db" />
     <None Include="index_.jsp" />
+    <Content Include="admin_ManageRolePermissions.aspx" />
     <Content Include="admin_ManageRoles.aspx" />
     <Content Include="NavMenu\NavigationControl.ascx" />
     <Content Include="adminView_edit_Roles_Permissions.aspx" />
@@ -370,9 +378,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
