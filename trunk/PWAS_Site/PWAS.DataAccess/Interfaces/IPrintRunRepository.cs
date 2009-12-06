@@ -11,6 +11,6 @@ namespace PWAS.DataAccess.Interfaces
         void DeletePrintRun(int printRunId);
         PWAS.Model.PrintRun GetById(int printRunId);
         void SubmitChanges();
-        void UpdatePrintRunInfo(PrintRun newPrintRun);
+        void UpdatePrintRunStatus(int printRunId, int statusId);
     }
 }

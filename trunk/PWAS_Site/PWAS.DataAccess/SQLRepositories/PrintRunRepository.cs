@@ -31,10 +31,12 @@ namespace PWAS.DataAccess.SQLRepositories
             printRunTable.DeleteOnSubmit(GetById(printRunId));
         }
 
-        public void UpdatePrintRunInfo(PrintRun newPrintRun)
+        public void UpdatePrintRunStatus(int printRunId, int statusId)
         {
-            PrintRun printRunOriginal = printRunTable.Single(p => p.runID == newPrintRun.runID);
-            printRunTable.Attach(newPrintRun, printRunOriginal);
+            PrintRun pr = GetById(printRunId);
+            Status newStatus = printRunTable.Context.GetTable<Status>().Single(s => s.statusId == statusId);
+            pr.Status = newStatus;
+            printRunTable.Context.SubmitChanges();
         }
 
         public void SubmitChanges()
