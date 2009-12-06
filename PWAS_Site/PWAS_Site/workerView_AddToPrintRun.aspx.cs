@@ -93,17 +93,6 @@ namespace PWAS_Site
 
         protected void doSubmit(object sender, EventArgs e)
         {
-            if (runList.SelectedValue.Trim() == "")
-            {
-                messageNotify.Text = "A Print Run is required in order to submit orders.";
-                messageNotify.ForeColor = System.Drawing.Color.Red;
-                messageNotify.Visible = true;
-                return;
-            }
-
-           //for each order selected, add it to the print run:
-           //go to each order, and update the runID, and update status to Processing (8), and update print run status to PrePrinting (7)
-            //public static void updateOrderStatus(int orderID, int statusID)
             int i = 0;
             bool somethingSelected = false;
             foreach (TableRow row in tableCreatedOrders.Rows)
@@ -127,6 +116,15 @@ namespace PWAS_Site
             {
                 IPrintRunRepository prRepo = RepositoryFactory.Get<IPrintRunRepository>();
                 prRepo.UpdatePrintRunStatus(Int32.Parse(runList.SelectedValue), OrderConstants.ORDER_STATUS_PREPRINTING);
+
+                //1.delete the selected rows from "tableCreatedOrders"
+                //2.delete the selected print run from the drop down "runList"
+
+
+                messageNotify.Text = "Your orders have been added to the print run successfully.";
+                messageNotify.ForeColor = System.Drawing.Color.Green;
+                messageNotify.Visible = true;
+
             }
             
         }
