@@ -21,10 +21,12 @@
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
     <asp:Label ID="messageLb" runat="server" Text="Move Selected Orders to Print Run -> "></asp:Label>
     <asp:DropDownList ID="runList" runat="server">
+    
     <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
+   
     <br />
-    <asp:Label ID="testLabel" runat="server"></asp:Label>
+    <asp:Label ID="messageNotify" runat="server" Text=""  Visible="false"></asp:Label>
     <br />
     
     

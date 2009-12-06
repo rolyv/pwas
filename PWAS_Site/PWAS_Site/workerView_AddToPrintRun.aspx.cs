@@ -93,27 +93,45 @@ namespace PWAS_Site
 
         protected void doSubmit(object sender, EventArgs e)
         {
+            if (runList.SelectedValue.Trim() == "")
+            {
+                messageNotify.Text = "A Print Run is required in order to submit orders.";
+                messageNotify.ForeColor = System.Drawing.Color.Red;
+                messageNotify.Visible = true;
+                return;
+            }
 
            //for each order selected, add it to the print run:
            //go to each order, and update the runID, and update status to Processing (8), and update print run status to PrePrinting (7)
             //public static void updateOrderStatus(int orderID, int statusID)
+            int i = 0;
+            bool somethingSelected = false;
+            foreach (TableRow row in tableCreatedOrders.Rows)
+            {
+                if (i > 0)//skip the first row, since it's the header row
+                {
+                    TableCell tempCell = row.Cells[0];
+                    if (((CheckBox)tempCell.Controls[0]).Checked)
+                    {
+                        somethingSelected = true;
+                        IOrderRepository orderRepo = RepositoryFactory.Get<IOrderRepository>();
+                        orderRepo.UpdateOrderStatus(Int32.Parse(row.Cells[1].Text), OrderConstants.ORDER_STATUS_PROCESSING);
+                        orderRepo.UpdateOrderRunId(Int32.Parse(row.Cells[1].Text), Int32.Parse(runList.SelectedValue));
+                    }
+                }
 
+                i++;
+            }
+
+            if (somethingSelected)
+            {
+                IPrintRunRepository prRepo = RepositoryFactory.Get<IPrintRunRepository>();
+                prRepo.UpdatePrintRunStatus(Int32.Parse(runList.SelectedValue), OrderConstants.ORDER_STATUS_PREPRINTING);
+            }
+            
         }
 
 
-        //this will not work
-        //System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-        //must be fixed !!
-        public static void updatePrintRunStatus(int printRunID, int statusID)
-        {
-            IPrintRunRepository prRepository = RepositoryFactory.Get<IPrintRunRepository>();
-
-            PrintRun currentPrintRun = prRepository.GetById(printRunID);
-
-            currentPrintRun.run_status = statusID;
-
-            prRepository.SubmitChanges();
-        }
-
+       
     }
 }
