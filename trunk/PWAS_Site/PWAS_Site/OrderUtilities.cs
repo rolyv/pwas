@@ -43,6 +43,8 @@ namespace PWAS_Site
             return orders_User;
         }
 
+        //this is throwing a System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+        //must be fixed !!
         public static void updateOrderStatus(int orderID, int statusID)
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
@@ -60,7 +62,10 @@ namespace PWAS_Site
             IStatusRepository statusReposiory = RepositoryFactory.Get<IStatusRepository>();
 
             Order currentOrder = orderRepository.GetById(orderID);
-            Status currentStatus = statusReposiory.GetById(currentOrder.Status.statusId);
+
+            int tempStatus = (int)currentOrder.currentStatus;
+
+            Status currentStatus = statusReposiory.GetById(tempStatus);
 
             return currentStatus;
         }
