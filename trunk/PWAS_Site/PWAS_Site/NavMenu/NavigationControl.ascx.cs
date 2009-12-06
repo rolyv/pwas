@@ -41,9 +41,9 @@ namespace PWAS_Site.NavMenu
                 new PWASNavigationNode(){ PwasObject = PwasObject.Order, PwasAction = PwasAction.View,
                                             PwasScope = PwasScope.Self, Text = "Manage Orders", NavigateUrl = "~/customer_view_order.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.Create,
-                                            PwasScope = PwasScope.Self, Text = "New Print Run", NavigateUrl = "~/createPrintRunURL.aspx" },
+                                            PwasScope = PwasScope.Self, Text = "New Print Run", NavigateUrl = "~/workerView_CreatePrintRun.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.View,
-                                            PwasScope = PwasScope.Self, Text = "Manage PrintRuns", NavigateUrl = "~/managePrintRunsURL.aspx" },
+                                            PwasScope = PwasScope.Self, Text = "Manage PrintRuns", NavigateUrl = "~/workerView_AddToPrintRun.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.Role, PwasAction = PwasAction.View,
                                             PwasScope = PwasScope.All, Text = "Manage Security Roles", NavigateUrl = "~/manageSecurityURL.aspx" } }
                 );
