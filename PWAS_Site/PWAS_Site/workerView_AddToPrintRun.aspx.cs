@@ -22,8 +22,15 @@ namespace PWAS_Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check that user has access
+            //if not -> redirect to home page
+            if (Session[Constants.PWAS_SESSION_ID] == null || !Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.PrintRun, PwasAction.View, PwasScope.All))
+            {
+                Response.Redirect("customerView_Home.aspx");
+            }
+
+
             IPrintRunRepository prRepo = RepositoryFactory.Get<IPrintRunRepository>();
-           
             List<PrintRun> prList = prRepo.PrintRuns.Where(p => p.run_status == OrderConstants.ORDER_STATUS_CREATED).ToList<PrintRun>();
 
             ListItem tempItem;
@@ -32,6 +39,96 @@ namespace PWAS_Site
                 tempItem = new ListItem("Run "+pr.runID, pr.runID.ToString());
                 runList.Items.Add(tempItem);
             }
+       
+
+            //load active orders and populate tableCreatedOrders
+            IOrderRepository orderRepo = RepositoryFactory.Get<IOrderRepository>();
+            List<Order> paidOrders = orderRepo.Orders.Where(o => o.currentStatus == OrderConstants.ORDER_STATUS_PAID).ToList<Order>();
+            bool canSelect = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.PrintRun, PwasAction.Update, PwasScope.All);
+            
+            foreach (Order order in paidOrders)
+            {
+                TableRow tableRow = new TableRow();
+                tableRow.CssClass = "orderRow";
+  
+
+                TableCell cellSelect = new TableCell();
+                CheckBox check = new CheckBox();
+                check.Enabled = canSelect;
+                cellSelect.Controls.Add(check);
+
+                TableCell orderID = new TableCell();
+                orderID.Text = order.orderID.ToString();
+
+                TableCell orderName = new TableCell();
+                orderName.Text = order.job_name.ToString();
+
+                TableCell orderQuantity = new TableCell();
+                orderQuantity.Text = order.quantity.ToString();
+
+                TableCell orderHeight = new TableCell();
+                orderHeight.Text = order.height.ToString();
+
+                TableCell orderWidth = new TableCell();
+                orderWidth.Text = order.width.ToString();
+
+                cellSelect.Width = Unit.Pixel(60);
+                orderID.Width = Unit.Pixel(60);
+                orderName.Width = Unit.Pixel(150);
+                orderQuantity.Width = Unit.Pixel(100);
+                orderHeight.Width = Unit.Pixel(100);
+                orderWidth.Width = Unit.Pixel(100);
+
+                tableRow.Cells.Add(cellSelect);
+                tableRow.Cells.Add(orderID);
+                tableRow.Cells.Add(orderName);
+                tableRow.Cells.Add(orderQuantity);
+                tableRow.Cells.Add(orderHeight);
+                tableRow.Cells.Add(orderWidth);
+
+                tableCreatedOrders.Rows.Add(tableRow);
+            }
         }
+
+        protected void doSubmit(object sender, EventArgs e)
+        {
+
+           //for each order selected, add it to the print run:
+           //go to each order, and update the runID, and update status to Processing (8), and update print run status to PrePrinting (7)
+            //public static void updateOrderStatus(int orderID, int statusID)
+
+            List<Order> ordersToAdd = new List<Order>();
+
+            foreach (TableRow row in tableCreatedOrders.Rows)
+            {
+                
+                if (((CheckBox)row.Cells[0].Controls[0]).Checked)
+                {
+                    OrderUtilities.updateOrderStatus(Int32.Parse(row.Cells[0].Text), OrderConstants.ORDER_STATUS_PROCESSING);
+                }
+            }
+
+
+
+
+        }
+
+        public static void updatePrintRunStatus(int runID, int statusID)
+        {
+            IPrintRunRepository printRunRepository = RepositoryFactory.Get<IPrintRunRepository>();
+            IStatusRepository statusReposiory = RepositoryFactory.Get<IStatusRepository>();
+
+            PrintRun currentPrintRun = printRunRepository.GetById(runID);
+            Status currentStatus = statusReposiory.GetById(statusID);
+
+            currentPrintRun.Status = new Status
+            {
+                statusId = currentStatus.statusId,
+                statusName = currentStatus.statusName
+            };
+
+            printRunRepository.SubmitChanges();
+        }
+
     }
 }

@@ -19,8 +19,46 @@
 <asp:Content ID="Content10" ContentPlaceHolderID="body_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
-    <asp:Label ID="messageLb" runat="server" Text="Select Print Run To Edit -> "></asp:Label>
+    <asp:Label ID="messageLb" runat="server" Text="Move Selected Orders to Print Run -> "></asp:Label>
     <asp:DropDownList ID="runList" runat="server">
     <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
+    <br />
+    <asp:Label ID="testLabel" runat="server"></asp:Label>
+    <br />
+    
+    
+     <asp:Table ID="tableCreatedOrders" runat="server">
+        <asp:TableHeaderRow CssClass="orderTopRow">
+            <asp:TableHeaderCell>
+            Select
+            </asp:TableHeaderCell>
+            
+            <asp:TableHeaderCell>
+                    Order ID
+            </asp:TableHeaderCell>
+            
+            <asp:TableHeaderCell>
+                    Order Name
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+                    Order Quantity
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+                    Order Height
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+                    Order Width
+            </asp:TableHeaderCell>
+            
+          
+            
+        </asp:TableHeaderRow>
+    </asp:Table>
+    <br />
+    
+    <asp:Button ID="submitButton" runat="server" Text="Move Orders" onClick="doSubmit"/>
+    
+    
+    
 </asp:Content>
