@@ -272,8 +272,11 @@ namespace PWAS_Site
         }
         private string getOrderPrice(int orderID)
         {
-            return "NOT IMPLE";
+            IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
+            Order current_order = orderRepository.GetById(orderID);
+            return current_order.price.ToString();            
         }
+
         private void func_clearFields(bool notify)
         {
             if (notify)
@@ -287,8 +290,8 @@ namespace PWAS_Site
             this.chkShip.Checked = false;
         }
         private int getUserID()
-        {
-            return (int)Session[Constants.PWAS_SESSION_ID];
+        {            
+             return (int)Session[Constants.PWAS_SESSION_ID];
         }
         private bool validateFields()
         {

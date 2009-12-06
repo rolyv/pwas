@@ -6,13 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
-
-using PWAS.Model;
 using PWAS.DataAccess.Interfaces;
+using PWAS.Model;
 
 namespace PWAS_Site
 {
@@ -25,7 +24,7 @@ namespace PWAS_Site
 
         protected void doLogin(object sender, EventArgs e)
         {
-            
+
             string password = pwd.Text.Trim();
             string email = loginEmail.Text.Trim();
 
@@ -49,6 +48,5 @@ namespace PWAS_Site
             }
 
         }
-
     }
 }
