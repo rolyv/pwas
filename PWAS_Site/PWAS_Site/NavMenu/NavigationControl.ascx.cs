@@ -21,11 +21,14 @@ namespace PWAS_Site.NavMenu
         protected void Page_Load(object sender, EventArgs e)
         {
             InitNodes();
-            foreach (var node in nodes)
+            if (this.NavTreeView.Nodes.Count == 0)
             {
-                if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], node.PwasObject, node.PwasAction, node.PwasScope))
+                foreach (var node in nodes)
                 {
-                    this.NavTreeView.Nodes.Add(node);
+                    if (Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], node.PwasObject, node.PwasAction, node.PwasScope))
+                    {
+                        this.NavTreeView.Nodes.Add(node);
+                    }
                 }
             }
         }
