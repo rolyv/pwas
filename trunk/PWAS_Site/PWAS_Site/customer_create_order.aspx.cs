@@ -13,6 +13,7 @@ using System.Xml.Linq;
 
 using PWAS.Model;
 using PWAS.DataAccess.Interfaces;
+using System.IO;
 
 
 namespace PWAS_Site
@@ -56,7 +57,7 @@ namespace PWAS_Site
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblNotify.Visible = false;
         }
 
         private void func_clearFields(bool notify)
@@ -70,6 +71,10 @@ namespace PWAS_Site
             this.chkTwoSide.Checked = false;
             this.chkfolded.Checked = false;
             this.chkShip.Checked = false;
+
+            lblUploadedFile.Text = "";
+            lblUploadedFile.Visible = false;
+            lblUploadedFileHeader.Visible = false;
         }
         private int getUserID()
         {
@@ -79,17 +84,24 @@ namespace PWAS_Site
         {
             int test;
 
-            bool ret = true;
             if (this.txtJobName.Text == ""
                 || this.txtFinalSizeX.Text == ""
                 || this.txtFinalSizeY.Text == ""
                 || this.txtQty.Text == "")
             {
-                this.lblNotify.Text = "You need to complete all the fields!";
+                this.lblNotify.Text = "Please complete all required fields!";
                 this.lblNotify.Visible = true;
                 this.lblNotify.BorderColor = System.Drawing.Color.Red;
                 this.lblNotify.ForeColor = System.Drawing.Color.Red;
-                ret = false;
+                return false;
+            }
+            if (ViewState["attachment"] == null)
+            {
+                this.lblNotify.Text = "Please upload your artwork before submitting your order";
+                this.lblNotify.Visible = true;
+                this.lblNotify.BorderColor = System.Drawing.Color.Red;
+                this.lblNotify.ForeColor = System.Drawing.Color.Red;
+                return false;
             }
             try
             {
@@ -99,14 +111,31 @@ namespace PWAS_Site
             }
             catch (FormatException)
             {
-                this.lblNotify.Text = "Bad Input in some field that are Integer required";
+                this.lblNotify.Text = "Please enter numbers in:<br />Final Size fields<br />Qty to Print field";
                 this.lblNotify.Visible = true;
                 this.lblNotify.BorderColor = System.Drawing.Color.Red;
                 this.lblNotify.ForeColor = System.Drawing.Color.Red;
-                ret = false;
+                return false;
             }
-            return ret;
+            return true;
         }
 
+        protected void btnFileUpload_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(FileUpload.FileName))
+            {
+                lblUploadedFileHeader.Visible = true;
+                lblUploadedFile.Visible = true;
+
+                Byte[] bytes = FileUpload.FileBytes;
+                ViewState["attachment"] = bytes;
+
+                string file = FileUpload.FileName;
+                int index = file.LastIndexOf("\\");
+                if (index > 0) 
+                    file = file.Substring(index, file.Length);
+                lblUploadedFile.Text = file;
+            }
+        }
     }
 }
