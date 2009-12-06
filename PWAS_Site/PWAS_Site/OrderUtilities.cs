@@ -71,8 +71,12 @@ namespace PWAS_Site
             IOrderHistoryRepository historyRepository = RepositoryFactory.Get<IOrderHistoryRepository>();
 
             Order currentOrder = orderRepository.GetById(orderID);
-            OrderHistory currentHistory = historyRepository.OrderHistories.Single(x => x.orderId == orderID 
-                                                                 && x.statusId == currentOrder.Status.statusId);
+            //OrderHistory currentHistory = historyRepository.OrderHistories.Single(x => x.orderId == orderID 
+             //                                                    && x.statusId == currentOrder.Status.statusId);
+            OrderHistory currentHistory = (from history in historyRepository.OrderHistories
+                                           where history.orderId == orderID && history.statusId == currentOrder.currentStatus
+                                           orderby history.modifiedDate descending
+                                           select history).First();
 
             return currentHistory.modifiedDate.ToString();
         }

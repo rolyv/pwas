@@ -131,7 +131,6 @@
     <Content Include="Register.aspx" />
     <Content Include="services.aspx" />
     <Content Include="support.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="XYZ.js" />
   </ItemGroup>
@@ -261,13 +260,6 @@
     <Compile Include="support.aspx.cs">
       <DependentUpon>support.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="customerView_Home.aspx.cs">
