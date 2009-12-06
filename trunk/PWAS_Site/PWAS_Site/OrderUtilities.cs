@@ -46,13 +46,10 @@ namespace PWAS_Site
         public static void updateOrderStatus(int orderID, int statusID)
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
-            IStatusRepository statusReposiory = RepositoryFactory.Get<IStatusRepository>();
             
             Order currentOrder = orderRepository.GetById(orderID);
-            Status currentStatus = statusReposiory.GetById(statusID);
 
-            currentOrder.Status = new Status {  statusId = currentStatus.statusId, 
-                                                statusName = currentStatus.statusName };
+            currentOrder.Status = statusID;
 
             orderRepository.SubmitChanges();            
         }
