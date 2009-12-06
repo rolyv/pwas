@@ -76,14 +76,18 @@ namespace PWAS_Site
 
             foreach (int statusID in Enum.GetValues(typeof(PWAS_Site.PrintRunStatus)))
             {                
-                ListItem lsItem = new ListItem(statusRepository.GetById(statusID).statusName);
-                dropListStatus.Items.Add(lsItem);
+                
+                if (pr.Status.statusId != OrderConstants.ORDER_STATUS_CREATED)
+                {
+                    ListItem lsItem = new ListItem(statusRepository.GetById(statusID).statusName);
+                    dropListStatus.Items.Add(lsItem);
 
-                if (pr.Status.statusId == statusID)
-                    dropListStatus.SelectedIndex = dropListStatus.Items.IndexOf(lsItem);
+                    if (pr.Status.statusId == statusID)
+                        dropListStatus.SelectedIndex = dropListStatus.Items.IndexOf(lsItem);
 
-                if (pr.Status.statusId == OrderConstants.ORDER_STATUS_CREATED || pr.Status.statusId == OrderConstants.ORDER_STATUS_CLOSED)
-                    dropListStatus.Enabled = false;
+                    if (pr.Status.statusId == OrderConstants.ORDER_STATUS_CREATED || pr.Status.statusId == OrderConstants.ORDER_STATUS_CLOSED)
+                        dropListStatus.Enabled = false;
+                }
             }
             
             dropListStatus.Width = Unit.Pixel(200);            
