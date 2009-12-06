@@ -52,10 +52,12 @@ namespace PWAS.DataAccess.SQLRepositories
             userTable.DeleteOnSubmit(GetById(userId));
         }
 
-        public void UpdateUserInfo(User newUser)
+        public void UpdateUserRole(int userId, int newRoleId)
         {
-            User userOriginal = userTable.Single(u => u.userID == newUser.userID);
-            userTable.Attach(newUser, userOriginal);
+            User user = GetById(userId);
+            user.Role = userTable.Context.GetTable<Role>().Single(r => r.roleID == newRoleId);
+
+            userTable.Context.SubmitChanges();
         }
 
         public IQueryable<User> Users

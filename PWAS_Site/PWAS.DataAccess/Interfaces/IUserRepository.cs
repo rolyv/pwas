@@ -18,7 +18,7 @@ namespace PWAS.DataAccess.Interfaces
         void ActivateUser(int userId);
         void DeactivateUser(int userId);
         User GetById(int userId);
-        void UpdateUserInfo(User newUser);
+        void UpdateUserRole(int userId, int newRoleId);
         void SubmitChanges();
     }
 }
