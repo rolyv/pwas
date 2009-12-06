@@ -26,16 +26,22 @@
             <asp:TableHeaderCell>
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>
-                    Username
+                Username
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>
-                    Full Name
+                Full Name
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>
-                    Telephone
+                Telephone
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>
-                    Email
+                Email
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+                Role
+            </asp:TableHeaderCell>
+            <asp:TableHeaderCell>
+                Update
             </asp:TableHeaderCell>
         </asp:TableHeaderRow>
     </asp:Table>

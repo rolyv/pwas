@@ -27,6 +27,10 @@ namespace PWAS_Site
             bool canEdit = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All);
             bool canDelete = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All);
 
+            //load all Roles
+            IRoleRepository roleRepo = RepositoryFactory.Get<IRoleRepository>();
+            List<Role> roles = roleRepo.Roles.ToList<Role>();
+
             foreach (User user in users)
             {
                 TableRow tableRow = new TableRow();
@@ -89,12 +93,33 @@ namespace PWAS_Site
                 cellEmail.Text = user.email.Trim();
                 cellEmail.Width = Unit.Pixel(200);
 
+                TableCell cellRole = new TableCell();
+                DropDownList ddRoles = new DropDownList();
+                ddRoles.ID = "ddRoles";
+                foreach (Role r in roles)
+                {
+                    ListItem item = new ListItem();
+                    item.Value = r.roleID.ToString();
+                    item.Text = r.role_name;
+                    ddRoles.Items.Add(item);
+                }
+                ddRoles.Items.FindByValue(user.roleID.ToString()).Selected = true;
+                cellRole.Controls.Add(ddRoles);
+
+                TableCell cellUpdateRole = new TableCell();
+                Button btnUpdateRole = new Button();
+                btnUpdateRole.ToolTip = "Update Role";
+                btnUpdateRole.CommandArgument = user.userID.ToString();
+                btnUpdateRole.Command += new CommandEventHandler(btnUpdateRole_Click);
+                cellUpdateRole.Controls.Add(btnUpdateRole);
+
                 tableRow.Cells.Add(cellEdit);
                 tableRow.Cells.Add(cellDelete);
                 tableRow.Cells.Add(cellUsername);
                 tableRow.Cells.Add(cellFullName);
                 tableRow.Cells.Add(cellTelephone);
                 tableRow.Cells.Add(cellEmail);
+                tableRow.Cells.Add(cellRole);
 
                 tableManageUsers.Rows.Add(tableRow);
             }
@@ -116,6 +141,17 @@ namespace PWAS_Site
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             userRepo.DeactivateUser(userId);
+            userRepo.SubmitChanges();
+        }
+
+        protected void btnUpdateRole_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            int userId = Int32.Parse(btn.CommandArgument);
+
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            User user = userRepo.GetById(userId);
+            user.roleID = Int32.Parse(((DropDownList)FindControl("ddRoles")).SelectedValue);
             userRepo.SubmitChanges();
         }
     }
