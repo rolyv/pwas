@@ -76,21 +76,6 @@ namespace PWAS_Site
             }
         }
 
-        internal static void SetControlVisibility(int userId, ControlCollection controls)
-        {
-            foreach (Control control in controls)
-            {
-                var temp = control as WebControl;
-                if (temp != null && temp.HasPwasAttributes())
-                {
-                    PwasObject obj = (PwasObject)Enum.Parse(typeof(PwasObject), temp.Attributes["pwasObj"], true);
-                    PwasAction action = (PwasAction)Enum.Parse(typeof(PwasAction), temp.Attributes["pwasAction"], true);
-                    PwasScope scope = (PwasScope)Enum.Parse(typeof(PwasScope), temp.Attributes["pwasScope"], true);
-                    control.Visible = Security.IsAuthorized(userId, obj, action, scope);
-                }
-            }
-        }
-
         internal static string MD5Encode(string input)
         {
             //Declarations
