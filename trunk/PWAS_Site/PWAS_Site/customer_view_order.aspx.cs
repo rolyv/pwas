@@ -191,7 +191,7 @@ namespace PWAS_Site
             this.lblNotify.Visible = true;
 
             int orderID = System.Int32.Parse(e.CommandArgument.ToString());
-            OrderUtilities.updateOrderStatus(orderID, OrderConstants.ORDER_STATUS_PAID);
+            RepositoryFactory.Get<IOrderRepository>().UpdateOrderStatus(orderID, 2);
 
             Response.Redirect(Request.Url.ToString());
         }
