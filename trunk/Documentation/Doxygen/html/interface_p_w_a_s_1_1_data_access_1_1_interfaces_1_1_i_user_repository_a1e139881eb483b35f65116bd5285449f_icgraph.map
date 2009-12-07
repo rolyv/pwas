@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_p_w_a_s___site_1_1admin_view___manage_accounts.html#a42b3da96a9843ddc08711939b0b77455" title="PWAS_Site.adminView_ManageAccounts.btnDeleteUser_Click" alt="" coords="444,5,831,33"/>
+<area shape="rect" id="node7" href="$class_p_w_a_s___site_1_1customer_view___edit_profile.html#a677b52f1138c3a083b5f1a470741678b" title="PWAS_Site.customerView_EditProfile.btnEditLoginInfo_Click" alt="" coords="449,55,825,83"/>
+<area shape="rect" id="node9" href="$class_p_w_a_s___site_1_1admin_view___edit_profile.html#a664b6d1891964f47bf1081572e10e609" title="PWAS_Site.adminView_EditProfile.btnEditLoginInfo_Click" alt="" coords="460,106,815,134"/>
+<area shape="rect" id="node11" href="$class_p_w_a_s___site_1_1customer_view___edit_profile.html#aad289cf3bab861c435edcd26503bd678" title="PWAS_Site.customerView_EditProfile.btnEditOtherInfo_Click" alt="" coords="449,157,825,185"/>
+<area shape="rect" id="node13" href="$class_p_w_a_s___site_1_1admin_view___edit_profile.html#aed761a2147390ae4ea2005e126392b95" title="PWAS_Site.adminView_EditProfile.btnEditOtherInfo_Click" alt="" coords="459,207,816,235"/>
+<area shape="rect" id="node15" href="$class_p_w_a_s___site_1_1_register.html#a44bbcf9f1198238cbb1a0a4c0efc6bfe" title="PWAS_Site.Register.btnRegister_Click" alt="" coords="513,258,761,286"/>
+<area shape="rect" id="node17" href="$class_p_w_a_s___site_1_1_forgot_password.html#a73a53162ba2c504fd6600ae088bf90fe" title="PWAS_Site.ForgotPassword.btnResetPassword_Click" alt="" coords="468,309,807,337"/>
+<area shape="rect" id="node5" href="$class_p_w_a_s___site_1_1admin_view___manage_accounts.html#a18bd3627e8a9a7edc70dea7b873a794d" title="PWAS_Site.adminView_ManageAccounts.Page_Load" alt="" coords="880,5,1216,33"/>
+</map>

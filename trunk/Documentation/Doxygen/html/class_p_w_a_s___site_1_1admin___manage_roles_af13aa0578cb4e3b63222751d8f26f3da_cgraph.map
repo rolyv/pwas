@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_role_repository.html#ae3f27c78babf45efd7ab507d539bd3ff" title="PWAS.DataAccess.Interfaces.IRoleRepository.GetById" alt="" coords="379,5,720,33"/>
+<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_role_repository.html#a7db4c0d7f700c206ce78dd93261ea591" title="PWAS.DataAccess.Interfaces.IRoleRepository.SubmitChanges" alt="" coords="356,55,743,83"/>
+</map>
