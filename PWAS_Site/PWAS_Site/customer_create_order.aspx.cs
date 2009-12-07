@@ -84,6 +84,8 @@ namespace PWAS_Site
             lblUploadedFile.Text = "";
             lblUploadedFile.Visible = false;
             lblUploadedFileHeader.Visible = false;
+
+            ViewState.Remove("attachment");
         }
         private int getUserID()
         {
