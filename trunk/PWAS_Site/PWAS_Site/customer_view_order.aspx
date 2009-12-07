@@ -44,6 +44,7 @@ Order List
                     </td>
                     <td align="left">
                         <asp:TextBox ID="txtJobName" runat="server"></asp:TextBox>
+                        <img src="images/red_asterisk.png" alt="required" />
                     </td>
                 </tr>
 		        <tr>
@@ -51,9 +52,12 @@ Order List
 		                <asp:Label ID="lblFinalSize" runat="server" Text="Final Size:"></asp:Label>
 		            </td>
 		            <td align="left">
-		                <asp:TextBox ID="txtFinalSizeX" runat="server"></asp:TextBox>X
-		                <asp:TextBox ID="txtFinalSizeY" runat="server"></asp:TextBox>
+		                <asp:TextBox ID="txtFinalSizeX" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
+		                <font style="vertical-align:middle" >&nbsp;<b>x</b>&nbsp;</font>
+		                <asp:TextBox ID="txtFinalSizeY" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
+		                <img src="images/red_asterisk.png" alt="required" />
 		            </td>
+		            <td>
 	    	    </tr>
 		        <tr>
 		            <td align="right">
@@ -61,6 +65,7 @@ Order List
 		            </td>
 		            <td align="left">
 		                <asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
+		                <img src="images/red_asterisk.png" alt="required" />
 		            </td>
 		        </tr>
 		        <tr>
@@ -86,23 +91,37 @@ Order List
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkTwoSide" runat="server" Text="Two Sided"/>
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkfolded" runat="server" Text="Folded"/>
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkShip" runat="server" Text="Ship"/>
 		            </td>
 		        </tr>
+		        <tr>
+		            <td>
+		                <br />
+		            </td>
+		            <td>
+		            <br />
+		                <asp:Button ID="createPay" Text="Save Order" runat="server" OnClick="func_Save" />
+                        <asp:Button ID="cancel" Text="Cancel" runat="server" OnClick="btnCancel_Click" />
+                    </td>
+		        </tr>
 	        </table>
         <br /> 
-            <asp:Button ID="createPay" Text="Save Order" runat="server" OnClick="func_Save" />
-            <asp:Button ID="clear" Text="Clear" runat="server" OnClick="func_Clear" />
     </asp:Panel>
 </asp:Content>
