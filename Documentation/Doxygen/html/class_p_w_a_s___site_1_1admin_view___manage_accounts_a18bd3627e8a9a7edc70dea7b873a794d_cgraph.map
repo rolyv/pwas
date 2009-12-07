@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_p_w_a_s___site_1_1admin_view___manage_accounts.html#a42b3da96a9843ddc08711939b0b77455" title="PWAS_Site.adminView_ManageAccounts.btnDeleteUser_Click" alt="" coords="392,30,779,58"/>
+<area shape="rect" id="node9" href="$class_p_w_a_s___site_1_1admin_view___manage_accounts.html#a3f26ffd602a16fb97898a8c1e584e85f" title="PWAS_Site.adminView_ManageAccounts.btnEditUser_Click" alt="" coords="399,81,772,109"/>
+<area shape="rect" id="node11" href="$class_p_w_a_s___site_1_1admin_view___manage_accounts.html#a1ccade241d8aa34f874d17e37aa318d5" title="PWAS_Site.adminView_ManageAccounts.btnUpdateRole_Click" alt="" coords="389,131,781,159"/>
+<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html#a3e32f6127d317566c3a6224088fbc969" title="PWAS.DataAccess.Interfaces.IUserRepository.DeactivateUser" alt="" coords="833,5,1217,33"/>
+<area shape="rect" id="node7" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html#a1e139881eb483b35f65116bd5285449f" title="PWAS.DataAccess.Interfaces.IUserRepository.SubmitChanges" alt="" coords="832,55,1219,83"/>
+<area shape="rect" id="node13" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html#a972bc7f3b1d0eb41dd6c7522cfa4b9de" title="PWAS.DataAccess.Interfaces.IUserRepository.UpdateUserRole" alt="" coords="831,131,1220,159"/>
+</map>
