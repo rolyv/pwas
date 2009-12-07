@@ -30,28 +30,41 @@ namespace PWAS_Site
             }
 
 
-            IPrintRunRepository prRepo = RepositoryFactory.Get<IPrintRunRepository>();
-            List<PrintRun> prList = prRepo.PrintRuns.Where(p => p.run_status == OrderConstants.ORDER_STATUS_CREATED).ToList<PrintRun>();
+            loadPrintRunList();
+            loadOrderTable();
+        }
 
-            ListItem tempItem;
-            foreach (PrintRun pr in prList)
+        private void loadPrintRunList()
+        {
+            if (runList.Items.Count == 0)
             {
-                tempItem = new ListItem("Run "+pr.runID, pr.runID.ToString());
-                tempItem.Value = pr.runID.ToString();
-                runList.Items.Add(tempItem);
-            }
-       
+                IPrintRunRepository prRepo = RepositoryFactory.Get<IPrintRunRepository>();
+                List<PrintRun> prList = prRepo.PrintRuns.Where(p => p.run_status == OrderConstants.ORDER_STATUS_CREATED).ToList<PrintRun>();
 
+                ListItem tempItem;
+
+                foreach (PrintRun pr in prList)
+                {
+                    tempItem = new ListItem("Run " + pr.runID+" - "+pr.run_name, pr.runID.ToString());
+                    tempItem.Value = pr.runID.ToString();
+                    runList.Items.Add(tempItem);
+                }
+            }
+            
+        }
+
+        private void loadOrderTable()
+        {
             //load active orders and populate tableCreatedOrders
             IOrderRepository orderRepo = RepositoryFactory.Get<IOrderRepository>();
             List<Order> paidOrders = orderRepo.Orders.Where(o => o.currentStatus == OrderConstants.ORDER_STATUS_PAID).ToList<Order>();
             bool canSelect = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.PrintRun, PwasAction.Update, PwasScope.All);
-            
+
             foreach (Order order in paidOrders)
             {
                 TableRow tableRow = new TableRow();
                 tableRow.CssClass = "orderRow";
-  
+
 
                 TableCell cellSelect = new TableCell();
                 CheckBox check = new CheckBox();
@@ -95,6 +108,8 @@ namespace PWAS_Site
         {
             int i = 0;
             bool somethingSelected = false;
+
+            List<TableRow> toDelete = new List<TableRow>();
             foreach (TableRow row in tableCreatedOrders.Rows)
             {
                 if (i > 0)//skip the first row, since it's the header row
@@ -106,6 +121,7 @@ namespace PWAS_Site
                         IOrderRepository orderRepo = RepositoryFactory.Get<IOrderRepository>();
                         orderRepo.UpdateOrderStatus(Int32.Parse(row.Cells[1].Text), OrderConstants.ORDER_STATUS_PROCESSING);
                         orderRepo.UpdateOrderRunId(Int32.Parse(row.Cells[1].Text), Int32.Parse(runList.SelectedValue));
+                        toDelete.Add(row);
                     }
                 }
 
@@ -120,6 +136,12 @@ namespace PWAS_Site
                 //1.delete the selected rows from "tableCreatedOrders"
                 //2.delete the selected print run from the drop down "runList"
 
+                foreach (TableRow row in toDelete)
+                {
+                    tableCreatedOrders.Rows.Remove(row);
+                }
+
+                runList.Items.Remove(runList.SelectedItem);
 
                 messageNotify.Text = "Your orders have been added to the print run successfully.";
                 messageNotify.ForeColor = System.Drawing.Color.Green;
