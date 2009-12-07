@@ -150,7 +150,7 @@
                     Billing Address</h3>
                 <table id="tableBillingAddress">
                     <tr>
-                        <td align="right">
+                        <td align="right" class="style2">
                             <asp:Label ID="lblBillAddressLine1" runat="server" Text="Address Line 1:"></asp:Label>
                         </td>
                         <td align="left">
@@ -161,7 +161,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">
+                        <td align="right" class="style2">
                             <asp:Label ID="lblBillAddressLine2" runat="server" Text="Adress Line 2:"></asp:Label>
                         </td>
                         <td align="left">
@@ -169,7 +169,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">
+                        <td align="right" class="style2">
                             <asp:Label ID="lblBillCity" runat="server" Text="City:"></asp:Label>
                         </td>
                         <td align="left">
@@ -180,7 +180,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">
+                        <td align="right" class="style2">
                             <asp:Label ID="lblBillState" runat="server" Text="State:"></asp:Label>
                         </td>
                         <td align="left">
@@ -191,7 +191,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">
+                        <td align="right" class="style2">
                             <asp:Label ID="lblBillZipCode" runat="server" Text="Zip code:"></asp:Label>
                         </td>
                         <td align="left">
