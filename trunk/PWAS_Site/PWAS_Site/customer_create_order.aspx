@@ -29,6 +29,9 @@
             <td align="left">
                 <asp:TextBox ID="txtJobName" runat="server"></asp:TextBox>
             </td>
+            <td>
+                <img src="images/red_asterisk.png" alt="required"/>
+            </td>
         </tr>
         <tr>
             <td align="right">
@@ -37,7 +40,11 @@
             <td align="left">
                 <asp:TextBox ID="txtFinalSizeX" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
                 <font style="vertical-align:middle" >&nbsp;<b>x</b>&nbsp;</font>
-                <asp:TextBox ID="txtFinalSizeY" runat="server" Width="40px"></asp:TextBox> &nbsp;in.</td>
+                <asp:TextBox ID="txtFinalSizeY" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
+            </td>
+            <td>
+                <img src="images/red_asterisk.png" alt="required"/>
+            </td>
         </tr>
         <tr>
             <td align="right">
@@ -45,6 +52,9 @@
             </td>
             <td align="left">
                 <asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <img src="images/red_asterisk.png" alt="required"/>
             </td>
         </tr>
         <tr>
@@ -90,6 +100,8 @@
                 <asp:CheckBox ID="chkShip" runat="server" Text="Ship" />
             </td>
         </tr>
+    </table>
+    <table>
         <tr>
             <td>
                 <br />
@@ -104,7 +116,11 @@
                 </asp:Label>
             </td>
             <td>
-                <asp:FileUpload ID="FileUpload" runat="server" />
+                <asp:FileUpload ID="FileUpload" runat="server" />                
+            </td>
+            <td>
+                <img src="images/red_asterisk.png" alt="required"/>
+            </td>
         </tr>
         <tr>
             <td>
