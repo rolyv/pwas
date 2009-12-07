@@ -15,6 +15,13 @@ namespace PWAS_Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Session[Constants.PWAS_SESSION_ID] == null)
+            {
+                Session.Abandon();
+                Response.Redirect("login.aspx");
+            }
+
             IPrintRunRepository PrintRunRepository = RepositoryFactory.Get<IPrintRunRepository>();
 
             var query =  from p
