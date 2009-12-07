@@ -274,7 +274,7 @@ namespace PWAS_Site
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
             Order current_order = orderRepository.GetById(orderID);
-            return current_order.price.ToString();            
+            return string.Format("{0:C}",current_order.price);            
         }
 
         private void func_clearFields(bool notify)

@@ -13,8 +13,6 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="box3_link" runat="server">
 </asp:Content>
-<asp:Content ID="Content8" ContentPlaceHolderID="navigation_menu" runat="server">
-</asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="body_title" runat="server">
     Welcome to the XYZ Printshop company website !!
 </asp:Content>
