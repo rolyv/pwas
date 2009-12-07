@@ -15,8 +15,6 @@
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="box3_link" runat="server">
 </asp:Content>
-<asp:Content ID="Content9" ContentPlaceHolderID="navigation_menu" runat="server">
-</asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="body_title" runat="server">
 View Single Order
 </asp:Content>
@@ -40,8 +38,9 @@ View Single Order
 		                <asp:Label ID="lblFinalSize" runat="server" Text="Final Size:"></asp:Label>
 		            </td>
 		            <td align="left">
-		                <asp:TextBox ID="txtFinalSizeX" runat="server"></asp:TextBox>X
-		                <asp:TextBox ID="txtFinalSizeY" runat="server"></asp:TextBox>
+		                <asp:TextBox ID="txtFinalSizeX" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
+		                <font style="vertical-align:middle" >&nbsp;<b>x</b>&nbsp;</font>
+		                <asp:TextBox ID="txtFinalSizeY" runat="server" Width="40px"></asp:TextBox> &nbsp;in.
 		            </td>
 	    	    </tr>
 		        <tr>
@@ -75,25 +74,36 @@ View Single Order
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkTwoSide" runat="server" Text="Two Sided"/>
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkfolded" runat="server" Text="Folded"/>
 		            </td>
 		        </tr>
 		        <tr>
+		            <td>
+		            </td>
 		            <td align="left">
 		                <asp:CheckBox ID="chkShip" runat="server" Text="Ship"/>
 		            </td>
 		        </tr>
+		        <tr>
+		            <td>
+		                <br /> 
+		            </td>
+		            <td>
+		                <br />
+		                <asp:Button ID="OkviewOrder" Text="OK" runat="server" OnClick="okButton" />
+		                <asp:Button ID="BackButton" Text="Back" runat="server" OnClick="backButton" />
+		            </td>
+		        </tr>
 	        </table>
-        <br /> 
-        
-            <asp:Button ID="BackButton" Text="Back" runat="server" OnClick="backButton"  style="margin-left:200px" />
-            <asp:Button ID="OkviewOrder" Text="OK" runat="server" OnClick="okButton" style="margin-left:50px" />
         <br />
-        <br />    
 </asp:Content>
