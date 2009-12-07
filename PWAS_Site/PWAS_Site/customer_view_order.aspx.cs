@@ -266,15 +266,16 @@ namespace PWAS_Site
             Response.Redirect("view_Single_Order.aspx");
         }
 
-        protected void func_Clear(object sender, EventArgs e)
+        protected void btnCancel_Click(object sender, EventArgs e)
         {
-            func_clearFields(true);
+            Response.Redirect("customer_view_order.aspx");
         }
+
         private string getOrderPrice(int orderID)
         {
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
             Order current_order = orderRepository.GetById(orderID);
-            return string.Format("{0:C}",current_order.price);            
+            return string.Format("{0:C}",current_order.price);             
         }
 
         private void func_clearFields(bool notify)
@@ -290,8 +291,10 @@ namespace PWAS_Site
             this.chkShip.Checked = false;
         }
         private int getUserID()
-        {            
-             return (int)Session[Constants.PWAS_SESSION_ID];
+        {
+            if (Session[Constants.PWAS_SESSION_ID] == null)
+                Response.Redirect("index.aspx");
+            return (int)Session[Constants.PWAS_SESSION_ID];
         }
         private bool validateFields()
         {
