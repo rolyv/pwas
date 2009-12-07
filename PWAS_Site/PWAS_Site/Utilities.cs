@@ -17,6 +17,9 @@ using System.Text;
 
 namespace PWAS_Site
 {
+    /// <summary>
+    /// Enumeration of PrintRun Statuses
+    /// </summary>
     public enum PrintRunStatus{
         CREATED = 1,
         PRE_PRINTING =7,

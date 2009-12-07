@@ -40,15 +40,19 @@ namespace PWAS_Site.NavMenu
                 new PWASNavigationNode(){ PwasObject = PwasObject.User, PwasAction = PwasAction.View, 
                                             PwasScope = PwasScope.All, Text = "Manage Users", NavigateUrl = "~/adminView_ManageAccounts.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.Order, PwasAction = PwasAction.Create,
-                                            PwasScope = PwasScope.Self, Text = "New Order", NavigateUrl = "~/customer_create_order.aspx" },
+                                            PwasScope = PwasScope.Self, Text = "Create Order", NavigateUrl = "~/customer_create_order.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.Order, PwasAction = PwasAction.View,
                                             PwasScope = PwasScope.Self, Text = "Manage Orders", NavigateUrl = "~/customer_view_order.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.Create,
-                                            PwasScope = PwasScope.Self, Text = "New Print Run", NavigateUrl = "~/workerView_CreatePrintRun.aspx" },
-                new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.View,
-                                            PwasScope = PwasScope.Self, Text = "Manage PrintRuns", NavigateUrl = "~/workerView_AddToPrintRun.aspx" },
+                                            PwasScope = PwasScope.Self, Text = "Create Print Run", NavigateUrl = "~/workerView_CreatePrintRun.aspx" },
+                new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.Update,
+                                            PwasScope = PwasScope.Self, Text = "Add Orders to Print Run", NavigateUrl = "~/workerView_AddToPrintRun.aspx" },
+                new PWASNavigationNode(){ PwasObject = PwasObject.PrintRun, PwasAction = PwasAction.Update,
+                                            PwasScope = PwasScope.Self, Text = "Update Print Run Status", NavigateUrl = "~/view_print_run.aspx" },
                 new PWASNavigationNode(){ PwasObject = PwasObject.Role, PwasAction = PwasAction.View,
-                                            PwasScope = PwasScope.All, Text = "Manage Security Roles", NavigateUrl = "~/manageSecurityURL.aspx" } }
+                                            PwasScope = PwasScope.All, Text = "Manage Roles", NavigateUrl = "~/admin_ManageRoles.aspx" },
+                new PWASNavigationNode(){ PwasObject = PwasObject.RolePermission, PwasAction = PwasAction.View,
+                                            PwasScope = PwasScope.All, Text = "Manage Role Permissions", NavigateUrl = "~/admin_ManageRolePermissions.aspx" }}
                 );
         }
 
