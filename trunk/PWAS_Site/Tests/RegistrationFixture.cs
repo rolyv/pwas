@@ -11,6 +11,7 @@ using PWAS.DataAccess;
 using PWAS.Model;
 using PWAS.DataAccess.SQLRepositories;
 using PWAS.DataAccess.Interfaces;
+using System.Collections.Generic;
 
 namespace PWAS.Tests
 {
@@ -21,6 +22,7 @@ namespace PWAS.Tests
         private StringBuilder verificationErrors;
         private IUserRepository userRepo;
         private IOrderRepository orderRepo;
+        private IOrderHistoryRepository orderHistoryRepo;
 
         [SetUp]
         public void SetupTest()
@@ -29,8 +31,25 @@ namespace PWAS.Tests
             selenium.Start();
             userRepo = new UserRepository(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\App_Data\PWAS_DB.mdf;Integrated Security=True;User Instance=True");
             orderRepo = new OrderRepository(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\App_Data\PWAS_DB.mdf;Integrated Security=True;User Instance=True");
+            orderHistoryRepo = new OrderHistoryRepository(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Documents and Settings\RolandoV\My Documents\PWAS\PWAS_Site\PWAS_Site\App_Data\PWAS_DB.mdf;Integrated Security=True;User Instance=True");
+            if (orderRepo.Orders.Where(o => o.job_name == "Salsa Impulse").Count() > 0)
+            {
+                List<Order> orders = orderRepo.Orders.Where(o => o.job_name == "Salsa Impulse").ToList();
+                List<OrderHistory> ohistories = (from oh in orderHistoryRepo.OrderHistories
+                                                 where (from o in orders
+                                                        select o.orderID).Contains(oh.orderId)
+                                                 select oh).ToList();
+                Table<OrderHistory> ohTable = (Table<OrderHistory>)orderHistoryRepo.OrderHistories;
+                ohTable.DeleteAllOnSubmit(ohistories);
 
-            if (userRepo.Users.Where(u => u.email.Trim() == "j1@gmail.com").Count() > 0)
+                Table<Order> orderTable = (Table<Order>)orderRepo.Orders;
+                orderTable.DeleteAllOnSubmit(orders);
+
+                ohTable.Context.SubmitChanges();
+                orderTable.Context.SubmitChanges();
+            }
+
+            if (userRepo.Users.Where(u => u.email == "j1@gmail.com").Count() > 0)
             {
                 User user = userRepo.Users.First(u => u.email.Trim() == "j1@gmail.com");
                 userRepo.DeleteUser(user.userID);
@@ -40,7 +59,7 @@ namespace PWAS.Tests
             Thread.Sleep(10000);
         }
 
-        [TearDown]
+        [TestFixtureTearDown]
         public void TeardownTest()
         {
             try
@@ -59,10 +78,12 @@ namespace PWAS.Tests
         }
 
         [Test]
-        public void RegistrationTest()
+        public void RegistrationAndLoginTest()
         {
             selenium.Open("/index.aspx");
+            selenium.WaitForPageToLoad("10000");
             selenium.Click("link=Login");
+            selenium.WaitForPageToLoad("10000");
             selenium.Click("link=Register");
             selenium.WaitForPageToLoad("5000");
             selenium.Type("ctl00_body_content_txtEmailAddress", "j1@gmail.com");
@@ -92,7 +113,18 @@ namespace PWAS.Tests
             Assert.AreEqual("2601 W 2nd Ave", newUser.b_address1.Trim());
             Assert.AreEqual("Hialeah", newUser.b_city.Trim());
             Assert.AreEqual("FL", newUser.b_state.Trim());
-            Assert.AreEqual("33010", newUser.b_zip.Trim());           
+            Assert.AreEqual("33010", newUser.b_zip.Trim());
+
+            selenium.Open("/index.aspx");
+            selenium.WaitForPageToLoad("5000");
+            selenium.Click("link=Login");
+            selenium.WaitForPageToLoad("5000");
+            selenium.Type("ctl00_body_content_loginEmail", "j1@gmail.com");
+            selenium.Type("ctl00_body_content_pwd", "12345");
+            selenium.Click("ctl00_body_content_loginSubmit");
+            selenium.WaitForPageToLoad("5000");
+
+            Assert.IsTrue(selenium.IsTextPresent("Welcome back Javier"));
         }
     }
 }
