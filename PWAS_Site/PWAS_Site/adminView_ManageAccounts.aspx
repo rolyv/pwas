@@ -32,9 +32,6 @@
                 Full Name
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>
-                Telephone
-            </asp:TableHeaderCell>
-            <asp:TableHeaderCell>
                 Email
             </asp:TableHeaderCell>
             <asp:TableHeaderCell>

@@ -31,6 +31,10 @@ namespace PWAS_Site
             IRoleRepository roleRepo = RepositoryFactory.Get<IRoleRepository>();
             List<Role> roles = roleRepo.Roles.ToList<Role>();
 
+            //Sets counter to set Different IDs to all Dropdown controls
+            //Set to 1 to skip header row
+            int roleCounter = 1;
+
             foreach (User user in users)
             {
                 TableRow tableRow = new TableRow();
@@ -83,11 +87,7 @@ namespace PWAS_Site
 
                 TableCell cellFullName = new TableCell();
                 cellFullName.Text = user.firstName.Trim() + " " + user.lastName.Trim();
-                cellFullName.Width = Unit.Pixel(150);
-
-                TableCell cellTelephone = new TableCell();
-                cellTelephone.Text = user.homePhone.Trim();
-                cellTelephone.Width = Unit.Pixel(100);
+                cellFullName.Width = Unit.Pixel(200);
 
                 TableCell cellEmail = new TableCell();
                 cellEmail.Text = user.email.Trim();
@@ -95,7 +95,7 @@ namespace PWAS_Site
 
                 TableCell cellRole = new TableCell();
                 DropDownList ddRoles = new DropDownList();
-                ddRoles.ID = "ddRoles";
+                ddRoles.ID = "ddRoles" + roleCounter;
                 foreach (Role r in roles)
                 {
                     ListItem item = new ListItem();
@@ -106,22 +106,25 @@ namespace PWAS_Site
                 ddRoles.Items.FindByValue(user.roleID.ToString()).Selected = true;
                 cellRole.Controls.Add(ddRoles);
 
-                TableCell cellUpdateRole = new TableCell();
+                TableCell cellRoleUpdate = new TableCell();
                 Button btnUpdateRole = new Button();
+                btnUpdateRole.Text = "Update";
                 btnUpdateRole.ToolTip = "Update Role";
-                btnUpdateRole.CommandArgument = user.userID.ToString();
+                btnUpdateRole.CommandArgument = user.userID.ToString() + ";" + roleCounter;
                 btnUpdateRole.Command += new CommandEventHandler(btnUpdateRole_Click);
-                cellUpdateRole.Controls.Add(btnUpdateRole);
+                cellRoleUpdate.Controls.Add(btnUpdateRole);
 
                 tableRow.Cells.Add(cellEdit);
                 tableRow.Cells.Add(cellDelete);
                 tableRow.Cells.Add(cellUsername);
                 tableRow.Cells.Add(cellFullName);
-                tableRow.Cells.Add(cellTelephone);
                 tableRow.Cells.Add(cellEmail);
                 tableRow.Cells.Add(cellRole);
+                tableRow.Cells.Add(cellRoleUpdate);
 
                 tableManageUsers.Rows.Add(tableRow);
+
+                roleCounter++;
             }
         }
 
@@ -147,12 +150,13 @@ namespace PWAS_Site
         protected void btnUpdateRole_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            int userId = Int32.Parse(btn.CommandArgument);
+            int userId = Int32.Parse(btn.CommandArgument.Substring(0, btn.CommandArgument.IndexOf(";")));
+            int ddRolesRow = Int32.Parse(btn.CommandArgument.Substring(btn.CommandArgument.IndexOf(";") + 1));
 
+            DropDownList ddRoles = (DropDownList)(tableManageUsers.Rows[ddRolesRow].Cells[5].Controls[0]);
+            int newRoleId = Int32.Parse(ddRoles.SelectedValue);
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
-            User user = userRepo.GetById(userId);
-            user.roleID = Int32.Parse(((DropDownList)FindControl("ddRoles")).SelectedValue);
-            userRepo.SubmitChanges();
+            userRepo.UpdateUserRole(userId, newRoleId);
         }
     }
 }
