@@ -244,7 +244,7 @@ namespace PWAS_Site
 
                     orderRepository.SubmitChanges();
 
-                    this.lblNotify.Text = "Order Edited Sucessfull!  ";
+                    this.lblNotify.Text = "Order Edited Sucessfully!  ";
                     this.lblNotify.ForeColor = System.Drawing.Color.Blue;
                     this.lblNotify.Visible = true;
                     func_clearFields(false);

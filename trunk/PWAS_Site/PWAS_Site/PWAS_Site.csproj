@@ -290,6 +290,13 @@
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="view_print_run.aspx.cs">
+      <DependentUpon>view_print_run.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_print_run.aspx.designer.cs">
+      <DependentUpon>view_print_run.aspx</DependentUpon>
+    </Compile>
     <Compile Include="view_Single_Order.aspx.cs">
       <DependentUpon>view_Single_Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,6 +349,7 @@
     <Content Include="customerView_Home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="view_print_run.aspx" />
     <Content Include="view_Single_Order.aspx" />
     <Content Include="adminView_ManageAccounts.aspx" />
     <Content Include="adminView_EditProfile.aspx" />
