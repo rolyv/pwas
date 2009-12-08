@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="view_Single_PrintRun.aspx.cs" Inherits="PWAS_Site.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="view_Single_PrintRun.aspx.cs" Inherits="PWAS_Site.View_single_printRun" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">
