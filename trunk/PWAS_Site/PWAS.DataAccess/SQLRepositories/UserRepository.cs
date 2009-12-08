@@ -28,7 +28,9 @@ namespace PWAS.DataAccess.SQLRepositories
 
         public User GetById(int userId)
         {
-            return userTable.FirstOrDefault(u => u.userID == userId);
+            if (userTable.Any(u => u.userID == userId))
+                return userTable.FirstOrDefault(u => u.userID == userId);
+            return null;
         }
 
         public void ActivateUser(int userId)
