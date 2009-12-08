@@ -12,7 +12,7 @@ using PWAS.DataAccess.Interfaces;
 
 namespace PWAS_Site
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class View_single_printRun : System.Web.UI.Page
     {
         protected void backButton(object sender, EventArgs e)
         {
@@ -49,7 +49,7 @@ namespace PWAS_Site
 
                     cellOrderID.Controls.Add(new LiteralControl(current_order.orderID.ToString()));
                     cellJobName.Controls.Add(new LiteralControl(current_order.job_name.ToString()));
-                    cellPrice.Controls.Add(new LiteralControl(current_order.price.ToString()));
+                    cellPrice.Controls.Add(new LiteralControl(String.Format("{0:C}",current_order.price.ToString())));
                     cellQuantity.Controls.Add(new LiteralControl(current_order.quantity.ToString()));
                     
                     //pixels
