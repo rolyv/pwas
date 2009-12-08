@@ -56,7 +56,6 @@ namespace PWAS.Tests
                 userRepo.SubmitChanges();
             }
             verificationErrors = new StringBuilder();
-            Thread.Sleep(10000);
         }
 
         [TestFixtureTearDown]

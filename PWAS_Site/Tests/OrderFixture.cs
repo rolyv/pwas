@@ -55,8 +55,6 @@ namespace PWAS.Tests
                 userRepo.DeleteUser(user.userID);
                 userRepo.SubmitChanges();
             }
-
-            Thread.Sleep(2000);
         }
 
         [TestFixtureTearDown]
@@ -74,9 +72,11 @@ namespace PWAS.Tests
                 
                 Table<OrderHistory> ohTable = (Table<OrderHistory>)orderHistoryRepo.OrderHistories;
                 ohTable.DeleteAllOnSubmit(histories);
+                ohTable.Context.SubmitChanges();
 
                 Table<Order> orderTable = (Table<Order>)orderRepo.Orders;
                 orderTable.DeleteAllOnSubmit(orders);
+                orderTable.Context.SubmitChanges();
 
                 User user = userRepo.Users.First(u => u.email.Trim() == "j1@gmail.com");
                 userRepo.DeleteUser(user.userID);
@@ -157,24 +157,24 @@ namespace PWAS.Tests
         }
 
         [Test]
-        public void ManageOrders()
-        {
-            //CreateOrder();
+        public void ViewAndPayOrder()
+        {            
             selenium.Click("ctl00_navigation_menu_NavigationControl_NavTreeViewt1");
             selenium.WaitForPageToLoad("5000");
 
-            int orderId = orderRepo.Orders.Single(o => o.job_name.Contains("Salsa Impulse")).orderID;
+            Order order = orderRepo.Orders.Single(o => o.job_name.Contains("Salsa Impulse"));
+            int orderId = order.orderID;
 
             Assert.IsTrue(selenium.IsTextPresent("Salsa Impulse"));
             Assert.IsTrue(selenium.IsElementPresent("ctl00_body_content_" + orderId + "s"));
 
             selenium.Click("ctl00_body_content_" + orderId + "s");
             Thread.Sleep(2000);
-            Assert.AreEqual(2, orderRepo.Orders.Single(o => o.job_name.Contains("Salsa Impulse")).currentStatus);
-            
-            selenium.Click("ctl00_body_content_" + orderId + "v");
-            selenium.Click("ctl00_body_content_OkviewOrder");
-            selenium.Click("ctl00_logoutLnk");
+
+            ((Table<Order>)orderRepo.Orders).Context.Refresh(RefreshMode.OverwriteCurrentValues, order);
+            Assert.AreEqual(2, order.currentStatus);
+
+            Assert.IsTrue(selenium.IsTextPresent("Paid"));
         }
     }
 }
