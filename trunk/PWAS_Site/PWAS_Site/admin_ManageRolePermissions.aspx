@@ -30,11 +30,8 @@
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="box3_link" runat="server">
 </asp:Content>
-<asp:Content ID="Content9" ContentPlaceHolderID="navigation_menu" runat="server">
-</asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="body_title" runat="server">
-Roles&nbsp;
-    &nbsp;
+Manage Role Permissions
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
 
