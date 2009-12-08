@@ -1,171 +1,43 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin_ManageRoles.aspx.cs" Inherits="PWAS_Site.admin_ManageRoles" %>
+ï»¿<%@ Page Title="" Language="C#" MasterPageFile="~/PWAS.Master" AutoEventWireup="true" CodeBehind="admin_ManageRoles.aspx.cs" Inherits="PWAS_Site.WebForm3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="page_title" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="page_head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="box1_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="box1_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="box2_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="box2_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="box3_text" runat="server">
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="box3_link" runat="server">
+</asp:Content>
+<asp:Content ID="Content9" ContentPlaceHolderID="body_title" runat="server">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    Manage Roles
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="javascript" type="text/javascript" src="XYZ.js"></script>
-    <style type="text/css">
-        .style1
-        {
-            width: 75px;
-        }
-        .style2
-        {
-            width: 195px;
-        }
-    </style>
-</head>
+</asp:Content>
+<asp:Content ID="Content10" ContentPlaceHolderID="body_content" runat="server">
+<asp:Label ID="errorMessageLabel" runat="server" ForeColor="Red" 
+        Text="Error Message" Visible="False" Font-Bold="True" Font-Size="Medium"></asp:Label>
 
-<body >
-    <form id="form1" runat="server">
-<div id="header">
-<div class="top-head">
-<div class="logo">Printing at the Speed of Life.</div>
-
-<div class="nav-bar">
-<ul>
-<li><a href="index.aspx" class="ist">Home</a></li>
-<li><a href="about-us.aspx" class="two">About Us</a></li>
-<li>
-	
-           <a href="/CEN/index.jsp?logoff=true" class="three">Logout</a> 
-	 
-	    
-</li>
-<li><a href="projects.aspx" class="four">Projects</a></li>
-<li><a href="contact-us.aspx" class="five">Contacts</a></li>
-</ul> 
-
-		<!--Hidden Pop up login prompt-->
-	<div id="loginDiv">
-        <table>
-        <tr>
-        	<td>Username: </td><td><input type="text" name="user" /><br/></td>
-        </tr>
-		<tr>
-        	<td>Password: </td><td><input type="password" name="pwd"/><br /></td>
-        </tr>    
-        </table>
-        <table align="center">
-         <tr>
-        	<td  align="center"><button onclick="doLogin();">Login</button><button onclick="showLogin(false);">
-                Cancel</button></td>
-        </tr>
-        <tr><td><div id="ERROR"></div></td></tr>
-		</table>
-		
-	</div>
-
-</div>
-</div>
-
-<div class="head-cont">
-<span>XYZ Printing is your one-stop shop for all your printing needs.</span><br />
-</b> Enjoy your stay.
-</div>
-
-<div class="box-outs">
-<div class="gray-box">
-<img src="images/ic-1.gif" alt="" class="img-box" /> Place an <br />
-    Order
-<br />
-<a href="#">Click here</a></div>
-
-<div class="gray-box">
-<img src="images/ic-2.gif" alt="" class="img-box" />
-    View Order <br />Status<br />
-<a href="#">click here</a></div>
-
-<div class="gray-box">
-<img src="images/ic-3.gif" alt="" class="img-box" />
-    Customer Support<br />
-<a href="#">click here</a></div>
-</div>
-</div>
-
-<div id="body-part">
-<div class="left-body">
-<div class="left-body-top">
-<h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Menu</h2>
-
-
-
-<ul>
-<li><a href="#">Place an Order.</a></li>
-<li><a href="#">View Order Status.</a></li>
-<li><a href="#">Edit Profile.</a></li>
-<li class="last"><a href="#">Search.</a></li>
-
-</ul>
-</div>
-
-<div class="left-body-bt">
-<h2><img src="images/ic-4.gif" alt="" class="img-box-2" />Company News!</h2>
-<strong>Vestibulum sit amet nulla era</strong>
-<ul>
-<li>20th May 2009</li>
-</ul><p><a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-
-
-
-<img src="images/br-line.gif" alt="" />
-
-<ul>
-<li>20th May 2009</li>
-</ul>
-
-<p><a href="#">Lorem ipsum dolor</a> sit amet, consectetur.</p>
-</div>
-
-
-
-
-</div>
-
-<div class="right-body">
-<h1>Manage Roles</h1>
-<asp:Table ID="roleDescriptionTable" runat="server" Width="447px">
-    <asp:TableRow ID="headerTable1" runat="server" CssClass="orderTopRow">
-        <asp:TableHeaderCell ID="TableHeaderCell1" runat="server" Text="Role ID" ></asp:TableHeaderCell>
-        <asp:TableHeaderCell ID="TableHeaderCell2" runat="server" Text="Role Name" ></asp:TableHeaderCell>
-        <asp:TableHeaderCell ID="TableHeaderCell3" runat="server" Text="Role Description" ></asp:TableHeaderCell>
-    </asp:TableRow>
-</asp:Table>
-
-    <br />
-    <asp:Button ID="editButton" runat="server" onclick="editButton_Click" 
-        Text="Edit" Width="90px" />
-&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="addButton" runat="server" onclick="addButton_Click" Text="Add" 
-        Width="90px" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="deleteButton" runat="server" onclick="deleteButton_Click" 
-        Text="Delete" Width="90px" />
-&nbsp;<br />
-    <asp:Panel ID="editPanel" runat="server" Height="153px" Visible="False">
-        <h2>
-            Edit Role:</h2>
+    </p>
+    <asp:Panel ID="editPanel" runat="server" Height="121px" Visible="False">
+        <h3>
+            Edit Role
+            <asp:Label ID="editLabel" runat="server" Text="Label"></asp:Label>
+            :</h3>
         <table style="width:100%;">
             <tr>
-                <td class="style1">
-                    Role ID</td>
                 <td class="style2">
                     Role Name</td>
                 <td>
                     Role Description</td>
             </tr>
             <tr>
-                <td class="style1">
-                    <asp:DropDownList ID="editDropDownList" runat="server" 
-                        onselectedindexchanged="editDropDownList_SelectedIndexChanged" 
-                        AutoPostBack="True">
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
                 <td class="style2">
                     <asp:TextBox ID="editRoleNameBox" runat="server" Width="161px"></asp:TextBox>
                 </td>
@@ -174,12 +46,12 @@
                 </td>
             </tr>
         </table>
-        <asp:Button ID="editSubmit" runat="server" Text="Submit" 
+        <asp:Button ID="editSubmit" runat="server" Text="Confirm Edit" 
             onclick="Button1_Click" />
     </asp:Panel>
     <asp:Panel ID="addPanel" runat="server" Visible="False">
-        <h2>
-            Add Role:</h2>
+        <h3>
+            Add Role:</h3>
         <table style="width:100%;">
             <tr>
                 <td>
@@ -196,30 +68,23 @@
                 </td>
             </tr>
         </table>
-        <br />
         <asp:Button ID="addSubmit" runat="server" onclick="addSubmit_Click" 
-            Text="Submit" />
+            Text="Confirm Add" />
         &nbsp;&nbsp;&nbsp;&nbsp;
     </asp:Panel>
     <asp:Panel ID="deletePanel" runat="server" Visible="False">
-        <h2>
-            Delete Role:</h2>
+        <h3>
+            Delete Role
+            <asp:Label ID="deleteLabel" runat="server" Text="Label"></asp:Label>
+            :</h3>
         <table style="width:100%;">
             <tr>
-                <td class="style1">
-                    Role ID</td>
                 <td class="style2">
                     Role Name</td>
                 <td>
                     Role Description</td>
             </tr>
             <tr>
-                <td class="style1">
-                    <asp:DropDownList ID="deleteDropDownList" runat="server" AutoPostBack="True" 
-                        onselectedindexchanged="deleteDropDownList_SelectedIndexChanged">
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
                 <td class="style2">
                     <asp:TextBox ID="deleteRoleNameBox" runat="server" ReadOnly="True" 
                         Width="161px"></asp:TextBox>
@@ -230,61 +95,24 @@
                 </td>
             </tr>
         </table>
-        <br />
         <asp:Button ID="deleteSubmit" runat="server" onclick="deleteSubmit_Click" 
-            Text="Submit" />
+            Text="Confirm Delete" />
     </asp:Panel>
 
-    <asp:Label ID="errorMessageLabel" runat="server" ForeColor="Red" 
-        Text="Error Message" Visible="False"></asp:Label>
+    <h2>
+        Roles:</h2>
+<asp:Table ID="roleDescriptionTable" runat="server" Width="656px">
+    <asp:TableRow ID="titleRow" runat="server" CssClass="orderTopRow">
+        <asp:TableCell ID="TableCell1" runat="server">Edit</asp:TableCell>
+        <asp:TableCell ID="TableCell2" runat="server">Delete</asp:TableCell>
+        <asp:TableHeaderCell ID="TableHeaderCell1" runat="server" Text="Role ID" ></asp:TableHeaderCell>
+        <asp:TableHeaderCell ID="TableHeaderCell2" runat="server" Text="Role Name" ></asp:TableHeaderCell>
+        <asp:TableHeaderCell ID="TableHeaderCell3" runat="server" Text="Role Description" ></asp:TableHeaderCell>
+    </asp:TableRow>
+</asp:Table>
 
-<br />
-<img src="images/br-body.gif" alt="" />
-
-<h2><img src="images/ic-5.gif" alt="" class="img-box-2" />Discounted Productscounted Products</h2>
-
-<div class="right-content">
-<img src="images/img_02.gif" alt="" />
-<p><strong>20% Off Blueprints</strong><br />
-    For your construction needs </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-<div class="left-content">
-<img src="images/img_03.gif" alt="" />
-<p><strong>10% off Postcards.</strong><br />
-    Glossy full color </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-<div class="left-content">
-<img src="images/img_04.gif" alt="" />
-<p><strong>Call for Website Specials!</strong><br />
-    You'll be surprised </p>
-<a href="#"><img src="images/read-more.gif" alt="" border="0" /></a>
-</div>
-
-</div>
-<div class="clear"></div>
-</div>
-
-
-<div id="footer-back">
-<div class="footer-right"><a href="index.aspx">Home</a>   |   <a href="about-us.aspx">
-    About Us</a>   |   <a href="projects.aspx">Recent Projects</a> |   <a href="support.aspx">
-    Support</a>   |   <a href="privacy.aspx">Privacy</a>   |   <a href="contact-us.aspx">
-    Contact Us</a>
-<br />
-<span>© Copyright XYZ Printing Co. All Right Reserved</span></div>
-
-</div>
-
-
-
-    </form>
-
-
-
-</body>
-</html>
-	
+    <br />
+    <asp:Button ID="addButton" runat="server" onclick="addButton_Click" Text="Add Role" 
+        Width="90px" />
+&nbsp;<br />
+</asp:Content>
