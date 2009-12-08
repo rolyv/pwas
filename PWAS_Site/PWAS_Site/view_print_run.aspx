@@ -20,7 +20,7 @@
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
 <asp:Table ID="PrintRunTable" runat="server" Height="23px" Width="656px">
     <asp:TableRow ID="headerTable1" runat="server" CssClass="orderTopRow">
-        <asp:TableHeaderCell ID="editColumn"></asp:TableHeaderCell>
+        
         <asp:TableHeaderCell ID="deleteColumn"></asp:TableHeaderCell>
         <asp:TableHeaderCell ID="TableHeaderCell1" runat="server" Text="Run ID" ></asp:TableHeaderCell>
         <asp:TableHeaderCell ID="TableHeaderCell2" runat="server" Text="PrintRun Name" ></asp:TableHeaderCell>

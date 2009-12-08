@@ -84,7 +84,7 @@ namespace PWAS_Site
             foreach (int statusID in Enum.GetValues(typeof(PWAS_Site.PrintRunStatus)))
             {                
                 
-                if (pr.Status.statusId != OrderConstants.ORDER_STATUS_CREATED)
+                if ( statusID != OrderConstants.ORDER_STATUS_CREATED)
                 {
                     ListItem lsItem = new ListItem(statusRepository.GetById(statusID).statusName);
                     dropListStatus.Items.Add(lsItem);
@@ -92,11 +92,19 @@ namespace PWAS_Site
                     if (pr.Status.statusId == statusID)
                         dropListStatus.SelectedIndex = dropListStatus.Items.IndexOf(lsItem);
 
-                    if (pr.Status.statusId == OrderConstants.ORDER_STATUS_CREATED || pr.Status.statusId == OrderConstants.ORDER_STATUS_CLOSED)
+                    if (pr.Status.statusId == OrderConstants.ORDER_STATUS_CLOSED)
                         dropListStatus.Enabled = false;
                 }
             }
-            
+
+            if (pr.Status.statusId == OrderConstants.ORDER_STATUS_CREATED)
+            {
+                ListItem lsItem = new ListItem(statusRepository.GetById(pr.Status.statusId).statusName);
+                dropListStatus.Items.Add(lsItem);
+                dropListStatus.SelectedIndex = dropListStatus.Items.IndexOf(lsItem);
+                dropListStatus.Enabled = false;
+            }
+
             dropListStatus.Width = Unit.Pixel(200);            
             dropListStatus.SelectedIndexChanged += new EventHandler(func_selected);
             dropListStatus.AutoPostBack = true;
