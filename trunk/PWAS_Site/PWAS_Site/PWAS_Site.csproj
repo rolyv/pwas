@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -318,6 +318,13 @@
     <Compile Include="adminView_EditProfile.aspx.designer.cs">
       <DependentUpon>adminView_EditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="view_Single_PrintRun.aspx.cs">
+      <DependentUpon>view_Single_PrintRun.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_Single_PrintRun.aspx.designer.cs">
+      <DependentUpon>view_Single_PrintRun.aspx</DependentUpon>
+    </Compile>
     <Compile Include="workerView_AddToPrintRun.aspx.cs">
       <DependentUpon>workerView_AddToPrintRun.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,6 +360,7 @@
     <Content Include="view_Single_Order.aspx" />
     <Content Include="adminView_ManageAccounts.aspx" />
     <Content Include="adminView_EditProfile.aspx" />
+    <Content Include="view_Single_PrintRun.aspx" />
     <Content Include="workerView_AddToPrintRun.aspx" />
     <Content Include="workerView_CreatePrintRun.aspx" />
   </ItemGroup>
@@ -386,6 +394,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
