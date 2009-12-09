@@ -127,7 +127,9 @@ namespace PWAS_Site
 
             Control retControl = null;
             
-            if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.All))
+            if (Security.IsAuthorized(getUserID(), PwasObject.Order, PwasAction.Update, PwasScope.All) 
+                && (current_order.Status.statusId == OrderConstants.ORDER_STATUS_CREATED 
+                    || current_order.Status.statusId == OrderConstants.ORDER_STATUS_PAID))
             {
                 ImageButton editButton = new ImageButton();
                 editButton.ID = current_order.orderID + "e";
