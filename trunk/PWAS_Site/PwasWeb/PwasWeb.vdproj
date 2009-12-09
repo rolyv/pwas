@@ -233,6 +233,11 @@
             "AssemblyAsmDisplayName" = "8:PWAS.Model, Version=1.0.400.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_27E128CF6F3B1CE1FE9FCFD250B4DF50"
+                    {
+                    "Name" = "8:PWAS.Model.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:PWAS.Model.dll"
             "TargetName" = "8:"
@@ -290,6 +295,11 @@
             "AssemblyAsmDisplayName" = "8:PWAS.DataAccess, Version=1.0.400.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_54259450725896C3087265F5EB336821"
+                    {
+                    "Name" = "8:PWAS.DataAccess.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:PWAS.DataAccess.dll"
             "TargetName" = "8:"
@@ -484,19 +494,19 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PwasWeb"
         "ProductCode" = "8:{E4FF4637-F44C-4875-A7BE-977E98EFD8C9}"
-        "PackageCode" = "8:{00A57B1C-6AF4-4F3A-8608-FDF3A684009E}"
+        "PackageCode" = "8:{A94E0CD2-6563-4C2D-A6EF-AD2D1CD34C28}"
         "UpgradeCode" = "8:{D969E4AE-B5FA-4F72-8368-2D566F1FA272}"
-        "RestartWWWService" = "11:FALSE"
+        "RestartWWWService" = "11:TRUE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Ultimate Software"
+        "Manufacturer" = "8:XYZ Development"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:PwasWeb"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Ultimate Software"
+        "ARPCONTACT" = "8:XYZ Development"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
