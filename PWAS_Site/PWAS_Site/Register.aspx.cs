@@ -18,6 +18,7 @@ namespace PWAS_Site
 {
     public partial class Register : System.Web.UI.Page
     {
+        #region Event Handlers
         protected void Page_Load(object sender, EventArgs e)
         {
             tableErrorMessage.Visible = false;
@@ -27,16 +28,8 @@ namespace PWAS_Site
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtEmailAddress.Text) ||
-                String.IsNullOrEmpty(txtPassword.Text) ||
-                String.IsNullOrEmpty(txtPasswordConfirm.Text) ||
-                String.IsNullOrEmpty(txtFirstName.Text) ||
-                String.IsNullOrEmpty(txtLastName.Text) ||
-                String.IsNullOrEmpty(txtPhoneNumber.Text) ||
-                String.IsNullOrEmpty(txtBillAddressLine1.Text) ||
-                String.IsNullOrEmpty(txtBillCity.Text) ||
-                String.IsNullOrEmpty(txtBillState.Text) ||
-                String.IsNullOrEmpty(txtBillZipCode.Text))
+            //check that required fields are not empty
+            if (!areReqFieldsEmpty())
             {
                 lblErrorMessage.Text = "Please enter required (*) information";
                 lblErrorMessage.Visible = true;
@@ -44,20 +37,15 @@ namespace PWAS_Site
                 return;
             }
 
-            //Do Validation for fields
-            //=========================
-            if (!txtPassword.Text.Equals(txtPasswordConfirm.Text))
+            //validate input -> prints error message if any
+            string errorMessage = string.Empty;
+            if (!areAllFieldsValid(out errorMessage))
             {
-                lblErrorMessage.Text = "Passwords do not match";
+                lblErrorMessage.Text = errorMessage;
                 lblErrorMessage.Visible = true;
                 tableErrorMessage.Visible = true;
-
                 return;
-            }
-
-
-            //=========================
-
+            }            
 
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             bool userExists = userRepo.Users.Any(u => u.email.Equals(txtEmailAddress.Text));
@@ -88,7 +76,60 @@ namespace PWAS_Site
             userRepo.SubmitChanges();
 
             Response.Redirect("/index.aspx");
-
         }
+        #endregion
+
+        #region Helper Methods
+        private bool areAllFieldsValid(out string errorMessage)
+        {
+            bool validEmail =  Utilities.IsValidEmail(txtEmailAddress.Text);
+            bool validPassword = Utilities.isValidPassword(txtPassword.Text, 6, 8);
+            bool validPasswordMatch = txtPassword.Text.Equals(txtPasswordConfirm.Text);
+            bool validName = Utilities.IsValidName(txtFirstName.Text) && Utilities.IsValidName(txtLastName.Text);
+            //not validating company name.
+            bool validPhone = Utilities.IsValidPhone(txtPhoneNumber.Text);
+            //not validating address1 field            
+            //not validating address2 field
+            bool validCity = Utilities.IsValidName(txtBillCity.Text);
+            bool validState = Utilities.IsValidState(txtBillState.Text);
+            bool validZip = Utilities.IsValidZip(txtBillZipCode.Text);
+
+            if (validEmail && validPassword && validPasswordMatch && validName && validPhone && validCity && validState && validZip)
+            {
+                errorMessage = "";
+                return true;
+            }
+            else
+            {
+                if (!validEmail) errorMessage = "Please enter a valid Email.";
+                else if (!validPassword) errorMessage = "Please enter a valid password, which <br />consists of 6 to 8 letters and/or digits.";
+                else if (!validPasswordMatch) errorMessage = "Password does not match Confirm Password.";
+                else if (!validName) errorMessage = "Please note that your First and Last Name must be composed of only letters.";
+                else if (!validPhone) errorMessage = "Please enter a 10 or 11 digit phone number.";
+                else if (!validCity) errorMessage = "Please enter only letters for the name of the City you live in.";
+                else if (!validState) errorMessage = "Please enter a 2 letter State";
+                else errorMessage = "Please enter a 5 digit Zip Code.";
+                return false;
+            }
+        }
+
+        private bool areReqFieldsEmpty()
+        {
+            if (String.IsNullOrEmpty(txtEmailAddress.Text.Trim()) ||
+                String.IsNullOrEmpty(txtPassword.Text.Trim()) ||
+                String.IsNullOrEmpty(txtPasswordConfirm.Text.Trim()) ||
+                String.IsNullOrEmpty(txtFirstName.Text.Trim()) ||
+                String.IsNullOrEmpty(txtLastName.Text.Trim()) ||
+                String.IsNullOrEmpty(txtPhoneNumber.Text.Trim()) ||
+                String.IsNullOrEmpty(txtBillAddressLine1.Text.Trim()) ||
+                String.IsNullOrEmpty(txtBillCity.Text.Trim()) ||
+                String.IsNullOrEmpty(txtBillState.Text.Trim()) ||
+                String.IsNullOrEmpty(txtBillZipCode.Text.Trim()))
+            {
+                return false;
+            }
+            return true;
+        }
+        #endregion
     }
 }
