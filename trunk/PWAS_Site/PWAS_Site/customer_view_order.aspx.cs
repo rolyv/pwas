@@ -241,6 +241,7 @@ namespace PWAS_Site
                     orderEdit.two_sided = this.chkTwoSide.Checked;
                     orderEdit.folded = this.chkfolded.Checked;
                     orderEdit.ship = this.chkShip.Checked;
+                    orderEdit.price = calculatePrice(orderEdit);
 
                     orderRepository.SubmitChanges();
 
@@ -257,6 +258,16 @@ namespace PWAS_Site
             {
                 Response.Redirect("customer_view_order.aspx");
             }
+        }
+
+        private decimal calculatePrice(Order orderCreate)
+        {         
+            decimal price = 0;
+            //----------calculate the price
+            price = (decimal)(orderCreate.quantity * (0.5*orderCreate.width * orderCreate.height));
+            //----------------------------
+            return price;
+        
         }
 
         private void func_View(object sender, CommandEventArgs e)
