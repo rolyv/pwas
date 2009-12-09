@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_repository.html#a496d0684658657e4348005aadda27168" title="PWAS.DataAccess.Interfaces.IOrderRepository.UpdateOrderRunId" alt="" coords="388,5,796,33"/>
-<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_repository.html#a2426bf2749644973513b7d9ae42e20fc" title="PWAS.DataAccess.Interfaces.IOrderRepository.UpdateOrderStatus" alt="" coords="387,55,797,83"/>
-<area shape="rect" id="node7" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_print_run_repository.html#a327a624648e94b9c11b74e3669fa20b0" title="PWAS.DataAccess.Interfaces.IPrintRunRepository.UpdatePrintRunStatus" alt="" coords="368,106,816,134"/>
-</map>

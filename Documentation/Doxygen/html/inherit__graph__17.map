@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_status_repository.html" title="PWAS.DataAccess.Interfaces.IStatusRepository" alt="" coords="5,5,309,33"/>
-<area shape="rect" id="node3" href="$class_p_w_a_s_1_1_data_access_1_1_s_q_l_repositories_1_1_status_repository.html" title="PWAS.DataAccess.SQLRepositories.StatusRepository" alt="" coords="359,5,700,33"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_repository.html" title="PWAS.DataAccess.Interfaces.IOrderRepository" alt="" coords="27,5,323,33"/>
-<area shape="rect" id="node4" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html" title="IUserRepository defines the interface for an abstract UserRepository. It defines..." alt="" coords="29,55,320,83"/>
-<area shape="rect" id="node6" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_history_repository.html" title="PWAS.DataAccess.Interfaces.IOrderHistoryRepository" alt="" coords="5,106,344,134"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_role_permission_repository.html#a79fffa08fc4b008d9d28dff4d58ae4ef" title="PWAS.DataAccess.Interfaces.IRolePermissionRepository.DeleteRolePermission" alt="" coords="365,5,853,33"/>
-<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_role_permission_repository.html#a21f5a385f76312b34c64d74787a86f46" title="PWAS.DataAccess.Interfaces.IRolePermissionRepository.GetById" alt="" coords="405,55,813,83"/>
-<area shape="rect" id="node7" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_role_permission_repository.html#af4ab348b9b8275e2390e3aca485205ee" title="PWAS.DataAccess.Interfaces.IRolePermissionRepository.SubmitChanges" alt="" coords="384,106,835,134"/>
-</map>
