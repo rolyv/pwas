@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_print_run_repository.html#a55c2f193e5d20a4b02e735a8d52c1cbe" title="PWAS.DataAccess.Interfaces.IPrintRunRepository.AddPrintRun" alt="" coords="411,5,803,33"/>
+<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_print_run_repository.html#a9bf05ee6518fdb6a2339a47c6d0bbb8a" title="PWAS.DataAccess.Interfaces.IPrintRunRepository.SubmitChanges" alt="" coords="401,55,812,83"/>
+</map>
