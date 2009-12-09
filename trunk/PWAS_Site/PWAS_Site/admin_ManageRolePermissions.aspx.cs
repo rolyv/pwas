@@ -93,8 +93,8 @@ namespace PWAS_Site
                 TableCell permID = new TableCell();
                 permID.Text = rolePerm.permissionID.ToString();
 
-                TableCell roleID = new TableCell();
-                roleID.Text = rolePerm.roleID.ToString();
+                TableCell roleName = new TableCell();
+                roleName.Text = rolePerm.Role.role_name.Trim();
 
                 TableCell objectDesc = new TableCell();
                 objectDesc.Text = rolePerm.@object.ToString();
@@ -115,7 +115,7 @@ namespace PWAS_Site
                 row.Cells.Add(cellEdit);
                 row.Cells.Add(cellDelete);
                 row.Cells.Add(permID);
-                row.Cells.Add(roleID);
+                row.Cells.Add(roleName);
                 row.Cells.Add(objectDesc);
                 row.Cells.Add(objectUpdate);
                 row.Cells.Add(objectView);

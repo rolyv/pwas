@@ -189,12 +189,12 @@
                 <asp:TableCell runat="server">Edit</asp:TableCell>
                 <asp:TableCell runat="server">Delete</asp:TableCell>
                 <asp:TableCell runat="server">Permission ID</asp:TableCell>
-                <asp:TableCell runat="server">Role ID</asp:TableCell>
+                <asp:TableCell runat="server">Role Name</asp:TableCell>
                 <asp:TableCell runat="server">Object</asp:TableCell>
-                <asp:TableCell runat="server">Obj_Update</asp:TableCell>
-                <asp:TableCell runat="server">Obj_View</asp:TableCell>
-                <asp:TableCell runat="server">Obj_Create</asp:TableCell>
-                <asp:TableCell runat="server">Obj_Delete</asp:TableCell>
+                <asp:TableCell runat="server">Update</asp:TableCell>
+                <asp:TableCell runat="server">View</asp:TableCell>
+                <asp:TableCell runat="server">Create</asp:TableCell>
+                <asp:TableCell runat="server">Delete</asp:TableCell>
             </asp:TableRow>
         </asp:Table>
     </p>
