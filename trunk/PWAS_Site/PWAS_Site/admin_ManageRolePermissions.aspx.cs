@@ -206,7 +206,7 @@ namespace PWAS_Site
                 //hide the panel
                 deletePanel.Visible = false;
             }
-            catch (Exception theException)
+            catch (Exception)
             {
                 //error message
                 errorLabel.Text = "Database error when deleting role permission";
@@ -256,7 +256,7 @@ namespace PWAS_Site
                     //hide the panel
                     addPanel.Visible = false;
                 }
-                catch (Exception theException)
+                catch (Exception)
                 {
                     //error message
                     errorLabel.Text = "Database error when adding role permission";
@@ -307,7 +307,7 @@ namespace PWAS_Site
                     //hide the panel
                     editPanel.Visible = false;
                 }
-                catch (Exception theException)
+                catch (Exception)
                 {
                     //error message
                     errorLabel.Text = "Database error when editing role permission";

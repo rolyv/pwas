@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PWAS_Site")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Ultimate Software")]
+[assembly: AssemblyCompany("XYZ Development, Inc.")]
 [assembly: AssemblyProduct("PWAS_Site")]
-[assembly: AssemblyCopyright("Copyright © Ultimate Software 2009")]
+[assembly: AssemblyCopyright("Copyright © XYZ Development, Inc. 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.400.0")]
+[assembly: AssemblyFileVersion("1.0.400.0")]
