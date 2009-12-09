@@ -149,6 +149,9 @@ namespace PWAS_Site
             IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
             userRepo.DeactivateUser(userId);
             userRepo.SubmitChanges();
+
+            
+            Response.Redirect("adminView_ManageAccounts.aspx");
         }
 
         protected void btnUpdateRole_Click(object sender, EventArgs e)
