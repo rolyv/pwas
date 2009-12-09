@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_history_repository.html" title="PWAS.DataAccess.Interfaces.IOrderHistoryRepository" alt="" coords="5,5,344,33"/>
-<area shape="rect" id="node3" href="$class_p_w_a_s_1_1_data_access_1_1_s_q_l_repositories_1_1_order_history_repository.html" title="PWAS.DataAccess.SQLRepositories.OrderHistoryRepository" alt="" coords="393,5,769,33"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_p_w_a_s___site_1_1customer_view___edit_profile.html#a677b52f1138c3a083b5f1a470741678b" title="PWAS_Site.customerView_EditProfile.btnEditLoginInfo_Click" alt="" coords="397,5,773,33"/>
-<area shape="rect" id="node5" href="$class_p_w_a_s___site_1_1admin_view___edit_profile.html#a664b6d1891964f47bf1081572e10e609" title="PWAS_Site.adminView_EditProfile.btnEditLoginInfo_Click" alt="" coords="408,55,763,83"/>
-<area shape="rect" id="node7" href="$class_p_w_a_s___site_1_1customer_view___edit_profile.html#aad289cf3bab861c435edcd26503bd678" title="PWAS_Site.customerView_EditProfile.btnEditOtherInfo_Click" alt="" coords="397,106,773,134"/>
-<area shape="rect" id="node9" href="$class_p_w_a_s___site_1_1admin_view___edit_profile.html#aed761a2147390ae4ea2005e126392b95" title="PWAS_Site.adminView_EditProfile.btnEditOtherInfo_Click" alt="" coords="407,157,764,185"/>
-<area shape="rect" id="node11" href="$class_p_w_a_s___site_1_1login.html#a7a316831541a5fa7829fe0dd76d926cd" title="PWAS_Site.login.doLogin" alt="" coords="500,207,671,235"/>
-<area shape="rect" id="node13" href="$class_p_w_a_s___site_1_1customer_view___edit_profile.html#ae9504e9218ba6e589f36027388415dcc" title="PWAS_Site.customerView_EditProfile.Page_Load" alt="" coords="429,258,741,286"/>
-<area shape="rect" id="node15" href="$class_p_w_a_s___site_1_1admin_view___edit_profile.html#a2ddc19fcce356928996553c6abf6862b" title="PWAS_Site.adminView_EditProfile.Page_Load" alt="" coords="439,309,732,337"/>
-</map>
