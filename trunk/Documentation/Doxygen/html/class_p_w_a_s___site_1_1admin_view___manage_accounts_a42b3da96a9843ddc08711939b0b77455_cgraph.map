@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html#a3e32f6127d317566c3a6224088fbc969" title="PWAS.DataAccess.Interfaces.IUserRepository.DeactivateUser" alt="" coords="445,5,829,33"/>
+<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_user_repository.html#a1e139881eb483b35f65116bd5285449f" title="PWAS.DataAccess.Interfaces.IUserRepository.SubmitChanges" alt="" coords="444,55,831,83"/>
+</map>

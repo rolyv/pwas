@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_repository.html#ac944bcbd35439fbd2984d521d63a72e2" title="PWAS.DataAccess.Interfaces.IOrderRepository.GetById" alt="" coords="357,5,704,33"/>
+<area shape="rect" id="node5" href="$interface_p_w_a_s_1_1_data_access_1_1_interfaces_1_1_i_order_repository.html#af2375e3a5375afb25136c75ad7148eb6" title="PWAS.DataAccess.Interfaces.IOrderRepository.SubmitChanges" alt="" coords="335,55,727,83"/>
+</map>
