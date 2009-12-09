@@ -26,6 +26,8 @@ namespace PWAS_Site
             List<User> users = userRepo.Users.Where(u => u.active == true).ToList();
             bool canEdit = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Update, PwasScope.All);
             bool canDelete = Security.IsAuthorized((int)Session[Constants.PWAS_SESSION_ID], PwasObject.User, PwasAction.Delete, PwasScope.All);
+            //is user has update and delete access for all users (also allow acces to update roles) -> might be changed in the future when there is actually and action for updateroles
+            bool canEditRoles = canEdit && canDelete;
 
             //load all Roles
             IRoleRepository roleRepo = RepositoryFactory.Get<IRoleRepository>();
@@ -104,6 +106,7 @@ namespace PWAS_Site
                     ddRoles.Items.Add(item);
                 }
                 ddRoles.Items.FindByValue(user.roleID.ToString()).Selected = true;
+                ddRoles.Enabled = canEditRoles; //disables the dropdown control if user does not have access to change the role.
                 cellRole.Controls.Add(ddRoles);
 
                 TableCell cellRoleUpdate = new TableCell();
@@ -112,6 +115,7 @@ namespace PWAS_Site
                 btnUpdateRole.ToolTip = "Update Role";
                 btnUpdateRole.CommandArgument = user.userID.ToString() + ";" + roleCounter;
                 btnUpdateRole.Command += new CommandEventHandler(btnUpdateRole_Click);
+                btnUpdateRole.Enabled = canEditRoles; //disables the button control if user does not have access to change the role.
                 cellRoleUpdate.Controls.Add(btnUpdateRole);
 
                 tableRow.Cells.Add(cellEdit);

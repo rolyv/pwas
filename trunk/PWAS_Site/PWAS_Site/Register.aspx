@@ -34,6 +34,7 @@
 <asp:Content ID="Content8" ContentPlaceHolderID="box3_link" runat="server">
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="body_title" runat="server">
+    Registration
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="body_content" runat="server">
 <table width="600">
@@ -66,13 +67,13 @@
                             </tr>
                             <tr>
                                 <td align="right" class="style1">
-                                    <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+                                    <asp:Label ID="lblPassword" runat="server" Text="Password:" ></asp:Label>
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <img src="images/red_asterisk.png" alt="required" />
+                                    <img src="images/red_asterisk.png" alt="required"  />
                                 </td>
                             </tr>
                             <tr>

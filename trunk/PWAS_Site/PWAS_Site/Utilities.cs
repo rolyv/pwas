@@ -46,6 +46,12 @@ namespace PWAS_Site
             return regex.IsMatch(email);
         }
 
+        public static bool isValidPassword(this string password, int min, int max)
+        {
+            Regex regex = new Regex("^[A-Z0-9]{" + min + "," + max + "}$", RegexOptions.IgnoreCase);
+            return regex.IsMatch(password);
+        }
+
         public static bool IsValidPhone(this string phone)
         {
             Regex regex = new Regex("[^0-9]");
@@ -66,7 +72,7 @@ namespace PWAS_Site
 
         public static bool IsValidZip(this string input)
         {
-            return input.IsValidLength(5, 5) && input.AllLetters();
+            return input.IsValidLength(5, 5) && input.AllDigits();
         }
 
         public static bool IsValidCreditCard(this string input)
