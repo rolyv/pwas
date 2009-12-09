@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PWAS.Model")]
+[assembly: AssemblyTitle("PWAS_Site")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Ultimate Software")]
-[assembly: AssemblyProduct("PWAS.Model")]
-[assembly: AssemblyCopyright("Copyright © Ultimate Software 2009")]
+[assembly: AssemblyCompany("XYZ Development, Inc.")]
+[assembly: AssemblyProduct("PWAS_Site")]
+[assembly: AssemblyCopyright("Copyright © XYZ Development, Inc. 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.400.0")]
+[assembly: AssemblyFileVersion("1.0.400.0")]

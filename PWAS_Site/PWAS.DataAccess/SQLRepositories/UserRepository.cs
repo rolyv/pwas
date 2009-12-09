@@ -60,6 +60,7 @@ namespace PWAS.DataAccess.SQLRepositories
             user.Role = userTable.Context.GetTable<Role>().Single(r => r.roleID == newRoleId);
 
             userTable.Context.SubmitChanges();
+            userTable.Context.Refresh(RefreshMode.OverwriteCurrentValues, user);
         }
 
         public IQueryable<User> Users

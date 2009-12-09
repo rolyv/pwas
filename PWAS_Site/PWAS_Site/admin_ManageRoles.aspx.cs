@@ -40,7 +40,7 @@ namespace PWAS_Site
         {
             //this is the edit button click (it's misnamed)
             //as long as the item in the list box is not null, then get the role and update it
-            if (String.IsNullOrEmpty(editLabel.Text) != null)
+            if (!string.IsNullOrEmpty(editLabel.Text))
             {
                 if (String.IsNullOrEmpty(editRoleNameBox.Text.Trim()) || String.IsNullOrEmpty(editRoleDescBox.Text.Trim()))
                 {
@@ -66,7 +66,7 @@ namespace PWAS_Site
                         errorMessageLabel.Text = "Role has been editted";
                         errorMessageLabel.Visible = true;
                     }
-                    catch (Exception theException)
+                    catch (Exception)
                     {
                         //respond with error message
                         errorMessageLabel.Text = "Database error when editting role";
@@ -212,7 +212,7 @@ namespace PWAS_Site
                 editRoleNameBox.Text = displayMe.role_name;
 
             }
-            catch (Exception theException)
+            catch (Exception)
             {
                 errorMessageLabel.Text = "Error retrieving role from the database";
                 errorMessageLabel.Visible = true;
@@ -233,7 +233,7 @@ namespace PWAS_Site
                 deleteRoleNameBox.Text = displayMe.role_name;
 
             }
-            catch (Exception theException)
+            catch (Exception)
             {
                 errorMessageLabel.Text = "Error retrieving role from the database";
                 errorMessageLabel.Visible = true;
@@ -269,7 +269,7 @@ namespace PWAS_Site
                     errorMessageLabel.Text = "Role has been added";
                     errorMessageLabel.Visible = true;
                 }
-                catch (Exception theException)
+                catch (Exception)
                 {
                     //error message
                     errorMessageLabel.Text = "Database error when inserting new role";
@@ -308,7 +308,7 @@ namespace PWAS_Site
 
                     errorMessageLabel.Text = "Role has been deleted";
                 }
-                catch (Exception theException)
+                catch (Exception)
                 {
                     //delete failed - a user is assigned to this role
                     errorMessageLabel.Text = "Cannot delete this role - a user is assigned to it";

@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace PWAS.DataAccess.Interfaces
 {
+    /// <summary>
+    /// Inteface for Order repository
+    /// </summary>
     public interface IOrderRepository
     {
         IQueryable<Order> Orders { get; }

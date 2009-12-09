@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{146FE578-FA62-4111-8B8D-3AF092C06C72}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -42,6 +42,9 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -57,8 +60,6 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="about-us.aspx" />
-    <Content Include="adminView_edit_Roles.aspx" />
     <Content Include="App_Data\PWAS_DB.mdf">
     </Content>
     <Content Include="App_Data\PWAS_DB_log.ldf">
@@ -132,21 +133,8 @@
     <Content Include="services.aspx" />
     <Content Include="support.aspx" />
     <Content Include="Web.config" />
-    <Content Include="XYZ.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="about-us.aspx.cs">
-      <DependentUpon>about-us.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminView_edit_Roles.aspx.cs">
-      <DependentUpon>adminView_edit_Roles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminView_edit_Roles_Permissions.aspx.cs">
-      <DependentUpon>adminView_edit_Roles_Permissions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="admin_ManageRolePermissions.aspx.cs">
       <DependentUpon>admin_ManageRolePermissions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,11 +330,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Thumbs.db" />
-    <None Include="index_.jsp" />
     <Content Include="admin_ManageRolePermissions.aspx" />
     <Content Include="admin_ManageRoles.aspx" />
     <Content Include="NavMenu\NavigationControl.ascx" />
-    <Content Include="adminView_edit_Roles_Permissions.aspx" />
     <Content Include="customer_create_order.aspx" />
     <Content Include="customer_view_order.aspx" />
     <Content Include="images\delete.gif" />
@@ -394,9 +380,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
