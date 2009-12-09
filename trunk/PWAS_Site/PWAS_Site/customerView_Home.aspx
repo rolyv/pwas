@@ -63,9 +63,6 @@
                         <td align="left">
                             <asp:TextBox ID="txtEmailAddress" runat="server" Width="225px" Enabled="false"></asp:TextBox>
                         </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
-                        </td>
                     </tr>
                 </table>
             </td>
@@ -84,9 +81,6 @@
                         <td align="left">
                             <asp:TextBox ID="txtFirstName" runat="server" Enabled="false"></asp:TextBox>
                         </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
-                        </td>
                     </tr>
                     <tr>
                         <td align="right">
@@ -94,9 +88,6 @@
                         </td>
                         <td align="left">
                             <asp:TextBox ID="txtLastName" runat="server" Enabled="false"></asp:TextBox>
-                        </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
                         </td>
                     </tr>
                     <tr>
@@ -114,9 +105,6 @@
                         <td align="left">
                             <asp:TextBox ID="txtPhoneNumber" runat="server" Enabled="false"></asp:TextBox>
                         </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
-                        </td>
                     </tr>
                 </table>
             </td>
@@ -132,9 +120,6 @@
                         </td>
                         <td align="left">
                             <asp:TextBox ID="txtBillAddressLine1" runat="server" Enabled="false"></asp:TextBox>
-                        </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
                         </td>
                     </tr>
                     <tr>
@@ -152,9 +137,6 @@
                         <td align="left">
                             <asp:TextBox ID="txtBillCity" runat="server" Enabled="false"></asp:TextBox>
                         </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
-                        </td>
                     </tr>
                     <tr>
                         <td align="right" class="style2">
@@ -163,9 +145,6 @@
                         <td align="left">
                             <asp:TextBox ID="txtBillState" runat="server" Enabled="false"></asp:TextBox>
                         </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
-                        </td>
                     </tr>
                     <tr>
                         <td align="right" class="style2">
@@ -173,9 +152,6 @@
                         </td>
                         <td align="left">
                             <asp:TextBox ID="txtBillZipCode" runat="server" Enabled="false"></asp:TextBox>
-                        </td>
-                        <td>
-                            <img src="images/red_asterisk.png" alt="required" />
                         </td>
                     </tr>
                 </table>
