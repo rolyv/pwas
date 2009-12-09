@@ -19,16 +19,15 @@ namespace PWAS_Site
     public partial class WebForm5 : System.Web.UI.Page
     {
 
-        private int permID;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            editPanel.Visible = false;
             errorLabel.Visible = false;
             updateRolePermissionTable();
         }
 
-        private void updateRolePermissionTable ()
+        private void updateRolePermissionTable()
         {
             //used to update the role table entries
             //IRoleRepository roleRepo = RepositoryFactory.Get<IRoleRepository>();
@@ -38,8 +37,10 @@ namespace PWAS_Site
                         select p;
 
             //clear existing roles, get a new list (in case any are added / deleted / changed)
-            //this.rolePermissionTable.Rows.Clear();
-            
+            this.rolePermissionTable.Rows.Clear();
+
+            this.rolePermissionTable.Rows.Add(titleRow);
+
             //for every role that is in the database, add it as a row in the table
             foreach (var rolePerm in query)
             {
@@ -121,7 +122,6 @@ namespace PWAS_Site
                 row.Cells.Add(objectCreate);
                 row.Cells.Add(objectDelete);
 
-                row.CssClass = "rolePermRow";
                 this.rolePermissionTable.Rows.Add(row);
             }
         }
@@ -132,56 +132,89 @@ namespace PWAS_Site
             ImageButton btn = sender as ImageButton;
             int permissionID = Int32.Parse(btn.CommandArgument);
 
-            //set the hidden permission ID variable
-            permID = permissionID;
-
             //get the row to to show in the panel
             IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
-            var rolePermission = (from p in rolePermRepo.RolePermissions
-                                  where p.permissionID == permissionID
-                                  select p).Single();
+            var theQuery = from p in rolePermRepo.RolePermissions
+                           where p.permissionID == permissionID
+                           select p;
 
             //populate the panel text box
-            roleIDTextBox.Text = rolePermission.roleID.ToString();
-            objectTextBox.Text = rolePermission.@object.ToString();
-            updateTextBox.Text = rolePermission.obj_update.ToString();
-            viewTextBox.Text = rolePermission.obj_view.ToString();
-            createTextBox.Text = rolePermission.obj_create.ToString();
-            deleteTextBox.Text = rolePermission.obj_delete.ToString();
+            foreach (var thePermission in theQuery)
+            {
+                this.editRoleIDTextBox.Text = thePermission.roleID.ToString();
+                this.editObjectTextBox.Text = thePermission.@object.ToString();
+                this.editUpdateTextBox.Text = thePermission.obj_update.ToString();
+                this.editViewTextBox.Text = thePermission.obj_view.ToString();
+                this.editCreateTextBox.Text = thePermission.obj_create.ToString();
+                this.editDeleteTextBox.Text = thePermission.obj_delete.ToString();
 
-            //turn off the add panel and show the edit panel
+                this.editPermLabel.Text = permissionID.ToString();
+            }
+
+            //turn off the other panels and show the edit panel
             addPanel.Visible = false;
             editPanel.Visible = true;
+            deletePanel.Visible = false;
         }
 
         protected void btnDeleteRolePerm_Click(object sender, EventArgs e)
         {
-
             //get the permission ID as the command argument
             ImageButton btn = sender as ImageButton;
             int permissionID = Int32.Parse(btn.CommandArgument);
 
-            //set the hidden permission ID variable 
-            permID = permissionID;
-
-            //get the row to delete
+            //update the delete panel
             IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
-            RolePermission deleteMe = rolePermRepo.GetById(permID);
+            var theQuery = from p in rolePermRepo.RolePermissions
+                           where p.permissionID == permissionID
+                           select p;
 
-            //delete the row
-            rolePermRepo.DeleteRolePermission(deleteMe.permissionID);
+            foreach (var thePermission in theQuery)
+            {
+                this.deleteRoleIDTextBox.Text = thePermission.roleID.ToString();
+                this.deleteObjectTextBox.Text = thePermission.@object.ToString();
+                this.deleteUpdateTextBox.Text = thePermission.obj_update.ToString();
+                this.deleteViewTextBox.Text = thePermission.obj_view.ToString();
+                this.deleteCreateTextBox.Text = thePermission.obj_create.ToString();
+                this.deleteDeleteTextBox.Text = thePermission.obj_delete.ToString();
 
-            //attempt to submit the changes
+                this.deletePermLabel.Text = permissionID.ToString();
+            }
+
+            //turn off the other panels and show the delete panel
+            this.editPanel.Visible = false;
+            this.addPanel.Visible = false;
+            this.deletePanel.Visible = true;
+
+        }
+
+        protected void deleteSubmit_Click(object sender, EventArgs e)
+        {
             try
             {
+                IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+                RolePermission deleteMe = rolePermRepo.GetById(int.Parse(deletePermLabel.Text));
+
+                rolePermRepo.DeleteRolePermission(deleteMe.permissionID);
+
                 rolePermRepo.SubmitChanges();
+
+                //return a validation message
+                errorLabel.Text = "Permission has been deleted";
+                errorLabel.Visible = true;
+
+                //hide the panel
+                deletePanel.Visible = false;
             }
             catch (Exception theException)
             {
-                //return a error message
-                errorLabel.Text = "Database error when updating role permission";
+                //error message
+                errorLabel.Text = "Database error when deleting role permission";
                 errorLabel.Visible = true;
             }
+
+            updateRolePermissionTable();
+
         }
 
         protected void addSubmit_Click(object sender, EventArgs e)
@@ -195,33 +228,42 @@ namespace PWAS_Site
                 (String.IsNullOrEmpty(addDeleteTextBox.Text)))
             {
                 //return a error message
-                addErrorLabel.Text = "Please enter a valid value for all fields";
-                addErrorLabel.Visible = true;
+                errorLabel.Text = "Please enter a valid value for all fields";
+                errorLabel.Visible = true;
             }
             else
             {
-                IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
-                RolePermission addMe = new RolePermission();
-
-                addMe.obj_create = int.Parse(addCreateTextBox.Text);
-                addMe.obj_delete = int.Parse(addDeleteTextBox.Text);
-                addMe.obj_update = int.Parse(addUpdateTextBox.Text);
-                addMe.obj_view = int.Parse(addViewTextBox.Text);
-                addMe.@object = addObjectTextBox.Text;
-                addMe.roleID = int.Parse(addRoleIDTextBox.Text);
-
-                rolePermRepo.AddRolePermission(addMe);
-
                 try
                 {
+                    IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+                    RolePermission addMe = new RolePermission();
+
+                    addMe.obj_create = int.Parse(addCreateTextBox.Text);
+                    addMe.obj_delete = int.Parse(addDeleteTextBox.Text);
+                    addMe.obj_update = int.Parse(addUpdateTextBox.Text);
+                    addMe.obj_view = int.Parse(addViewTextBox.Text);
+                    addMe.@object = addObjectTextBox.Text;
+                    addMe.roleID = int.Parse(addRoleIDTextBox.Text);
+
+                    rolePermRepo.AddRolePermission(addMe);
+
                     rolePermRepo.SubmitChanges();
+
+                    //return a validation message
+                    errorLabel.Text = "New Permission has been added";
+                    errorLabel.Visible = true;
+
+                    //hide the panel
+                    addPanel.Visible = false;
                 }
                 catch (Exception theException)
                 {
                     //error message
-                    addErrorLabel.Text = "Database error when adding role permission";
-                    addErrorLabel.Visible = true;
+                    errorLabel.Text = "Database error when adding role permission";
+                    errorLabel.Visible = true;
                 }
+
+                updateRolePermissionTable();
 
             }
         }
@@ -229,12 +271,12 @@ namespace PWAS_Site
         protected void editSubmit_Click(object sender, EventArgs e)
         {
             //check for nulls
-            if ((String.IsNullOrEmpty(roleIDTextBox.Text)) ||
-                (String.IsNullOrEmpty(objectTextBox.Text)) ||
-                (String.IsNullOrEmpty(updateTextBox.Text)) ||
-                (String.IsNullOrEmpty(viewTextBox.Text)) ||
-                (String.IsNullOrEmpty(createTextBox.Text)) ||
-                (String.IsNullOrEmpty(deleteTextBox.Text)))
+            if ((String.IsNullOrEmpty(editRoleIDTextBox.Text)) ||
+                (String.IsNullOrEmpty(editObjectTextBox.Text)) ||
+                (String.IsNullOrEmpty(editUpdateTextBox.Text)) ||
+                (String.IsNullOrEmpty(editViewTextBox.Text)) ||
+                (String.IsNullOrEmpty(editCreateTextBox.Text)) ||
+                (String.IsNullOrEmpty(editDeleteTextBox.Text)))
             {
                 //return a error message
                 errorLabel.Text = "Please enter a valid value for all fields";
@@ -242,33 +284,46 @@ namespace PWAS_Site
             }
             else
             {
-                IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
-                RolePermission updateMe = rolePermRepo.GetById(permID);
-
-                updateMe.obj_create = int.Parse(createTextBox.Text);
-                updateMe.obj_delete = int.Parse(deleteTextBox.Text);
-                updateMe.obj_update = int.Parse(updateTextBox.Text);
-                updateMe.obj_view = int.Parse(viewTextBox.Text);
-                updateMe.@object = objectTextBox.Text;
-                updateMe.roleID = int.Parse(roleIDTextBox.Text);
-
                 try
                 {
+                    IRolePermissionRepository rolePermRepo = RepositoryFactory.Get<IRolePermissionRepository>();
+                    RolePermission editMe = rolePermRepo.GetById(int.Parse(editPermLabel.Text));
+
+                    editMe.obj_create = int.Parse(editCreateTextBox.Text);
+                    editMe.obj_delete = int.Parse(editDeleteTextBox.Text);
+                    editMe.obj_update = int.Parse(editUpdateTextBox.Text);
+                    editMe.obj_view = int.Parse(editViewTextBox.Text);
+                    editMe.@object = editObjectTextBox.Text;
+                    editMe.roleID = int.Parse(editRoleIDTextBox.Text);
+
+                    //rolePermRepo.editRolePermission(editMe);
+
                     rolePermRepo.SubmitChanges();
+
+                    //return a validation message
+                    errorLabel.Text = "Permission has been editted";
+                    errorLabel.Visible = true;
+
+                    //hide the panel
+                    editPanel.Visible = false;
                 }
                 catch (Exception theException)
                 {
                     //error message
-                    errorLabel.Text = "Database error when updating role permission";
+                    errorLabel.Text = "Database error when editing role permission";
                     errorLabel.Visible = true;
                 }
+
+                updateRolePermissionTable();
             }
         }
 
         protected void addButton_Click(object sender, EventArgs e)
         {
-            editPanel.Visible = false;
-            addPanel.Visible = true;
+            //turn off the other panels and show the add panel
+            this.editPanel.Visible = false;
+            this.addPanel.Visible = true;
+            this.deletePanel.Visible = false;
         }
     }
 }
