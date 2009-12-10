@@ -14,6 +14,42 @@ namespace PWAS_Site {
     public partial class customer_view_order {
         
         /// <summary>
+        /// alertbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel alertbox;
+        
+        /// <summary>
+        /// alertlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alertlabel;
+        
+        /// <summary>
+        /// alertEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button alertEdit;
+        
+        /// <summary>
+        /// alertCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button alertCancel;
+        
+        /// <summary>
         /// lblNotify control.
         /// </summary>
         /// <remarks>
