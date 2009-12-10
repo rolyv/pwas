@@ -23,9 +23,12 @@ namespace PWAS_Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session[Constants.PWAS_SESSION_ID] == null) Response.Redirect("index.aspx");
+
             this.tblViewOrder.Visible = true;
-            this.formEditOrder.Visible = false;            
+            this.formEditOrder.Visible = false;
+            panelAlert.Visible = false;
+            panelAlertEmployee.Visible = false;
 
             IOrderRepository orderRepository = RepositoryFactory.Get<IOrderRepository>();
 
@@ -188,6 +191,38 @@ namespace PWAS_Site
 
         private void func_Pay(object sender, CommandEventArgs e)
         {
+            IUserRepository userRepo = RepositoryFactory.Get<IUserRepository>();
+            User user = userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]);
+
+            //If the user is a customer, test the user profile
+            if (user.roleID == 1)
+            {
+                if (!(validateUserBillingAddress(user) && validateUserCreditCardInfo(user)))
+                {
+                    panelAlert.Visible = true;
+                    return;
+                }
+            }
+            //If the user is not a customer, test the profile for the customer attached to the order
+            else
+            {
+                Button btn = (Button)sender;
+                int orderId = Int32.Parse(btn.CommandArgument);
+
+                IOrderRepository orderRepo = RepositoryFactory.Get<IOrderRepository>();
+                Order order = orderRepo.GetById(orderId);
+                user = userRepo.GetById(order.userID);
+
+                if (!(validateUserBillingAddress(user) && validateUserCreditCardInfo(user)))
+                {
+                    if (user == userRepo.GetById((int)Session[Constants.PWAS_SESSION_ID]))
+                        panelAlert.Visible = true;
+                    else 
+                        panelAlertEmployee.Visible = true;
+                    return;
+                }
+            }
+
             this.lblNotify.Text = "Order Sucessfully Paid!";
             this.lblNotify.ForeColor = System.Drawing.Color.Blue;
             this.lblNotify.Visible = true;
@@ -196,6 +231,42 @@ namespace PWAS_Site
             RepositoryFactory.Get<IOrderRepository>().UpdateOrderStatus(orderID, 2);
 
             Response.Redirect(Request.Url.ToString());
+        }
+
+        private bool validateUserBillingAddress(User user)
+        {
+            bool address1 = !string.IsNullOrEmpty(user.b_address1.Trim());
+            bool city = Utilities.IsValidName(user.b_city.Trim());
+            bool state = Utilities.IsValidState(user.b_state.Trim());
+            bool zip = Utilities.IsValidZip(user.b_zip.Trim());
+
+            return address1 && city && state && zip;
+        }
+
+        private bool validateUserCreditCardInfo(User user)
+        {
+            bool cardNumber = user.cc_num != null && Utilities.IsValidCreditCard(user.cc_num.Trim());
+            //bool cardtype //does not need to be validated. Is a drop-down that always contains a value.
+            bool expDate = user.exp_date != null && !string.IsNullOrEmpty(user.exp_date.Trim());
+            bool secCode = user.cc_scode != null && Utilities.IsValidSecurityCode(user.cc_scode.Trim());
+            bool cardName = user.cc_nameOnCard != null && Utilities.IsValidName(user.cc_nameOnCard.Trim()); //Note: will find issue if there is a space between the first and last name.
+
+            return cardNumber && expDate && secCode && cardName;
+        }
+
+        protected void btnAlertEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("customerView_EditProfile.aspx");
+        }
+
+        protected void btnAlertCancel_Click(object sender, EventArgs e)
+        {
+            panelAlert.Visible = false;
+        }
+
+        protected void btnAlertOk_Click(object sender, EventArgs e)
+        {
+            panelAlertEmployee.Visible = false;
         }
 
         private void func_Edit(object sender, CommandEventArgs e)

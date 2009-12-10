@@ -21,17 +21,28 @@
     Order List
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="body_content" runat="server">
-    <asp:Panel ID="alertbox" runat="server" Style="position: absolute; left: 50%; top: 58%;
+    <asp:Panel ID="panelAlert" runat="server" Style="position: absolute; left: 50%; top: 58%;
         text-align: center" Width="300" Height="100" BackColor="Gainsboro" BorderStyle="Solid"
-        BorderColor="MistyRose" BorderWidth="2px">
-        <asp:Label ID="alertlabel" runat="server" Font-Bold="true">
+        BorderColor="MistyRose" BorderWidth="3px" Visible="false" >
+        <asp:Label ID="lblAlert" runat="server" Font-Bold="true" >
             Your Credit Card information is not complete.
             <br />
             Would you like to update it at this time?
         </asp:Label>
         <br /><br />
-        <asp:Button ID="alertEdit" runat="server" Text="Edit" />
-        <asp:Button ID="alertCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnAlertEdit" runat="server" Text="Edit" OnClick="btnAlertEdit_Click" />
+        <asp:Button ID="btnAlertCancel" runat="server" Text="Cancel" OnClick="btnAlertCancel_Click" />
+    </asp:Panel>
+    <asp:Panel ID="panelAlertEmployee" runat="server" Style="position: absolute; left: 50%; top: 58%;
+        text-align: center" Width="350" Height="100" BackColor="Gainsboro" BorderStyle="Solid"
+        BorderColor="MistyRose" BorderWidth="3px" Visible="false" >
+        <asp:Label ID="Label1" runat="server" Font-Bold="true" >
+            The Credit Card information for this user is not complete.
+            <br />
+            Please update it through manage user before proceeding.
+        </asp:Label>
+        <br /><br />
+        <asp:Button ID="btnAlertOk" runat="server" Text="Ok" OnClick="btnAlertOk_Click" />
     </asp:Panel>
     <asp:Label ID="lblNotify" Visible="false" runat="server"></asp:Label>
     <asp:Panel ID="tblViewOrder" runat="server">
