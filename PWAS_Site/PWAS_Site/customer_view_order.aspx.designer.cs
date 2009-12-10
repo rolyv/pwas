@@ -14,40 +14,67 @@ namespace PWAS_Site {
     public partial class customer_view_order {
         
         /// <summary>
-        /// alertbox control.
+        /// panelAlert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel alertbox;
+        protected global::System.Web.UI.WebControls.Panel panelAlert;
         
         /// <summary>
-        /// alertlabel control.
+        /// lblAlert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label alertlabel;
+        protected global::System.Web.UI.WebControls.Label lblAlert;
         
         /// <summary>
-        /// alertEdit control.
+        /// btnAlertEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button alertEdit;
+        protected global::System.Web.UI.WebControls.Button btnAlertEdit;
         
         /// <summary>
-        /// alertCancel control.
+        /// btnAlertCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button alertCancel;
+        protected global::System.Web.UI.WebControls.Button btnAlertCancel;
+        
+        /// <summary>
+        /// panelAlertEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelAlertEmployee;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// btnAlertOk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAlertOk;
         
         /// <summary>
         /// lblNotify control.
